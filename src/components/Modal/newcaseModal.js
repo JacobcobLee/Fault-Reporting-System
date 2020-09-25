@@ -16,7 +16,7 @@ const newCases = [];
 const array =[];
 function getNewCases(){
   axios
-  .get("https://bchserver.herokuapp.com/api/v1/faultunresolved")
+  .get("http://bchserver.herokuapp.com/api/v1/faultunresolved")
   .then((response) => {
     try{
     newCases.push(response.data)
@@ -34,7 +34,7 @@ getNewCases();
 const storeOptions = [];
 function getStoreOptions(){
   axios
-  .get("https://bchserver.herokuapp.com/api/v1/allstorename")
+  .get("http://bchserver.herokuapp.com/api/v1/allstorename")
   .then((response) => {
     response.data.forEach(storeName => {
       var object = {value: storeName, label: storeName}

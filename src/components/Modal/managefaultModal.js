@@ -13,7 +13,7 @@ const fault = [];
 const array = [];
 function getFault(){
   axios
-  .get("https://bchserver.herokuapp.com/api/v1/category")
+  .get("http://bchserver.herokuapp.com/api/v1/category")
   .then((response) => {
     //console.log(response.data);
       fault.push(response.data)
@@ -29,7 +29,7 @@ export default function ManagefaultModal(props){
     var answer = window.confirm("Are you sure you want to delete?");
     if(answer){
       axios
-     .delete("https://bchserver.herokuapp.com/api/v1/category/" + faultid)
+     .delete("http://bchserver.herokuapp.com/api/v1/category/" + faultid)
      window.location.href = "/admin/functions"
     }
     else{

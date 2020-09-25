@@ -94,7 +94,7 @@ export default function AddFault(){
             if((name !== '') && ((submitRadio !== null) || (submitCheckbox !== null))){
                 const total = {name: name, haveRadio: havRadio, haveInput: havInput, haveCheck: havCheck, input: submitInput, radio: submitRadio, checkbox: submitCheckbox};
                 axios
-                .post("https://bchserver.herokuapp.com/api/v1/category",total
+                .post("http://bchserver.herokuapp.com/api/v1/category",total
                )
                window.alert('Successfully added fault type!')
                window.location.href = "/admin/functions"
