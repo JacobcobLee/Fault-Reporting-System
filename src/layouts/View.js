@@ -20,7 +20,7 @@ const displayspecificCases = [];
 
 function getSpecificCases() {
     axios
-        .get("http://localhost:9998/api/v1/fault/" + lastURLSegment)
+        .get("https://bchserver.herokuapp.com/api/v1/fault/" + lastURLSegment)
         .then((response) => {
             displayspecificCases.push(response.data)
         })
@@ -98,7 +98,7 @@ export default function View() {
     const [img, setimg] = useState('');
     function retrieveImg(imgURL) {
         axios
-            .get("http://localhost:9998/api/v1/image?location=" + imgURL)
+            .get("https://bchserver.herokuapp.com/api/v1/image?location=" + imgURL)
             .then((response) => {
                 //console.log("A@@@@");
                 //console.log(response.data);

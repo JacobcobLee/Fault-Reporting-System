@@ -21,7 +21,7 @@ export default function TableList() {
     const getFeedbacksData = async ()=> {
         try{
             await axios
-            .get("http://localhost:9998/api/v1/feedback")
+            .get("https://bchserver.herokuapp.com/api/v1/feedback")
             .then((response) => {
                 console.log(response.data);
                 setCustomerFeedback(Object.values(response.data));

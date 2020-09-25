@@ -47,7 +47,7 @@ const array2 = [];
 let test;
 function getcasestodayChart(){
   axios
-  .get("http://localhost:9998/api/v1/casestodaychart")
+  .get("https://bchserver.herokuapp.com/api/v1/casestodaychart")
   .then((response) => {
     array.push(Object.keys(response.data))
     array2.push(array[0].length)
@@ -65,7 +65,7 @@ const ytdarray2 = [];
 let ytdtest;
 function getcasesytdChart(){
   axios
-  .get("http://localhost:9998/api/v1/casesyesterdaychart")
+  .get("https://bchserver.herokuapp.com/api/v1/casesyesterdaychart")
   .then((response) => {
     ytdarray.push(Object.keys(response.data))
     ytdarray2.push(ytdarray[0].length)
@@ -83,7 +83,7 @@ const thedaybeforeytdarray2 = [];
 let thedaybeforeytdtest;
 function getcasesthedaybeforeytdChart(){
   axios
-  .get("http://localhost:9998/api/v1/casesthedaybeforeytdchart")
+  .get("https://bchserver.herokuapp.com/api/v1/casesthedaybeforeytdchart")
   .then((response) => {
     thedaybeforeytdarray.push(Object.keys(response.data))
     thedaybeforeytdarray2.push(thedaybeforeytdarray[0].length)
@@ -167,7 +167,7 @@ const feedbackcomplimentarray2 = [];
 let feedbackcomplimenttest;
 function getcomplimentChart(){
   axios
-  .get("http://localhost:9998/api/v1/feedbackcomplimentchart")
+  .get("https://bchserver.herokuapp.com/api/v1/feedbackcomplimentchart")
   .then((response) => {
     //console.log(response.data);
     feedbackcomplimentarray.push(Object.keys(response.data))
@@ -185,7 +185,7 @@ const feedbackcomplaintarray2 = [];
 let feedbackcomplainttest;
 function getcomplaintChart(){
   axios
-  .get("http://localhost:9998/api/v1/feedbackcomplaintchart")
+  .get("https://bchserver.herokuapp.com/api/v1/feedbackcomplaintchart")
   .then((response) => {
     //console.log(response.data);
     feedbackcomplaintarray.push(Object.keys(response.data))

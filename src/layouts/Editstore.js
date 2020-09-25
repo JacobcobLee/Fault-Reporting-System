@@ -16,7 +16,7 @@ const temp=[];
 const temp2=[];
 function getSpecificStore(){
   axios
-  .get("http://localhost:9998/api/v1/store/"+lastURLSegment)
+  .get("https://bchserver.herokuapp.com/api/v1/store/"+lastURLSegment)
   .then((response) => {
     //console.log(response.data);
       store.push(response.data)
@@ -43,7 +43,7 @@ export default function Editstore(){
         if((storename !== '')&&(storecode !== '')&&(storeaddress !== ''))
         {
             axios
-            .put("http://localhost:9998/api/v1/store/"+lastURLSegment,{
+            .put("https://bchserver.herokuapp.com/api/v1/store/"+lastURLSegment,{
                 "name": storename.toString(), 
                 "code": storecode.toString(),
                 "address": storeaddress.toString()

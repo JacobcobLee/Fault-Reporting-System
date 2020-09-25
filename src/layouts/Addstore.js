@@ -15,7 +15,7 @@ export default function Addstore(){
         if((storename !== '')&&(storecode !== '')&&(storeaddress !== '') )
         {
             axios
-            .post("http://localhost:9998/api/v1/store",{
+            .post("https://bchserver.herokuapp.com/api/v1/store",{
                 "name": storename.toString(),
                 "code": storecode.toString(),
                 "address": storeaddress.toString()

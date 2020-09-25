@@ -19,7 +19,7 @@ const temp = [];
 
 function getSpecificFault() {
     axios
-        .get("http://localhost:9998/api/v1/category/" + lastURLSegment)
+        .get("https://bchserver.herokuapp.com/api/v1/category/" + lastURLSegment)
         .then((response) => {
             console.log('response')
             fault.push(response.data)
@@ -148,7 +148,7 @@ export default function EditFault() {
             if ((name !== '') && ((submitRadio !== null) || (submitCheckbox !== null))) {
                 const total = { name: name, haveRadio: havRadio, haveInput: havInput, haveCheck: havCheck, input: submitInput, radio: submitRadio, checkbox: submitCheckbox };
                 console.log(total);
-                axios.put("http://localhost:9998/api/v1/category/" + lastURLSegment, total)
+                axios.put("https://bchserver.herokuapp.com/api/v1/category/" + lastURLSegment, total)
                 window.alert('Successfully Updated fault type!')
                 window.location.href = "/admin/functions"
             } else {

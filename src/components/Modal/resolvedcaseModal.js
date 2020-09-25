@@ -16,7 +16,7 @@ const resolvedCases = [];
 const array =[];
 function getResolvedCases(){
   axios
-  .get("http://localhost:9998/api/v1/faultresolved10") //only take last 10 of resolved cases. the rest can view at analytics
+  .get("https://bchserver.herokuapp.com/api/v1/faultresolved10") //only take last 10 of resolved cases. the rest can view at analytics
   .then((response) => {
     try{
     resolvedCases.push(response.data)
@@ -34,7 +34,7 @@ getResolvedCases();
 const storeOptions = [];
 function getStoreOptions(){
   axios
-  .get("http://localhost:9998/api/v1/allstorename")
+  .get("https://bchserver.herokuapp.com/api/v1/allstorename")
   .then((response) => {
     response.data.forEach(storeName => {
       var object = {value: storeName, label: storeName}

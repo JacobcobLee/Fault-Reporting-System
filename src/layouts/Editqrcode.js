@@ -16,7 +16,7 @@ const array = [];
 const temp=[];
 function getSpecificQR(){
   axios
-  .get("http://localhost:9998/api/v1/store/"+lastURLSegment)
+  .get("https://bchserver.herokuapp.com/api/v1/store/"+lastURLSegment)
   .then((response) => {
     //console.log(response.data);
       qr.push(response.data)
@@ -38,7 +38,7 @@ export default function Editqrcode(){
     function putSpecificQR(){
         if(edit!==""){
             axios
-            .put("http://localhost:9998/api/v1/store/"+lastURLSegment,{"qrstring": edit.toString() })
+            .put("https://bchserver.herokuapp.com/api/v1/store/"+lastURLSegment,{"qrstring": edit.toString() })
             window.alert('Successfully edited qr!')
             window.location.href = "/admin/functions"
         }
