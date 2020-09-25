@@ -5,7 +5,7 @@ Fault Reporting system!
 There is 2 font end client interface to this system, one server and one NoSql database.
 
 @Frontend Client@
-[BCH-OPS] >Web Application< --main branch-- reactNative
+[BCH-OPS] >Web Application< --Dashboard branch-- reactNative
 *important note the web application can only start if the server is running and the API endpoints in the web client is correctly pointed at the server*
 The web client allows users to retrieve the various objects in the database and display them. The web client consumes the API from the server.
 The client allows for GET PUT POST and DELETE
