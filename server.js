@@ -14,7 +14,7 @@ admin.initializeApp({
 });
 
 app.use(require("./routes/v1.js"));
-
+app.use(cors({ origin: true }));
 
 
 // Retrieve new posts as they are added to the database
