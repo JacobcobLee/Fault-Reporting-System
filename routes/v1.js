@@ -10,7 +10,7 @@ router.use(express.json());
 var db = admin.database();
 var bucket = admin.storage().bucket();
 
-router.use(cors());
+router.use(cors({ origin: true }));
 const UUID_NAMESPACE = "a752002f-74ca-4249-aa3d-4e2eb99ac298";
 
 //Middleware that is specific to this router
