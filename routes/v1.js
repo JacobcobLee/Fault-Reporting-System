@@ -16,7 +16,8 @@ const UUID_NAMESPACE = "a752002f-74ca-4249-aa3d-4e2eb99ac298";
 //Middleware that is specific to this router
 router.use(function timeLog(req, res, next) {
   console.log("Connected to API V1 Route");
-  //console.log("Auth Headers: " + req.headers.authorization);
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 
