@@ -1,7 +1,7 @@
 const express = require("express"),
   app = express(),
   port = process.env.PORT || 9998;
-var https = require("https");
+var http = require("http");
 var moment = require("moment");
 const nodemailer = require("nodemailer");
 
@@ -14,8 +14,6 @@ admin.initializeApp({
 });
 
 app.use(require("./routes/v1.js"));
-
-
 
 
 
@@ -131,5 +129,5 @@ admin
     );
   });
 
-var httpsServer = https.createServer(app);
-httpsServer.listen(port, () => console.log(`Hard on port ${port}`));
+var httpServer = http.createServer(app);
+httpServer.listen(port, () => console.log(`Hard on port ${port}`));
