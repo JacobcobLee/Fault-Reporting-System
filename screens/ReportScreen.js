@@ -9,6 +9,7 @@ import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import moment from 'moment';
+import { Value } from 'react-native-reanimated';
 
 let itemsRef = db.ref('/problem');
 
@@ -54,10 +55,10 @@ export default class ReportScreentest extends Component {
             allowsEditing: true
         });
 
-        console.log(result);
+        // console.log(result);
         if (!result.cancelled) {
             var fileName = this.getFileName(result.uri);
-            console.log("filename: " + fileName);
+            // console.log("filename: " + fileName);
             var test = this.uuidv4();
             test += '/images/' + fileName;
             this.setState({
@@ -71,10 +72,10 @@ export default class ReportScreentest extends Component {
             allowsEditing: false
         });
 
-        console.log(result);
+        // console.log(result);
         if (!result.cancelled) {
             var fileName = this.getFileName(result.uri);
-            console.log("filename: " + fileName);
+            // console.log("filename: " + fileName);
             var test = this.uuidv4();
             test += '/images/' + fileName;
             this.setState({
@@ -103,10 +104,9 @@ export default class ReportScreentest extends Component {
             selectCat: item.label
         });
         db.ref('/problem/' + item.value).on('value', snapshot => {//Calling the database to get only the selected value data
-            let data = snapshot.val();
-            let problem2 = data;
+            let problem2 = snapshot.val();
             this.setState({ problem2 });
-            console.log(problem2);
+            // console.log(problem2);
         });
 
 
@@ -123,7 +123,7 @@ export default class ReportScreentest extends Component {
                 let data = snapshot.val();
                 let problem = Object.values(data);
                 this.setState({ problem });
-                console.log(this.state.problem);
+                // console.log(this.state.problem);
             });
         } catch (error) {
             console.log(error);
@@ -319,6 +319,13 @@ export default class ReportScreentest extends Component {
 
         }
     }
+    validateAns(){//validates the checkboxes before submitting of issue so tp prevent submition of issue without ans
+       if (this.state.problem2.issue = undefined || 'undefined' || null){
+           return false;
+       }else{
+           return true;
+       }
+    }
     // pushFault(outlet, name, cat, radioans,checkans)
     Submit() {// Submit button on press
         //radioquestion:{name:radioquestion},answer:radioanswer
@@ -379,9 +386,9 @@ export default class ReportScreentest extends Component {
         } else {
             validate = false;
         }
-        if (validate == true) {//Trying to submit fault if validation is done
+        if (validate || this.validateAns() ) {//Trying to submit fault if validation is done
             try {
-                if (this.state.image == null) {
+               if (this.state.image == null) {
                     this.submitFault(comments, datetime, currentDate, description, outlet, name, cat, radio, check, status, "");//Calling submit fault class to submit the fault to database
                 }
                 else {
@@ -397,7 +404,7 @@ export default class ReportScreentest extends Component {
         } else {//Alert
             Alert.alert('Please fill in the necessary data')
         }
-
+        // console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   "+ Object.entries(this.state.problem2.checkbox.name))
         //const radiotest = {radioquestion:{name:}};
 
         //pushFault();

@@ -22,7 +22,7 @@ function MainStackNavigator() {
     <NavigationContainer >
       <Stack.Navigator>
         <Stack.Screen options={{headerShown: false}} name='Splash' component={Splash} />
-        <Stack.Screen name='Home' component={Home} options={{title: 'Scan QR/扫描二维     ' +'App Version: ' + buildVersion}}/>
+        <Stack.Screen name='Home' component={Home} options={{title: 'Scan QR/扫描二维     ' +'App.V: ' + buildVersion}}/>
         <Stack.Screen name='Report' component={Report} options={{ title: 'Report/报告' }}/>
         <Stack.Screen name='Outlet' component={Outlet} options={{ title: 'Outlet/商店' }}/>
         <Stack.Screen name='Feedback' component={Feedback} options={{ title: 'Feedback/反馈' }}/>

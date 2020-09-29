@@ -46,7 +46,7 @@ export default class Outlet extends Component {
                     let faults = Object.values(data); //get faults
                     faults.sort((a, b) => a - b).reverse(); // sort by desc order
                     this.setState({ faults }); // set faults to state
-                    console.log(this.state.faults); 
+                    // console.log(this.state.faults); 
                     }
             });
         } catch (error) {
@@ -64,7 +64,7 @@ export default class Outlet extends Component {
             faults.problem.checkbox.name +
             " :\n" +
             faults.problem.checkbox.answer + ' ';
-            console.log("teststring  value is " + testString);
+            // console.log("teststring  value is " + testString);
             } else {
                 for (i = 0; i < faults.problem.checkbox.length; i++) {
                     testString +=
@@ -76,7 +76,7 @@ export default class Outlet extends Component {
                     testString += ", \n ";
                     }
                 } //end of for loop
-            console.log("test string value" + testString);
+            // console.log("test string value" + testString);
             } //else closes
 
             return [faults.staffName + '\n' +faults.dateTime, faults.problem.category+'\n'+testString]
