@@ -1,5 +1,5 @@
 # Fault-Reporting-System
-This project was created by my FYP team and myself. Since creation I have taken to cleaning, debugging and deploying the system alone :cry:
+This project was created by my FYP team and myself. This repo stores the version after deployement and additional features added
 
 Fault Reporting system!
 There is 2 font end client interface to this system and also one server and one NoSql database.
