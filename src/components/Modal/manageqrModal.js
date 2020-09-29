@@ -13,7 +13,7 @@ const qr = [];
 const array = [];
 function getQR(){
   axios
-  .get("http://bchserver.herokuapp.com/api/v1/store")
+  .get("https://bchfrserver.herokuapp.com/api/v1/store")
   .then((response) => {
     //console.log(response.data);
       qr.push(response.data)

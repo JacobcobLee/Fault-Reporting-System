@@ -61,7 +61,7 @@
     "url": "git+https://github.com/creativetimofficial/material-dashboard-react.git"
   },
   "keywords": [],
-  "author": "Grayson Lim Chuan Kai",
+  "author": "Grayson Lim Chuan Kai + Jacob Lee",
   "license": "MIT",
   "optionalDependencies": {
     "@types/googlemaps": "3.39.6",

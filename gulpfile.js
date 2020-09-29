@@ -12,8 +12,8 @@ gulp.task("licenses", async function() {
 * Material Dashboard React - v1.9.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2020 Creative Tim (http://www.creative-tim.com)
+* Product Page: httpss://www.creative-tim.com/product/material-dashboard-react
+* Copyright 2020 Creative Tim (https://www.creative-tim.com)
 
 * Coded by Creative Tim
 
@@ -35,8 +35,8 @@ gulp.task("licenses", async function() {
 * Material Dashboard React - v1.9.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2020 Creative Tim (http://www.creative-tim.com)
+* Product Page: httpss://www.creative-tim.com/product/material-dashboard-react
+* Copyright 2020 Creative Tim (https://www.creative-tim.com)
 
 * Coded by Creative Tim
 
@@ -58,8 +58,8 @@ gulp.task("licenses", async function() {
 * Material Dashboard React - v1.9.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2020 Creative Tim (http://www.creative-tim.com)
+* Product Page: httpss://www.creative-tim.com/product/material-dashboard-react
+* Copyright 2020 Creative Tim (https://www.creative-tim.com)
 
 * Coded by Creative Tim
 

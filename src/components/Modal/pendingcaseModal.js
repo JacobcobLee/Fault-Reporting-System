@@ -16,7 +16,7 @@ const pendingCases = [];
 const array =[];
 function getPendingCases(){
   axios
-  .get("http://bchserver.herokuapp.com/api/v1/faultp")
+  .get("https://bchfrserver.herokuapp.com/api/v1/faultp")
   .then((response) => {
     try{
     pendingCases.push(response.data)
@@ -34,7 +34,7 @@ getPendingCases();
 const storeOptions = [];
 function getStoreOptions(){
   axios
-  .get("http://bchserver.herokuapp.com/api/v1/allstorename")
+  .get("https://bchfrserver.herokuapp.com/api/v1/allstorename")
   .then((response) => {
     response.data.forEach(storeName => {
       var object = {value: storeName, label: storeName}

@@ -20,7 +20,7 @@ const displayspecificCases = [];
 
 function getSpecificCases() {
     axios
-        .get("http://bchserver.herokuapp.com/api/v1/fault/" + lastURLSegment)
+        .get("https://bchfrserver.herokuapp.com/api/v1/fault/" + lastURLSegment)
         .then((response) => {
             displayspecificCases.push(response.data)
         })
@@ -53,7 +53,7 @@ export default function Pending() {
 
     function putSpecificCases() {
         axios
-            .put("http://bchserver.herokuapp.com/api/v1/fault/" + lastURLSegment,{"status": edit.toString(), "comments": comment.toString(),"lasteditedby": user2.toString() })
+            .put("https://bchfrserver.herokuapp.com/api/v1/fault/" + lastURLSegment,{"status": edit.toString(), "comments": comment.toString(),"lasteditedby": user2.toString() })
             window.alert('Successfully edited case!')
             window.location.href = "/admin/dashboard"
     }
@@ -125,7 +125,7 @@ export default function Pending() {
     const [img, setimg] = useState('');
     function retrieveImg(imgURL) {
         axios
-            .get("http://bchserver.herokuapp.com/api/v1/image?location=" + imgURL)
+            .get("https://bchfrserver.herokuapp.com/api/v1/image?location=" + imgURL)
             .then((response) => {
                 //console.log("A@@@@");
                 //console.log(response.data);

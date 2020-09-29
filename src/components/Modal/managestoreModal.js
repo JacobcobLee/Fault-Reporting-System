@@ -14,7 +14,7 @@ const stores = [];
 const array = [];
 function getStores(){
   axios
-  .get("http://bchserver.herokuapp.com/api/v1/store")
+  .get("https://bchfrserver.herokuapp.com/api/v1/store")
   .then((response) => {
     //console.log(response.data);
       stores.push(response.data)
@@ -32,7 +32,7 @@ export default function ManagestoreModal(props){
     var answer = window.confirm("Are you sure you want to delete?");
     if(answer){
       axios
-     .delete("http://bchserver.herokuapp.com/api/v1/store/" + storeCode)
+     .delete("https://bchfrserver.herokuapp.com/api/v1/store/" + storeCode)
      window.location.href = "/admin/functions"
     }
     else{

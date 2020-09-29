@@ -20,7 +20,7 @@ export default function Analytics() {
     const getAnalyticsData = async ()=> {
         try{
             await axios
-            .get("http://bchserver.herokuapp.com/api/v1/fault2")
+            .get("https://bchfrserver.herokuapp.com/api/v1/fault2")
             .then((response) => {
                 console.log(response.data);
                 setAnalytics(Object.values(response.data));

@@ -21,7 +21,7 @@ const array = [];
 function getUsers() {
 
   axios
-    .get("http://bchserver.herokuapp.com/api/v1/allusers")
+    .get("https://bchfrserver.herokuapp.com/api/v1/allusers")
     .then((response) => {
       users.push(response.data)
       array.push(users[0])
