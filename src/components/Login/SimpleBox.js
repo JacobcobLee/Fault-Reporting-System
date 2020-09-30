@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import logo from "assets/img/bch_logo.png";
-import bgImage from "assets/img/bg2.png";
+// import bgImage from "assets/img/bg2.png";
 
 
 const divStyle = {
   width: '100%',
   height: '100vh',
-  backgroundImage: `url(${bgImage})`,
+  // backgroundImage: `url(${bgImage})`,
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat', 

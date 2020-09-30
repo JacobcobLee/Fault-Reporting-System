@@ -36,18 +36,18 @@ export default function Addstore(){
                     <Card>    
                         <CardBody>
                         <h4><b>Store Name :</b></h4>
-                        <input className="form-control" type="text" placeholder="Enter Store Name, example..Hillion Mall" onChange={e=>setStoreName(e.target.value)}/>
+                        <input className="form-control" type="text" placeholder="Enter Store Name e.g Hillion Mall" onChange={e=>setStoreName(e.target.value)}/>
                         <br></br>
                         <h4><b>Store Code :</b></h4>
-                        <input className="form-control" type="text" placeholder="Enter Store Code, last 4 digit of store no **** 5753" onChange={e=>setStoreCode(e.target.value)}/>
+                        <input className="form-control" type="text" placeholder="Enter Store Code, e.g AM" onChange={e=>setStoreCode(e.target.value)}/>
                         <br></br>
                         <h4><b>Store Address :</b></h4>
-                        <input className="form-control" type="text" placeholder="Enter Store Address" onChange={e=>setStoreAddress(e.target.value)}/>
+                        <input className="form-control" type="text" placeholder="Enter Store Address e.g Bukit Panjang road B2-024" onChange={e=>setStoreAddress(e.target.value)}/>
                         </CardBody>
                     </Card>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={12}>
-                    <Button onClick={addStore} fullWidth color="success">Add</Button> 
+                    <Button onClick={addStore()} fullWidth color="success">Add</Button> 
                 </GridItem>
             </GridContainer>
         </div>

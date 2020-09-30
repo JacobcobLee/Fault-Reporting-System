@@ -73,7 +73,9 @@ export default function ManagestoreModal(props){
               tableHead={["Store Name", "Store Code", "Store Address", "", ""]}
               tableData={
                 filterArray.map((array) => {
-                  return [array.name,array.code,array.address,<Button onClick={event =>  window.location.href='/store/editstore/'+array.code} fullWidth color="info">Edit</Button>, <Button onClick={() => deleteStore(array.code)} fullWidth color="danger">Remove</Button>]
+                  return [array.name,array.code,array.address,
+                  <Button onClick={event =>  window.location.href='/store/editstore/'+array.code} fullWidth color="info">Edit</Button>, 
+                  <Button onClick={() => deleteStore(array.code)} fullWidth color="danger">Remove</Button>]
               })
             }
             />
