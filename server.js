@@ -71,12 +71,12 @@ admin
 
     let transporter = nodemailer.createTransport(
       {
-        host: "smtp.bch.com.sg",
-        port: 587,
-        secure: false, // true for 465, false for other ports
+        host: "",
+        port: ,
+        secure: , // true for 465, false for other ports
         auth: {
-          user: "bchapp", // user
-          pass: "ppah6150", // password
+          user: "", // user
+          pass: "", // password
         },
       },
       {
