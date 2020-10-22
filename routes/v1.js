@@ -255,6 +255,7 @@ router.post("/api/v1/store", (req, res) => {
   dataTemplate = {
     address: req.body.address,
     name: req.body.name,
+    code: req.body.code,
     qrstring: uuidv5(req.body.name, UUID_NAMESPACE),
   };
 
