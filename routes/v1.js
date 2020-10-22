@@ -221,7 +221,7 @@ router.get("/api/v1/allstorename", (req, res) => {
 /**
  * Retrieve all store infomation, used to be /api/v1/store2
  */
-router.get("/api/v1/store", (req, res) => {
+router.get("/api/v1/allstore", (req, res) => {
   db.ref("store").once("value", function (snapshot) {
     res.send(Object.values(snapshot.val()));
   });
