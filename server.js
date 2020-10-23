@@ -23,7 +23,7 @@ app.use(require("./routes/v1.js"));
 //get napshot of all reports and then loop thru to find status
 var unresolved = admin.database().ref("reports")
 
-cron.schedule('* * * * *', async () => {
+cron.schedule('0 10 * * 1,4', async () => {
   var count = 0;
   var storeNameList = [];
   var dateList = [];
