@@ -3,21 +3,20 @@ var router = express.Router();
 const { v5: uuidv5 } = require("uuid");
 var admin = require("firebase-admin");
 var cors = require("cors");
-const { body, validationResult, param, query } = require("express-validator");
+// const { body, validationResult, param, query } = require("express-validator");
 
 router.use(express.json());
 
 var db = admin.database();
 var bucket = admin.storage().bucket();
 
-router.use(cors({ origin: true }));
+router.use(cors());
 const UUID_NAMESPACE = "a752002f-74ca-4249-aa3d-4e2eb99ac298";
 
 //Middleware that is specific to this router
 router.use(function timeLog(req, res, next) {
   console.log("Connected to API V1 Route");
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  //console.log("Auth Headers: " + req.headers.authorization);
   next();
 });
 
@@ -124,7 +123,7 @@ router.delete("/api/v1/fault/:key", (req, res) => {
 });
 
 /************************************************************
- *                          TEST                            *
+ *                          TEST                            * //force upstream
  * *********************************************************/
 
 router.get("/api/v1/fault2", (req, res) => {
@@ -253,10 +252,10 @@ router.post("/api/v1/store", (req, res) => {
   childStore = req.body.name.replace(/ /g, "_");
 
   dataTemplate = {
-    address: req.body.address,
     name: req.body.name,
     code: req.body.code,
-    qrstring: uuidv5(req.body.name, UUID_NAMESPACE),
+    address: req.body.address,
+    qrstring: uuidv5(req.body.code, UUID_NAMESPACE),
   };
 
   db.ref("store")
@@ -599,6 +598,17 @@ router.get("/api/v1/allusers", (req, res) => {
 });
 
 /************************************************************
+ *                        ROLES                             *
+ * **********************************************************
+ * #TODO
+ ************************************************************/
+router.get("/api/v1/role", (req,res) => {
+  db.ref('users/').once('value').then( snapshot => {
+    return res.status(200).send(snapshot.val())
+  });
+});
+
+/************************************************************
  *                        CHART                             *
  * **********************************************************
  * #TODO
@@ -812,15 +822,6 @@ router.get("/api/v1/feedbackcomplaintchart", (req, res) => {
       //console.log(currentDate);
       res.status(500).send(`Internal server error! Error: ${error}`);
     });
-});
-
-//////////////////////////////////////
-////////////ROLES///////////////////
-//////////////////////////////////
-router.get("https://bchfrserver.herokuapp.com/api/v1/role/", (req,res) => {
-  db.ref('users/').once('value').then( snapshot => {
-    return res.send(snapshot.val())
-  });
 });
 
 module.exports = router;
