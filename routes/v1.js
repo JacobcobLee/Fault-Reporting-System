@@ -814,6 +814,15 @@ router.get("/api/v1/feedbackcomplaintchart", (req, res) => {
     });
 });
 
+//////////////////////////////////////
+////////////ROLES///////////////////
+//////////////////////////////////
+router.get("https://bchfrserver.herokuapp.com/api/v1/role/", (req,res) => {
+  db.ref('users/').once('value').then( snapshot => {
+    return res.send(snapshot.val())
+  });
+});
+
 module.exports = router;
 
 /**
