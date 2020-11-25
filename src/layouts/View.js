@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import Card from "components/Card/Card.js";
@@ -9,28 +9,20 @@ import axios from 'axios';
 import Select from 'react-select';
 import { useState } from 'react';
 
-
-
-
 var pageURL = window.location.href;
 var lastURLSegment = pageURL.substr(pageURL.lastIndexOf('/') + 1);
-//console.log(lastURLSegment);
-
-const displayspecificCases = [];
-
-async function getSpecificCases() {
-    await axios
-        .get("https://bchfrserver.herokuapp.com/api/v1/fault/" + lastURLSegment)
-        .then((response) => {
-            displayspecificCases.push(response.data)
-        })
-}
-
-
-
 
 export default function View() {
-    getSpecificCases();
+    const [displayspecificCases, setDisplay] = useState([])
+    
+    useEffect(()=>{
+        axios
+            .get("http://localhost:9998/api/v1/fault/" + lastURLSegment)
+            .then((response) => {
+                setDisplay(response.data)
+            })
+    })
+
     //loop for all answers and if there's 2 or more, put comma in between
     function displayAnswer(dis) {
         let test = '';
@@ -53,7 +45,7 @@ export default function View() {
         }
     }
     //if data has one or more checkbox 
-    function displayData2(dis) {
+    function displayData2() {
         if (displayspecificCases[0].problem.checkbox.length > 1) {
             return(displayspecificCases[0].problem.checkbox.map(item => {
                 return (
@@ -99,7 +91,7 @@ export default function View() {
     const [img, setimg] = useState('');
     function retrieveImg(imgURL) {
         axios
-            .get("https://bchfrserver.herokuapp.com/api/v1/image?location=" + imgURL)
+            .get("http://localhost:9998/api/v1/image?location=" + imgURL)
             .then((response) => {
                 //console.log("A@@@@");
                 //console.log(response.data);

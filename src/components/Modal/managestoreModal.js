@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {useState} from 'react';
 import Button from "components/CustomButtons/Button.js";
 import Modal from 'react-bootstrap/Modal';
@@ -8,47 +8,46 @@ import ModalBody from 'react-bootstrap/ModalBody';
 import ModalFooter from 'react-bootstrap/ModalFooter';
 import Table from "components/Table/Table.js";
 import axios from 'axios';
+import { ContactSupportOutlined } from '@material-ui/icons';
+import { array } from 'prop-types';
 
 
-var stores = [];
-var array = [];
-function getStores(){
-  axios
-  .get("https://bchfrserver.herokuapp.com/api/v1/allstore")
-  .then((response) => {
-    //console.log(response.data);
-      stores.push(response.data)
-      array.push(stores[0])
-      //console.log(array);
-  })
-}
-getStores();
 
 export default function ManagestoreModal(props){
-  getStores();
+  const [stores, setStores] = useState([]);
+  const [filteredArray, setFilteredArray] = useState([])
+
+  useEffect(()=>{
+    axios
+    .get("http://localhost:9998/api/v1/allstore")
+    .then((response) => {
+      setStores(response.data)
+      setFilteredArray(response.data)
+    })
+  },[])
+
   function deleteStore(storeCode){
-    var answer = window.confirm("Are you sure you want to delete?");
+    let answer = window.confirm("Are you sure you want to delete?");
+
     if(answer){
       axios
      .delete("https://bchfrserver.herokuapp.com/api/v1/store/" + storeCode)
-     window.location.href = "/admin/functions"
+     .then(function(){ window.location.reload() })
+     .catch((err)=>{console.log("inside delete store function wtf si the error : " + err)})
+     
     }
     else{
         window.close();
+        console.log("failed")
     } 
   }
 
-  const [search, setSearch] = useState('')
-  // const filterArray = stores[0].filter(item=>{
-  //   return item.code.toLowerCase().includes(search.toLowerCase())
-  // })
+  function searchFunction(e){
+    setFilteredArray(stores.filter(function(item){
+      return Object.values(item).some( val => String(val).toLowerCase().includes(e.toLowerCase()) )
+    }))
+  }
   
-  //filter through all data instead of only 1
-   const filterArray = stores[0].filter(function(item){
-    return Object.values(item).some( val => 
-        String(val).toLowerCase().includes(search.toLowerCase()) 
-    )
-})
   return (
     <Modal
       {...props}
@@ -65,19 +64,19 @@ export default function ManagestoreModal(props){
         </ModalTitle>
       </ModalHeader>
       <ModalBody>
-      <input className="form-control" type="text" placeholder="Search" onChange={ e => setSearch(e.target.value)}/>
+        <input className="form-control" type="text" placeholder="Search" onChange={ e => searchFunction(e.target.value)}/>
+        <Button color="success"  onClick={e => searchFunction("")}>Reset Filter</Button>
       <Table
               tableHeaderColor="primary"
               tableHead={["Store Name", "Store Code", "Store Address", "", ""]}
               tableData={
-                filterArray.map((array) => {
+                filteredArray.map((array) => {
                   return [array.name,array.code,array.address,<Button onClick={event =>  window.location.href='/store/editstore/'+array.code} fullWidth color="info">Edit</Button>, <Button onClick={() => deleteStore(array.code)} fullWidth color="danger">Remove</Button>]
               })
             }
             />
       </ModalBody>
       <ModalFooter>
-        <Button color="success" onClick={e => setSearch(e.value = "")}>Reset Filter</Button>
         <Button color="danger" onClick={props.onHide}>Close</Button>
       </ModalFooter>
     </Modal>

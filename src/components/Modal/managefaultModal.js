@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Button from "components/CustomButtons/Button.js";
 import Modal from 'react-bootstrap/Modal';
 import ModalHeader from 'react-bootstrap/ModalHeader';
@@ -8,48 +8,40 @@ import ModalFooter from 'react-bootstrap/ModalFooter';
 import Table from "components/Table/Table.js";
 import axios from 'axios';
 import {useState} from 'react';
-import { error } from 'jquery';
 
-var fault = [];
-
-function getFault(){
-  axios
-  .get("https://bchfrserver.herokuapp.com/api/v1/category")
-  .then((response) => {
-    
-    // const array = [];
-      // console.log(response.data );
-      fault.push(response.data)
-      // console.log(fault + "this is fault")
-      // array.push(fault[0]))
-      // console.log(array + "this is array");
-  })
-}
-getFault();
 export default function ManagefaultModal(props){
-  // console.log(fault)
-  getFault();
+  const [fault, setFault] = useState([]);
+  const [filteredArray, setFilteredArray] = useState([])
+
+  useEffect(()=>{
+    axios
+    .get("http://localhost:9998/api/v1/category")
+    .then((response) => {
+      setFault(response.data)
+      setFilteredArray(response.data)
+      // console.log(fault + "this is fault")
+      // console.log(response.data );
+  })
+  }, [])
+
+  function searchFunction(e) {
+    var temp = fault.filter((item)=>{
+      return item.name.toLowerCase().includes(e.toLowerCase())
+    })
+    setFilteredArray(temp)
+  };
+
   function deleteFault(faultid){
     var answer = window.confirm("Are you sure you want to delete?");
     if(answer){
       axios
-     .delete("https://bchfrserver.herokuapp.com/api/v1/category/" + faultid)
-     window.location.href = "/admin/functions"
+      .delete("http://localhost:9998/api/v1/category/" + faultid)
+      window.location.href = "/admin/functions"
     }
     else{
-        window.close();
+      window.close();
     } 
-  }
-
-  const [search, setSearch] = useState('')
-
-
-  // console.log(getFault().array[0]+"@@@@@@@@@!!!!!!!!!!!!!")
-  //filter through all data instead of only 1
-  // const filterArray = fault[0].filter((item)=>{
-  //     return item.name.toLowerCase().includes(search.toLowerCase())
-  //   })
-  
+  };
 
   return (
     <Modal
@@ -67,19 +59,21 @@ export default function ManagefaultModal(props){
         </ModalTitle>
       </ModalHeader>
       <ModalBody>
-      <input className="form-control" type="text" placeholder="Search" onChange={ e => setSearch(e.target.value)}/>
+      <input className="form-control" type="text" placeholder="Search" onChange={e => searchFunction(e.target.value)}/>
+      <Button color="success" onClick={e => searchFunction("")}>Reset Filter</Button>
       <Table
               tableHeaderColor="primary"
               tableHead={["Fault type", "Has Radio Option?", "Has Checkbox Option?", "", ""]}
-              // tableData={
-              //   filterArray.map((array) => {
-              //     return [array.name,array.haveRadio,array.haveCheck,<Button onClick={event =>  window.location.href='/fault/editfault/'+array.uuid} fullWidth color="info">Edit</Button>,<Button onClick={() => deleteFault(array.uuid)} fullWidth color="danger">Remove</Button>]
-              // })
-              // }
+              tableData={
+                filteredArray.map((array) => {
+                  return [array.name,array.haveRadio,array.haveCheck,
+                  <Button onClick={event =>  window.location.href='/fault/editfault/'+array.uuid} fullWidth color="info">Edit</Button>,
+                  <Button onClick={() => deleteFault(array.uuid)} fullWidth color="danger">Remove</Button>]
+              })
+              }
             />
       </ModalBody>
       <ModalFooter>
-        <Button color="success" onClick={e => setSearch(e.value = "")}>Reset Filter</Button>
         <Button color="danger" onClick={props.onHide}>Close</Button>
       </ModalFooter>
     </Modal>

@@ -16,14 +16,17 @@ export default function Addstore(){
         if((storename !== '')&&(storecode !== '')&&(storeaddress !== '') )
         {
             axios
-            .post("https://bchfrserver.herokuapp.com/api/v1/store",{
+            .post("http://localhost:9998/api/v1/store",{
                 "name": storename.toString(),
                 "code": storecode.toString(),
                 "address": storeaddress.toString()
-            }).catch((e)=>{console.log("err is at "+e)})
-            window.alert('Successfully added new store!!')
-            window.location.href = "/admin/functions"
-           console.log("successfully added store")
+            })
+            .then(function(){
+                window.alert('Successfully added new store, refreshing page!')
+                window.location.reload()
+                window.location.href = "/admin/functions"
+            })
+            .catch((e)=>{console.log("err is at "+e)})
         }
         else{
             window.alert('Please input neccessary data!')

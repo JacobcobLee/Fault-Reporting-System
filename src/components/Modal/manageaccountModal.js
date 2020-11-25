@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Select from 'react-select';
 import { useState } from 'react';
 import Button from "components/CustomButtons/Button.js";
@@ -15,31 +15,42 @@ import CardBody from "components/Card/CardBody.js";
 import CardFooter from 'components/Card/CardFooter';
 import { auth, db } from '../../Firebase';
 
-const userOptions = [{ value: "Member", label: "Member" }, { value: "Admin", label: "Admin" }]
-const users = [];
-const array = [];
-function getUsers() {
-
-  axios
-    .get("https://bchfrserver.herokuapp.com/api/v1/allusers")
-    .then((response) => {
-      users.push(response.data)
-      array.push(users[0])
-    })
-}
-
-
-
-
 export default function ManageaccountModal(props) {
-  getUsers();
+  const [userOptions, setUserOptions] = useState([{ value: "Member", label: "Member" }, { value: "Admin", label: "Admin" }])
+  const [users, setUsers] = useState([]);
   const [registeremail, setRegisterEmail] = useState("");
   const [registerpassword, setRegisterPassword] = useState("");
   const [registerconfirmpassword, setRegisterConfirmPassword] = useState("");
   const [roleofuser, setRoleOfUser] = useState("Member");
-  // eslint-disable-next-line
-  // const [role,setRole] = useState("");
+  const [filterArray, setFilteredArray] = useState([])
 
+  useEffect(()=>{
+    axios
+      .get("http://localhost:9998/api/v1/allusers")
+      .then((response) => {
+        setUsers(response.data)
+        setFilteredArray(response.data)
+      }) // end  of get method
+  }, [])
+
+  useEffect(()=>{
+    auth.onAuthStateChanged(function (user) {
+      db.ref('users/'+ user.uid).on('value', snapshot => {
+        let data = snapshot.val();
+        console.log(data.role);
+        setRoleOfUser(data.role);
+      })
+    })
+  }, [userOptions])
+
+  function filterSearch(e){
+    setFilteredArray( users.filter(function (item) {
+      return Object.values(item).some(val =>
+        String(val).toLowerCase().includes(e.toLowerCase())
+      );
+    }));
+  };
+  
   function createAccount() {
     if (registeremail !== "" && registerpassword !== "" && registerconfirmpassword !== "") {
       if (registerpassword === registerconfirmpassword) {
@@ -51,8 +62,8 @@ export default function ManageaccountModal(props) {
           })
         })
         result.then(function () {
+          window.alert("successfully added store!")
           window.location.href = "admin/funtions"
-          console.log(roleofuser+"@@@@@@@@@@@@@@@@@@addaccountmodal")
         })
         result.catch(function (error) {
           var errorCode = error.code;
@@ -71,17 +82,6 @@ export default function ManageaccountModal(props) {
       window.alert("Please fill out all fields!")
     }
   }
-
-  // function test() {
-  //   auth.onAuthStateChanged(function (user) {
-  //     db.ref('users/'+ user.uid).on('value', snapshot => {
-  //       let data = snapshot.val();
-  //       console.log(data.role);
-  //       setRole(data.role);
-  //     })
-  //   })
-  // }
-  // test();
 
   function addAccount() {
       return (
@@ -115,14 +115,9 @@ export default function ManageaccountModal(props) {
       )
     }
 
-  const [search, setSearch] = useState('')
+  
 
-  //filter through all data instead of only 1
-  // const filterArray = users[0].filter(function (item) {
-  //   return Object.values(item).some(val =>
-  //     String(val).toLowerCase().includes(search.toLowerCase())
-  //   )
-  // })
+  
   return (
     <Modal
       {...props}
@@ -140,15 +135,16 @@ export default function ManageaccountModal(props) {
       <ModalBody>
         {addAccount()}
         <br></br>
-        <input className="form-control" type="text" placeholder="Search" onChange={e => setSearch(e.target.value)} />
+        <input className="form-control" type="text" placeholder="Search" onChange={e => filterSearch(e.target.value)} />
+        <Button color="success" onClick={e => filterSearch("")}>Reset filter</Button>
         <Table
           tableHeaderColor="primary"
           tableHead={["Account ID", "Account Email", "Last login"]}
-          // tableData={
-          //   filterArray.map((array) => {
-          //     return [array.uid, array.email, array.metadata.lastSignInTime]
-          //   })
-          // }
+          tableData={
+            filterArray.map((array) => {
+              return [array.uid, array.email, array.metadata.lastSignInTime]
+            })
+          }
         />
       </ModalBody>
       <ModalFooter>

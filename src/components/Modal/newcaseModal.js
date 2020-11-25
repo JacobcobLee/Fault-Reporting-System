@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Fragment} from 'react';
 import {useState} from 'react';
 import Select from 'react-select';
@@ -11,58 +11,60 @@ import ModalFooter from 'react-bootstrap/ModalFooter';
 import Table from "components/Table/Table.js";
 import axios from 'axios';
 
-
-const newCases = [];
-const array =[];
-function getNewCases(){
-  axios
-  .get("https://bchfrserver.herokuapp.com/api/v1/faultunresolved")
-  .then((response) => {
-    try{
-    newCases.push(response.data)
-    array.push(Object.values(newCases[0]))
-    //console.log(array[0]);
-    array[0].sort((a, b) => a - b).reverse()
-    }
-    catch(error){
-      console.log(error);
-    }
-})
-}
-getNewCases();
-
-const storeOptions = [];
-function getStoreOptions(){
-  axios
-  .get("https://bchfrserver.herokuapp.com/api/v1/allstorename")
-  .then((response) => {
-    response.data.forEach(storeName => {
-      var object = {value: storeName, label: storeName}
-      storeOptions.push(object)
-  });
- //console.log(storeOptions);
-})
-  .catch((err) => {
-    console.log(err);
-  });
-}
-getStoreOptions();
-
-
 export default function NewcaseModal(props){
+  const [newCases, setNewCases] = useState([])
+  const [storeOptions, setStoreOptions] = useState([]);
+  const [filterArray, setFilterArray] = useState([]);
+
+  
+  useEffect(()=>{
+    let temp = [];
+    axios
+    .get("http://localhost:9998/api/v1/faultunresolved")
+    .then((response) => {
+      
+      temp = Object.values(response.data)
+      
+      console.log(temp)
+      
+      setNewCases(temp)
+      setFilterArray(temp.sort((a, b) => a - b).reverse())
+    }).catch((error)=>{
+          console.log("error in newCase modal use effect 1, error is:  "+error);
+        })//end of try catch
+  }, [])
+  
+  useEffect(()=>{
+    axios
+    .get("http://localhost:9998/api/v1/allstorename")
+    .then((response) => {
+      response.data.forEach(storeName => {
+        var object = {value: storeName, label: storeName}
+        setStoreOptions(object)
+      });
+    }).catch((err) => {
+      console.log("error in newCase modal use effect 2, error is:  "+err);
+    });
+  },[])
+
+
   //To filter the table data using dropdown value
-  const [search, setSearch] = useState('')
-  const filterArray = array[0].filter(item=>{
-    return item.storeName.toLowerCase().includes(search.toLowerCase())
-  })
+  function filterSearch(e){
+    setFilterArray(
+      newCases.filter(item=>{
+        return item.storeName.toLowerCase().includes(e.toLowerCase())
+      })
+    )
+  }
+ 
   return (
     <Modal
-      {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-      backdrop="static"
-      keyboard={false}
+    {...props}
+    size="lg"
+    aria-labelledby="contained-modal-title-vcenter"
+    centered
+    backdrop="static"
+    keyboard={false}
     >
       <ModalHeader closeButton >
         <ModalTitle id="contained-modal-title-vcenter">
@@ -77,8 +79,9 @@ export default function NewcaseModal(props){
           classNamePrefix="select"
           name="color"
           options={storeOptions}
-          onChange={ e => setSearch(e.value) }
+          onChange={ e => filterSearch(e.target.value) }
         />
+    <Button color="success" onClick={e => filterSearch("")}>Reset Filter</Button>
       </Fragment>
       <Table
               tableHeaderColor="primary"
@@ -91,11 +94,8 @@ export default function NewcaseModal(props){
             /> 
       </ModalBody>
       <ModalFooter>
-        <Button color="success" onClick={e => setSearch(e.value = "")}>Reset Filter</Button>
         <Button color="danger" onClick={props.onHide}>Close</Button>
       </ModalFooter>
     </Modal>
   );
 }
-
-//<Button onClick={event =>  window.location.href='/newcases/solve'} fullWidth color="info">Solve</Button>

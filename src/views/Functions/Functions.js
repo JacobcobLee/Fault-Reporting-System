@@ -56,7 +56,7 @@ export default function Functions() {
 
   function getRole(){
     axios
-  .get("https://bchfrserver.herokuapp.com/api/v1/role")
+  .get("http://localhost:9998/api/v1/role")
   .then((response) => {
     var obj = response.data;
     var arr = [];
