@@ -1,14 +1,14 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 const { v5: uuidv5 } = require("uuid");
-var admin = require("firebase-admin");
-var cors = require("cors");
+const admin = require("firebase-admin");
+const cors = require("cors");
 // const { body, validationResult, param, query } = require("express-validator");
 
 router.use(express.json());
 
-var db = admin.database();
-var bucket = admin.storage().bucket();
+const db = admin.database();
+const bucket = admin.storage().bucket();
 
 router.use(cors());
 const UUID_NAMESPACE = "a752002f-74ca-4249-aa3d-4e2eb99ac298";
@@ -249,7 +249,7 @@ router.get("/api/v1/store/:code", (req, res) => {
  * Add store
  */
 router.post("/api/v1/store", (req, res) => {
-  childStore = req.body.name.replace(/ /g, "_");
+  childStore = req.body.code.replace(/ /g, "_");
 
   dataTemplate = {
     name: req.body.name,
@@ -264,7 +264,7 @@ router.post("/api/v1/store", (req, res) => {
       if (err) {
         return res.status(500).send(`An error has occured! Error: ${err}`);
       }
-    });
+    }).catch((err)=>{console.log("err is  : " + err)});
   res.status(201).send("Success!");
 });
 

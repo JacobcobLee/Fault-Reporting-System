@@ -2,21 +2,24 @@ const express = require("express"),
   app = express(),
   port = process.env.PORT || 9998;
 
-var http = require("http");
-var moment = require("moment");
-var admin = require("firebase-admin");
-var serviceAccount = require("./serviceAccountKey.json");
+  const http = require("http");
+  const moment = require("moment");
+  const admin = require("firebase-admin");
+  const serviceAccount = require("./serviceAccountKey.json");
 
 const nodemailer = require("nodemailer");
 const cron = require("node-cron");
 const { database } = require("firebase-admin");
+const cors = require("cors");	
+
+app.use(cors());
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://bch-fr.firebaseio.com/",
   storageBucket: "bch-fr.appspot.com",
 });
-var bucket = admin.storage().bucket();
+const bucket = admin.storage().bucket();
 app.use(require("./routes/v1.js"));
 
 
