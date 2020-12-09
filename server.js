@@ -2,15 +2,14 @@ const express = require("express"),
   app = express(),
   port = process.env.PORT || 9998;
 
-  const http = require("http");
-  const moment = require("moment");
-  const admin = require("firebase-admin");
-  const serviceAccount = require("./serviceAccountKey.json");
+const http = require("http");
+const moment = require("moment");
+const admin = require("firebase-admin");
+const serviceAccount = require("./serviceAccountKey.json");
 
 const nodemailer = require("nodemailer");
 const cron = require("node-cron");
-const { database } = require("firebase-admin");
-const cors = require("cors");	
+const cors = require("cors");
 
 app.use(cors());
 
@@ -22,99 +21,105 @@ admin.initializeApp({
 const bucket = admin.storage().bucket();
 app.use(require("./routes/v1.js"));
 
-
 //get napshot of all reports and then loop thru to find status
-var unresolved = admin.database().ref("reports")
+var unresolved = admin.database().ref("reports");
 
-cron.schedule('0 10 * * 1,4', async () => {
+cron.schedule("0 10 * * 1,4", async () => {
   var count = 0;
   var storeNameList = [];
   var dateList = [];
-  await unresolved
-  .once('value', function(snapshot) {
-  snapshot.forEach(function (childSnapshot) {
-    // console.log("first query triggered")
-    // console.log(snapshot.val());
-    if (childSnapshot.val().status == "Unresolved"){
-      storeNameList[count] += childSnapshot.val().storeName;
-      dateList[count] += childSnapshot.val().date;
-      // console.log(storeNameList[count])
-      count ++;    }
-    })
-    //to display all of the unresolved fault information
-    function getFaultInfo(){
-      var text = "";
-      for(let i=0 ; i<count ; i++){
-        text += storeNameList[i].replace('undefined','') + " on " + dateList[i].replace('undefined','') + " <br> "
-        // console.log(Object.values(storeNameList[i])+"@@@@@@@@@@@@@@@")
-      }
-      console.log(text);
-      return text;
-    }
-
-    //send mail of all unresolved cases
-    let transporter = nodemailer.createTransport(
-      {
-        host: "smtp.bch.com.sg",
-        port: 587,
-        secure: false, // true for 465, false for other ports
-        auth: {
-          user: "bchapp", // user
-          pass: "BCHrootAdmin2020!", // password
-        },
-      },
-      {
-        // default message fields
-        // sender info
-        from: "BCHApp <bchapp@bch.com.sg>",
-        // list of receivers
-        to: "bchFaultReports <bchfaultreports@gmail.com>",
+  await unresolved.once(
+    "value",
+    function (snapshot) {
+      snapshot.forEach(function (childSnapshot) {
+        // console.log("first query triggered")
+        // console.log(snapshot.val());
+        if (childSnapshot.val().status == "Unresolved") {
+          storeNameList[count] += childSnapshot.val().storeName;
+          dateList[count] += childSnapshot.val().date;
+          // console.log(storeNameList[count])
+          count++;
+        }
       });
-    // verify connection configuration
-    transporter.verify(function (error, success) {
-      if (error) {
-        console.error(error);
-      } else {
-        console.log("Verified.");
+      //to display all of the unresolved fault information
+      function getFaultInfo() {
+        var text = "";
+        for (let i = 0; i < count; i++) {
+          text +=
+            storeNameList[i].replace("undefined", "") +
+            " on " +
+            dateList[i].replace("undefined", "") +
+            " <br> ";
+          // console.log(Object.values(storeNameList[i])+"@@@@@@@@@@@@@@@")
+        }
+        console.log(text);
+        return text;
       }
-  });
-    /***************************************************************
-     *                          Send Mail                          *
-     * *************************************************************
-     * - Responsible for sending the actual email out
-     * # However is disabled due to how time is filtered
-     * # To fix pls format time in db to proper raw datetime format
-     ***************************************************************/
 
-    //this method will get issue and issue location for the email to display
-    // ${unresolvedList.forEach(getFaultInfo)}
-    transporter.sendMail(
-      {
-        subject: `${count} unresolved faults to be solved`, // Subject line
-        html: `<br>Hello,<br><br><br>There are ${count} faults reported that are still unresolved
+      //send mail of all unresolved cases
+      let transporter = nodemailer.createTransport(
+        {
+          host: "smtp.bch.com.sg",
+          port: 587,
+          secure: false, // true for 465, false for other ports
+          auth: {
+            user: "bchapp", // user
+            pass: "BCHrootAdmin2020!", // password
+          },
+        },
+        {
+          // default message fields
+          // sender info
+          from: "BCHApp <bchapp@bch.com.sg>",
+          // list of receivers
+          to: "bchFaultReports <bchfaultreports@gmail.com>",
+        }
+      );
+      // verify connection configuration
+      transporter.verify(function (error, success) {
+        if (error) {
+          console.error(error);
+        } else {
+          console.log("Verified.");
+        }
+      });
+      /***************************************************************
+       *                          Send Mail                          *
+       * *************************************************************
+       * - Responsible for sending the actual email out
+       * # However is disabled due to how time is filtered
+       * # To fix pls format time in db to proper raw datetime format
+       ***************************************************************/
+
+      //this method will get issue and issue location for the email to display
+      // ${unresolvedList.forEach(getFaultInfo)}
+      transporter.sendMail(
+        {
+          subject: `${count} unresolved faults to be solved`, // Subject line
+          html: `<br>Hello,<br><br><br>There are ${count} faults reported that are still unresolved
         Faults are <br>
         ${getFaultInfo()}
         .<br><br><br></br><br>Cheers!</br><br>Friendly email robot</br>
         `, // html body
-      },
-      function (error, info) {
-        if (error) {
-          console.log(
-            "error is " + error + " email string is > "
-          );
-        } else {
-          console.log("Email sent: " + info.response);
+        },
+        function (error, info) {
+          if (error) {
+            console.log("error is " + error + " email string is > ");
+          } else {
+            console.log("Email sent: " + info.response);
+          }
         }
+      ); //end of send mail
 
-      })//end of send mail
-
-  // console.log("cron executed")
-  // console.log(unresolvedList)
-  // console.log(count + "@@@@@@@@@@@@@@@@@@@@@@@@@")
-    }, {
-  scheduled: true,
-  timezone: 'Asia/Singapore'
-  });
+      // console.log("cron executed")
+      // console.log(unresolvedList)
+      // console.log(count + "@@@@@@@@@@@@@@@@@@@@@@@@@")
+    },
+    {
+      scheduled: true,
+      timezone: "Asia/Singapore",
+    }
+  );
 }); // end of cron function
 
 // Retrieve new posts as they are added to the database
@@ -145,7 +150,6 @@ admin
         });
     }
     console.log(imgURL);
-
 
     function getIssueAndLocAlpha() {
       //ok im gonna try to store the objects in an array then extract/filter them into a array?
@@ -198,7 +202,6 @@ admin
         console.log("Verified.");
       }
     });
-
 
     /***************************************************************
      *                          Send Mail                          *
