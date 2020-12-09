@@ -451,12 +451,79 @@ router.delete("/api/v1/category/:categoryUUID", (req, res) => {
  * **********************************************************
  * GET (Retrieve image via query)
  ************************************************************/
-router.get("/api/v1/image", (req, res) => {
-  if (req.query.location == null) {
-    res.status(400).send(`Location query is null or empty!`);
+
+router.get("/api/v1/image/test/boo",(req, res) => {
+  let doo = Object.values(req.body) // ['string,string']
+  let test = doo[0].split(',') //['string','string']
+  let objOfUrl=[];
+  let control = false;
+     try{
+      let i = 0;
+      //this method below will get url and token for each image and map into an array ['url1+token','url2+token']
+      test.map((item)=>{
+        bucket
+        .file(item) 
+        .getMetadata()
+        .then((results) => {
+          objOfUrl[i] = 
+            `https://firebasestorage.googleapis.com/v0/b/${
+              bucket.name
+            }/o/${encodeURIComponent(item)}?alt=media&token=${
+              results[0].metadata.firebaseStorageDownloadTokens
+            }`
+            console.log(objOfUrl[i])
+            i++ // i ++ for objOfUrl
+            console.log("i is :"+ i)
+            console.log("validate is : "+validate)
+        })
+        .catch((err) => {
+          console.error(err);
+          res.status(500).send(`Some error has occured. Error: ${err}`);
+        });
+      })
+      control = true
+      console.log("SENDING BELOW")
+      console.log(objOfUrl)
+      return(objOfUrl)
+    }catch(e){console.log("err in v1 get image func e is : "+e); res.status(500).send(":P error, liddat lor")}
+  while(control == false){console.log("awaiting the response from firebase")}
+})
+
+router.get("/api/v1/image/test", (req, res) => {
+  if (req.body.location="") {
+    res.status(204).send(`no Image stored`);
   } else {
+    let temp = req.body.location.split(',')
+    let objOfUrl;
+    for(let i=0; i < temp; i++){
+        bucket
+      .file(temp[i]) 
+      .getMetadata()
+      .then((results) => {
+        objOfUrl[i] = 
+          `https://firebasestorage.googleapis.com/v0/b/${
+            bucket.name
+          }/o/${encodeURIComponent(temp[i])}?alt=media&token=${
+            results[0].metadata.firebaseStorageDownloadTokens
+          });`
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500).send(`Some error has occured. Error: ${err}`);
+      });
+     
+    }//end of for
+    res.status(200).send(objOfUrl)
+  }
+})
+
+router.get("/api/v1/image", (req, res) => {
+  if (!req.query.location) {
+    res.status(204).send(`no Image stored`);
+  } else {
+    
     bucket
-      .file(req.query.location)
+      .file(req.query.location) 
       .getMetadata()
       .then((results) => {
         res.send(
@@ -471,7 +538,8 @@ router.get("/api/v1/image", (req, res) => {
         console.error(err);
         res.status(500).send(`Some error has occured. Error: ${err}`);
       });
-  }
+
+  }//end of else
 });
 
 /************************************************************
