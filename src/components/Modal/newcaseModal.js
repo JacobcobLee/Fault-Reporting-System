@@ -20,23 +20,19 @@ export default function NewcaseModal(props){
   useEffect(()=>{
     let temp = [];
     axios
-    .get("http://localhost:9998/api/v1/faultunresolved")
+    .get("https://bchfrserver.herokuapp.com/api/v1/faultunresolved")
     .then((response) => {
-      
       temp = Object.values(response.data)
-      
-      console.log(temp)
-      
       setNewCases(temp)
       setFilterArray(temp.sort((a, b) => a - b).reverse())
     }).catch((error)=>{
           console.log("error in newCase modal use effect 1, error is:  "+error);
-        })//end of try catch
+        })
   }, [])
   
   useEffect(()=>{
     axios
-    .get("http://localhost:9998/api/v1/allstorename")
+    .get("https://bchfrserver.herokuapp.com/api/v1/allstorename")
     .then((response) => {
       response.data.forEach(storeName => {
         var object = {value: storeName, label: storeName}

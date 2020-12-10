@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Fragment} from 'react';
 import {useState} from 'react';
 import Select from 'react-select';
@@ -12,56 +12,52 @@ import Table from "components/Table/Table.js";
 import axios from 'axios';
 
 
-const pendingCases = [];
-const array =[];
-function getPendingCases(){
-  axios
-  .get("http://localhost:9998/api/v1/faultp")
-  .then((response) => {
-    try{
-    pendingCases.push(response.data)
-    array.push(Object.values(pendingCases[0]))
-    array[0].sort((a, b) => a - b).reverse()
-    //console.log(array[0]);
-    }
-    catch(error){
-      console.log(error);
-    }
-})
-}
-getPendingCases();
-
-const storeOptions = [];
-function getStoreOptions(){
-  axios
-  .get("http://localhost:9998/api/v1/allstorename")
-  .then((response) => {
-    response.data.forEach(storeName => {
-      var object = {value: storeName, label: storeName}
-      storeOptions.push(object)
-  });
- //console.log(storeOptions);
-})
-  .catch((err) => {
-    console.log(err);
-  });
-}
-getStoreOptions();
-
 
 export default function PendingcaseModal(props){
+  const [pendingCases, setpendingCases] = useState([])
+  const [storeOptions, setStoreOptions] = useState([]);
+  const [filterArray, setFilterArray] = useState([]);
   //To filter the table data using dropdown value
-  const [search, setSearch] = useState('')
-  const filterArray = array[0].filter(item=>{
-    return item.storeName.toLowerCase().includes(search.toLowerCase())
-  })
+  useEffect(()=>{
+    let temp = [];
+    axios
+    .get("https://bchfrserver.herokuapp.com/api/v1/faultp")
+    .then((response) => {
+      temp = Object.values(response.data);
+      setpendingCases(temp);
+      setFilterArray(temp.sort((a, b) => a - b).reverse());
+      }).catch((e)=>{console.log("err is in pending case modal, err is : " + e)})
+  },[])
+ 
+  useEffect(()=>{
+    axios
+    .get("https://bchfrserver.herokuapp.com/api/v1/allstorename")
+    .then((response) => {
+      response.data.forEach(storeName => {
+        var object = {value: storeName, label: storeName}
+        setStoreOptions(object)
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  },[])
+
+  //To filter the table data using dropdown value
+  function filterSearch(e){
+    setFilterArray(
+      pendingCases.filter(item=>{
+        return item.storeName.toLowerCase().includes(e.toLowerCase())
+      })
+    )
+  }
   return (
     <Modal
-      {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-      backdrop="static"
+    {...props}
+    size="lg"
+    aria-labelledby="contained-modal-title-vcenter"
+    centered
+    backdrop="static"
       keyboard={false}
     >
       <ModalHeader closeButton >
@@ -77,8 +73,9 @@ export default function PendingcaseModal(props){
           classNamePrefix="select"
           name="color"
           options={storeOptions}
-          onChange={ e => setSearch(e.value) }
+          onChange={ e => filterSearch(e.target.value) }
         />
+        <Button color="success" onClick={e => filterSearch(e.target.value = "")}>Reset Filter</Button>
       </Fragment>
       <Table
               tableHeaderColor="primary"
@@ -91,7 +88,6 @@ export default function PendingcaseModal(props){
             /> 
       </ModalBody>
       <ModalFooter>
-        <Button color="success" onClick={e => setSearch(e.value = "")}>Reset Filter</Button>
         <Button color="danger" onClick={props.onHide}>Close</Button>
       </ModalFooter>
     </Modal>

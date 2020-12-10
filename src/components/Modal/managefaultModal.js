@@ -15,12 +15,10 @@ export default function ManagefaultModal(props){
 
   useEffect(()=>{
     axios
-    .get("http://localhost:9998/api/v1/category")
+    .get("https://bchfrserver.herokuapp.com/api/v1/category")
     .then((response) => {
       setFault(response.data)
       setFilteredArray(response.data)
-      // console.log(fault + "this is fault")
-      // console.log(response.data );
   })
   }, [])
 
@@ -35,7 +33,7 @@ export default function ManagefaultModal(props){
     var answer = window.confirm("Are you sure you want to delete?");
     if(answer){
       axios
-      .delete("http://localhost:9998/api/v1/category/" + faultid)
+      .delete("https://bchfrserver.herokuapp.com/api/v1/category/" + faultid)
       window.location.href = "/admin/functions"
     }
     else{

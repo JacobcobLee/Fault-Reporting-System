@@ -26,7 +26,7 @@ export default function ManageaccountModal(props) {
 
   useEffect(()=>{
     axios
-      .get("http://localhost:9998/api/v1/allusers")
+      .get("https://bchfrserver.herokuapp.com/api/v1/allusers")
       .then((response) => {
         setUsers(response.data)
         setFilteredArray(response.data)
@@ -37,7 +37,6 @@ export default function ManageaccountModal(props) {
     auth.onAuthStateChanged(function (user) {
       db.ref('users/'+ user.uid).on('value', snapshot => {
         let data = snapshot.val();
-        console.log(data.role);
         setRoleOfUser(data.role);
       })
     })

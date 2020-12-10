@@ -16,14 +16,12 @@ const array = [];
 const temp=[];
 function getSpecificQR(){
   axios
-  .get("http://localhost:9998/api/v1/store/"+lastURLSegment)
+  .get("https://bchfrserver.herokuapp.com/api/v1/store/"+lastURLSegment)
   .then((response) => {
     //console.log(response.data);
       qr.push(response.data)
       array.push(qr[0])
       temp.push(Object.values(array[0]))
-      console.log("below");
-      console.log(temp);
   })
 }
 getSpecificQR();
@@ -34,7 +32,7 @@ export default function Editqrcode(){
     function putSpecificQR(){
         if(edit!==""){
             axios
-            .put("http://localhost:9998/api/v1/store/"+lastURLSegment,{"qrstring": edit.toString() })
+            .put("https://bchfrserver.herokuapp.com/api/v1/store/"+lastURLSegment,{"qrstring": edit.toString() })
             window.alert('Successfully edited qr!')
             window.location.href = "/admin/functions"
         }

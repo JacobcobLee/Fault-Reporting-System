@@ -39,7 +39,6 @@ import Editstore from "layouts/Editstore.js";
 import AddFault from "layouts/AddFault.js";
 import EditFault from "layouts/EditFault.js";
 
-
 import "assets/css/material-dashboard-react.css?v=1.9.0";
 
 const hist = createBrowserHistory();

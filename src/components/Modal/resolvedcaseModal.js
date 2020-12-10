@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Fragment} from 'react';
 import {useState} from 'react';
 import Select from 'react-select';
@@ -11,54 +11,47 @@ import ModalFooter from 'react-bootstrap/ModalFooter';
 import Table from "components/Table/Table.js";
 import axios from 'axios';
 
-
-const resolvedCases = [];
-const array =[];
-function getResolvedCases(){
-  axios
-  .get("http://localhost:9998/api/v1/faultresolved10") //only take last 10 of resolved cases. the rest can view at analytics
-  .then((response) => {
-    try{
-    resolvedCases.push(response.data)
-    array.push(Object.values(resolvedCases[0]))
-    array[0].sort((a, b) => a - b).reverse()
-    //console.log(array[0]);
-    }
-    catch(error){
-      console.log(error);
-    }
-})
-}
-
-
-const storeOptions = [];
-function getStoreOptions(){
-  axios
-  .get("http://localhost:9998/api/v1/allstorename")
-  .then((response) => {
-    response.data.forEach(storeName => {
-      var object = {value: storeName, label: storeName}
-      storeOptions.push(object)
-  });
- //console.log(storeOptions);
-})
-  .catch((err) => {
-    console.log(err);
-  });
-}
-
-
-
 export default function ResolvedcaseModal(props){
-  getResolvedCases();
-  getStoreOptions();
+  const [resolvedCases, setResolvedCases] = useState([])
+  const [storeOptions, setStoreOptions] = useState([])
+  const [filterArray, setFilterArray] = useState([])
+  useEffect(()=>{
+    let temp = [];
+    axios
+    .get("https://bchfrserver.herokuapp.com/api/v1/faultresolved10") //only take last 10 of resolved cases. the rest can view at analytics
+    .then((response) => {
+      temp = Object.values(response.data);
+      setResolvedCases(temp);
+      setFilterArray(temp.sort((a, b) => a - b).reverse());
+    })
+    .catch((error)=>{
+      console.log("err is in resolvedCaseModal err is " + error)
+    })
+  },[])
+  
+  useEffect(()=>{
+    axios
+    .get("https://bchfrserver.herokuapp.com/api/v1/allstorename")
+    .then((response) => {
+      response.data.forEach(storeName => {
+        var object = {value: storeName, label: storeName}
+      setStoreOptions(object)
+    });
+    //console.log(storeOptions);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  },[])
   //To filter the table data using dropdown value
-  const [search, setSearch] = useState('')
-  var filterArray = [];
-  // try{ filterArray = array[0].filter(item=>{
-  //   return item.storeName.toLowerCase().includes(search.toLowerCase())
-  // })}catch(e){console.log("err in resolvedcaseModal err is : " + e)}
 
+  function filterSearch(e){
+    setFilterArray(
+      resolvedCases.filter(item=>{
+        return item.storeName.toLowerCase().includes(e.toLowerCase())
+      })
+    )
+  }
   return (
     <Modal
       {...props}
@@ -81,21 +74,21 @@ export default function ResolvedcaseModal(props){
           classNamePrefix="select"
           name="color"
           options={storeOptions}
-          onChange={ e => setSearch(e.value) }
+          onChange={ e => filterSearch(e.target.value) }
         />
+      <Button color="success" onClick={e => filterSearch(e.target.value = "")}>Reset Filter</Button>
       </Fragment>
       <Table
               tableHeaderColor="primary"
               tableHead={["Reported on", "Fault type", "Store Location", ""]}
-              // tableData={
-              //   filterArray.map((array) => {
-              //     return [array.dateTime,array.problem.category,array.storeName,<Button onClick={event =>  window.location.href='/resolvedcases/view/'+array.uuid} fullWidth color="info">View</Button>]
-              //   })
-              // }
+              tableData={
+                filterArray.map((array) => {
+                  return [array.dateTime,array.problem.category,array.storeName,<Button onClick={event =>  window.location.href='/resolvedcases/view/'+array.uuid} fullWidth color="info">View</Button>]
+                })
+              }
             /> 
       </ModalBody>
       <ModalFooter>
-        <Button color="success" onClick={e => setSearch(e.value = "")}>Reset Filter</Button>
         <Button color="danger" onClick={props.onHide}>Close</Button>
       </ModalFooter>
     </Modal>
