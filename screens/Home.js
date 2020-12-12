@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Dimensions, Text, View, StyleSheet, Button } from 'react-native';
+import { Dimensions, Text, View, StyleSheet, Button, TouchableOpacity } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { db } from '../constants/ApiKeys';
 
@@ -36,7 +36,6 @@ function Home(props) {
   const handleBarCodeScanned = ({ data }) => {
     let valid = false;
     let loopThrough = false;
-    setScanned(true);
     let faults = [];
     db.ref('/store/').on('value', snapshot => {
       let data = snapshot.val();
@@ -53,6 +52,7 @@ function Home(props) {
     });
     if (loopThrough == true) { // if loop through
       if (valid == true) {
+        setScanned(true);
         alert('Welcome to ' + storename + ' outlet');
         navigation.navigate('Outlet', storename);
       } else {
@@ -97,7 +97,13 @@ function Home(props) {
 
       </BarCodeScanner>
 
-      {scanned && <Button title="Scan Again/重新扫描" onPress={() => setScanned(false)} />}
+      {scanned && <TouchableOpacity
+          style={styles.customBtnBG}
+          onPress={() => setScanned(false)} 
+        >
+          <Text style={styles.customBtnText}>Scan Again/重新扫描</Text>
+        </TouchableOpacity>
+      }
     </View>
   );
 }
@@ -107,6 +113,20 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column'
   },
+  customBtnText: {
+    fontSize: 35,
+    fontWeight: '400',
+    color: "#ffffff",
+    justifyContent:'center'
+},
+
+/* Here style the background of your button */
+customBtnBG: {
+backgroundColor: "#cc3300",
+paddingHorizontal: 30,
+paddingVertical: 5,
+borderRadius: 15
+},
   layerTop: {
     flex: 1.5,
     backgroundColor: opacity

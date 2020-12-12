@@ -45,6 +45,12 @@ export default class DisplayPicture extends Component {
                     </View>
                     <Image style={styles.imgBackground} source={require('../images/Arianetech_LED_Glow_Tube.jpg')} />
                 </View>
+                <View>
+                    <View>
+                        <Text style={styles.text}>Double Gang ceiling light/天花版灯（两粒装）</Text>
+                    </View>
+                    <Image style={styles.imgBackground} source={require('../images/Double_Gang_Ceiling_Light.jpg')} />
+                </View>
             </ScrollView>
         )
     }

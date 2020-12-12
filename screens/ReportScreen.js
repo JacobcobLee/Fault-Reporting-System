@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useState} from 'react'
 import { ImageBackground, StyleSheet, View, Text, TextInput, KeyboardAvoidingView, TouchableHighlight, ScrollView, Alert, Image } from 'react-native'
 import DropDownPicker from 'react-native-dropdown-picker';
 import { db } from '../constants/ApiKeys';
@@ -9,12 +9,19 @@ import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import moment from 'moment';
-import { Value } from 'react-native-reanimated';
+import {ImageBrowser} from 'expo-image-picker-multiple'
+
+// import { Value } from 'react-native-reanimated';
 
 let itemsRef = db.ref('/problem');
 
 export default class ReportScreentest extends Component {
+
     state = {
+        hasCameraPermission: null,
+        hasCameraRollPermission: null,
+        photos: [],
+        photosurl: [],
         problem: [],
         problem2: {},
         selectCat: null,
@@ -36,7 +43,7 @@ export default class ReportScreentest extends Component {
         if (Constants.platform.ios) {
             const { status } = await Camera.requestPermissionsAsync();
             if (status !== 'granted') {
-                alert('Sorry, we need camera roll permissions to make this work!');
+                Alert.alert('Sorry, we need camera roll permissions to make this work!');
             }
         }
     }
@@ -49,25 +56,28 @@ export default class ReportScreentest extends Component {
     getFileName(str) {//getting filename for image
         return str.substring(str.lastIndexOf('/') + 1);
     }
-    pickimage = async () => { //picking of image
-        let result = await ImagePicker.launchImageLibraryAsync({
-            mediaTypes: ImagePicker.MediaTypeOptions.All,
-            allowsEditing: true
-        });
+    //function is outdated
+    // pickimage = async () => { 
+    //     let result = await ImagePicker.launchImageLibraryAsync({
+    //         mediaTypes: ImagePicker.MediaTypeOptions.All,
+    //         allowsMultipleSelection: true,
+    //         allowsEditing: true
+    //     });
 
-        // console.log(result);
-        if (!result.cancelled) {
-            var fileName = this.getFileName(result.uri);
-            // console.log("filename: " + fileName);
-            var test = this.uuidv4();
-            test += '/images/' + fileName;
-            this.setState({
-                imageurl: test
-            })
-            this.setState({ image: result.uri });
-        }
-    };
+    //     // console.log(result);
+    //     if (!result.cancelled) {
+    //         let fileName = this.getFileName(result.uri);
+    //         // console.log("filename: " + fileName);
+    //         let test = this.uuidv4();
+    //         test += '/images/' + fileName + ',';
+    //         this.setState({
+    //             imageurl: test
+    //         })
+    //         this.setState({ image: result.uri });
+    //     }
+    // };
     openCamera = async () => { //open camera to take image
+        console.log("inside cmera fucntion")
         let result = await ImagePicker.launchCameraAsync({
             allowsEditing: false
         });
@@ -75,19 +85,20 @@ export default class ReportScreentest extends Component {
         // console.log(result);
         if (!result.cancelled) {
             var fileName = this.getFileName(result.uri);
-            // console.log("filename: " + fileName);
-            var test = this.uuidv4();
-            test += '/images/' + fileName;
+            console.log("filename: " + fileName);
+            var test = ''
+            test += fileName + ",";
             this.setState({
                 imageurl: test
             })
             this.setState({ image: result.uri });
+            console.log("camera is working?" + this.state.image)
         }
     };
-    uploadImage = async (uri, imageName) => { //uploading the image to storage
+    uploadImage = async (uri, name) => { //uploading the image to storage
         const response = await fetch(uri);
         const blob = await response.blob();
-        var ref = st.ref('Fault/').child(this.state.imageurl);
+        var ref = st.ref('Fault/').child(name.toString());
 
         return ref.put(blob);
     }
@@ -108,15 +119,13 @@ export default class ReportScreentest extends Component {
             this.setState({ problem2 });
             // console.log(problem2);
         });
-
-
     };
 
     async componentDidMount() {// getting permission for user to select camera roll
         const { status } = await Permissions.askAsync(Permissions.CAMERA);
         this.setState({ hasCameraPermission: status === "granted" })
-
     }
+
     componentDidMount() {
         try {
             itemsRef.on('value', snapshot => { //ref from database to get all the reports data (category data)
@@ -221,13 +230,14 @@ export default class ReportScreentest extends Component {
         this.radioValidation(radioquestion, item); //Going through radio validation
     }
 
-    submitFault(comments, date, currentDate, description, outlet, name, cat, radioans, checkans, status, imageurl) { //calling this method will submit the fault to database
+    submitFault(email, comments, date, currentDate, description, outlet, name, cat, radioans, checkans, status, imageurl) { //calling this method will submit the fault to database
         if (description == null) {
             description = ''
         }
         const key = db.ref('/reports/').push().getKey(); //Get the key to later then set it at database as uuid (Unique Key)
         db.ref('/reports/' + key).set({
             uuid: key,
+            email: email,
             comments: comments,
             dateTime: date,
             date: currentDate,
@@ -237,7 +247,8 @@ export default class ReportScreentest extends Component {
             staffName: name,
             status: status,
             imageurl: imageurl,
-            lasteditedby: ""
+            lasteditedby: "",
+            // emailTo: this.state.email
         });
     }
     displayRadioAnswer(answer) {//display dropdown for radio answer
@@ -328,6 +339,7 @@ export default class ReportScreentest extends Component {
     }
     // pushFault(outlet, name, cat, radioans,checkans)
     Submit() {// Submit button on press
+        // console.log(this.state.problem2.email);
         //radioquestion:{name:radioquestion},answer:radioanswer
         const outlet = this.state.outlet; // outlet state
         let date = new Date().getDate(); //Current Date
@@ -339,9 +351,7 @@ export default class ReportScreentest extends Component {
         let monthsInName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         let monthName = monthsInName[month - 1];
         let year = new Date().getFullYear(); //Current Year
-        let hours = new Date().getHours(); //Current Hours
-        let min = new Date().getMinutes(); //Current Minutes
-        let sec = new Date().getSeconds(); //Current Seconds
+         const email = this.state.problem2.email;
         const comments = 'none'; //comment must be set to none 
         const description = this.state.others; // others state
         const currentDate = date + '-' + monthName + '-' + year;
@@ -387,28 +397,87 @@ export default class ReportScreentest extends Component {
             validate = false;
         }
         if (validate || this.validateAns() ) {//Trying to submit fault if validation is done
+            //photos =  camera roll or image picker
+            //images = camera 
             try {
-               if (this.state.image == null) {
-                    this.submitFault(comments, datetime, currentDate, description, outlet, name, cat, radio, check, status, "");//Calling submit fault class to submit the fault to database
+                //no image selected
+               if (!this.state.photos && !this.state.imageurl) {
+                    Alert.alert("Please use camera or choose an image!, 请使用相机或选照片！")
                 }
-                else {
-                    this.uploadImage(this.state.image, this.getFileName(this.state.image)) //Calling uploadimage class to submit the image into storage
-                    this.submitFault(comments, datetime, currentDate, description, outlet, name, cat, radio, check, status, 'Fault/' + imageurl);//Calling submit fault class to submit the fault to database
+                //if only camera picture is selected
+                else if(!this.state.photos && this.state.imageurl){
+                    console.log("camera only")
+                    try{
+                        let string="";
+                        //Calling uploadimage class to submit the image into storage
+                        this.uploadImage(this.state.image, this.getFileName(this.state.image)) 
+                        string = ('Fault/' + this.state.imageurl)
+                        //submit into firebase db
+                        setTimeout(function(){
+                            this.submitFault(email, comments, datetime, currentDate, description, outlet, name, cat, radio, check, status, string);//Calling submit fault class to submit the fault to database
+                        }.bind(this), 15000)
+                    }catch(e){
+                        console.log("error in report screen submit photo from camera function inside submit function e : " +e)
+                    }
+                    Alert.alert('Fault Submitted Successfully, please wait 10 seconds for fault to display.`\n`报告成功！请等10秒，故障才出现！'); //Alert to user that fault has been submitted
+                    this.props.navigation.navigate('Outlet'); //Navigate user back to outlet page
                 }
-                Alert.alert('Fault Submitted Successfully!'); //Alert to user that fault has been submitted
-                this.props.navigation.navigate('Outlet'); //Navigate user back to outlet page
-
+                //if only camera roll is selected
+                else if(!this.state.imageurl && this.state.photos){
+                    console.log("camera roll only")
+                    try{
+                        let string="";
+                        //Calling uploadimage class to submit the image into storage
+                        for(let i = 0; i < this.state.photos.length; i ++){
+                            this.uploadImage((this.state.photos[i]).toString(), this.getFileName(this.state.photos[i])) //Calling upload image class to submit the image into storage using a loop to loop through the multiple ones
+                        }
+                        //construct string var to parse into submitfault func
+                        this.state.photosurl.map((item) =>{
+                            string += ('Fault/' + item +",") 
+                        })    
+                        //submit into firebase db
+                        setTimeout(function(){
+                            this.submitFault(email, comments, datetime, currentDate, description, outlet, name, cat, radio, check, status, string);//Calling submit fault class to submit the fault to database
+                        }.bind(this), 15000)
+                    }catch(e){
+                        console.log("1234 consolog in submitting the fault error is:  " + e)
+                    }//end of try catch
+                    Alert.alert('Fault Submitted Successfully, please wait 10 seconds for fault to display.`\n`报告成功！请等10秒，故障才出现！'); //Alert to user that fault has been submitted
+                    this.props.navigation.navigate('Outlet'); //Navigate user back to outlet page 
+                }
+                //if both camera and picture is selected
+                else if(this.state.photos && this.state.imageurl){
+                    console.log("both camera and camera roll")
+                    try{
+                        //let the string be populated with camera url first
+                        let string = ('Fault/' + this.state.imageurl) 
+                        //then the string adds camera roll items as well
+                        this.state.photosurl.map((item) =>{
+                            string += ('Fault/' + item +",") 
+                            // console.log(String)
+                        }) 
+                        //Calling uploadimage class to submit the camera image into storage
+                        this.uploadImage(this.state.image, this.getFileName(this.state.image)) 
+                        //Calling uploadimage class to submit the camera roll image into storage
+                        for(let i = 0; i < this.state.photos.length; i ++){
+                            this.uploadImage((this.state.photos[i]).toString(), this.getFileName(this.state.photos[i])) //Calling upload image class to submit the image into storage using a loop to loop through the multiple ones
+                        }                        
+                        //submit into firebase db for json obj imageurl: "Fault/....,...."
+                        setTimeout(function(){
+                            this.submitFault(email, comments, datetime, currentDate, description, outlet, name, cat, radio, check, status, string);//Calling submit fault class to submit the fault to database
+                        }.bind(this), 15000)
+                    }catch(e){
+                        console.log("error in submitting the fault error is:  " + e)
+                    }//end of try catch
+                    Alert.alert('Fault Submitted Successfully, please wait 10 seconds for fault to display.`\n`报告成功！请等10秒，故障才出现！'); //Alert to user that fault has been submitted
+                    this.props.navigation.navigate('Outlet'); //Navigate user back to outlet page    
+                }
             } catch (error) {
-                Alert.alert(error);//if they didn't succeed it means that image was not selected.
+                Alert.alert("error submitting image, try catch error is: "+error);//if they didn't succeed it means that image was not selected.
             }
         } else {//Alert
             Alert.alert('Please fill in the necessary data')
         }
-        // console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   "+ Object.entries(this.state.problem2.checkbox.name))
-        //const radiotest = {radioquestion:{name:}};
-
-        //pushFault();
-        //this.props.navigation.navigate('Submit');
     }
     displayRadio() {//displaying radio question and calling method to radio answer
         if (this.state.problem2.haveRadio == 'true') { // checking haveRadio true
@@ -472,50 +541,27 @@ export default class ReportScreentest extends Component {
             </TouchableHighlight>
         }
     }
-    displayUploadBtn() {
-        if (this.state.image != null) {
-            return <TouchableHighlight
-                style={styles.imagebutton}
-                underlayColor="white"
-                onPress={() => this.pickimage()}
-            >
-                <Icon name="camera" style={styles.icon}>
-                    <Text style={styles.imagebuttonText}>  Re-Upload Image/重新上传图片</Text>
-                </Icon>
-            </TouchableHighlight>
-        }
-        else {
-            return <TouchableHighlight
-                style={styles.imagebutton}
-                underlayColor="white"
-                onPress={() => this.pickimage()}
-            >
-                <Icon name="camera" style={styles.icon}>
-                    <Text style={styles.imagebuttonText}>  Upload Image/上传图片 (Optional)</Text>
-                </Icon>
-            </TouchableHighlight>
-        }
-    }
+
     displayCameraBtn() {
         if (this.state.image != null) {
             return <TouchableHighlight
-                style={styles.imagebutton}
+                style={styles.submitbutton1}
                 underlayColor="white"
                 onPress={() => this.openCamera()}
             >
                 <Icon name="camera" style={styles.icon}>
-                    <Text style={styles.imagebuttonText}>  Re-Upload Image/重新上传图片</Text>
+                    <Text style={styles.submitbuttonText}>  Re-Upload Image/重新上传图片</Text>
                 </Icon>
             </TouchableHighlight>
         }
         else {
             return <TouchableHighlight
-                style={styles.imagebutton}
+                style={styles.submitbutton1}
                 underlayColor="white"
                 onPress={() => this.openCamera()}
             >
                 <Icon name="camera" style={styles.icon}>
-                    <Text style={styles.imagebuttonText}>  Take Picture/使用相机 (Optional)</Text>
+                    <Text style={styles.submitbuttonText}>  Please Take Picture/请使用相机</Text>
                 </Icon>
             </TouchableHighlight>
         }
@@ -526,8 +572,45 @@ export default class ReportScreentest extends Component {
             image: null
         })
     }
-    render() {
+    //////////////////////////
+    //      image picker
+    /////////////////////////
+    imagesCallback = (callback) => {
+        //so basically when the funtion is called, the state is reset the set to whatever is selected again.
+        //sorry it had to be this way, i've tried cloning to set it but it ends up jsut retaining whatever i put in it 
+        // remove the two lines below and you will see what i mean
+        this.state.photosurl = [];
+        this.state.photos = [];
+
+        callback.then((photosA) => {
+            let photosurl = [...this.state.photosurl]
+            let photos = [...this.state.photos]
+            // console.log(photos)
+            for(let i = 0; i<photosA.length; i++){
+                let string =  this.getFileName(photosA[i].uri);
+                photosurl.push(string);
+                photos.push(photosA[i].uri);
+                console.log(string);
+            }
+            this.setState({photosurl})
+            this.setState({photos})
+        }).catch((e) => console.log(e))
+      };
+      updateHandler = (count, onSubmit) => {
+        // this.props.navigation.setParams({
+        //   headerTitle: "{{count}} selected",
+        //   headerRight: onSubmit,
+        // });
+      };
+      renderSelectedComponent = (number) => (
+        <View style={styles.countBadge}>
+          <Text style={styles.countBadgeText}>{number}</Text>
+        </View>
+      );
+    render() {            
         let { image } = this.state;
+        const emptyStayComponent = <Text style={styles.emptyStay}>Empty =(</Text>;
+        const noCameraPermissionComponent = <Text style={styles.emptyStay}>No access to camera</Text>;
         return (
             <KeyboardAvoidingView style={{ flex: 1 }} behavior='padding'>
                 <ScrollView>
@@ -578,13 +661,13 @@ export default class ReportScreentest extends Component {
                             </KeyboardAvoidingView>
                         </View>
                         <View>
-                            {this.displayUploadBtn()} 
                             {this.displayCameraBtn()}
-                            {this.deletePicBtn()}
-                            {image &&
-                                <Image source={{ uri: image }} style={{ width: 200, height: 200, marginBottom: 10 }} />}
+                            <View >
+                                {this.deletePicBtn()}
+                                {image &&
+                                <Image source={{ uri: image }} style={{ width: 300, height: 200, marginBottom: 10, marginLeft: 20, alignItems: 'center', justifyContent:"space-around" }}/>}
+                            </View>
                         </View>
-
                         <TouchableHighlight
                             style={styles.submitbutton}
                             underlayColor="white"
@@ -592,7 +675,16 @@ export default class ReportScreentest extends Component {
                         >
                             <Text style={styles.submitbuttonText}>Submit/提交</Text>
                         </TouchableHighlight>
+                        
                     </View>
+                    <ImageBrowser
+                            max={3} //Choose the max ammount of images
+                            onChange={this.updateHandler}
+                            callback={this.imagesCallback} 
+                            renderSelectedComponent={this.renderSelectedComponent}
+                            emptyStayComponent={emptyStayComponent}
+                            noCameraPermissionComponent={noCameraPermissionComponent}
+                        />
                 </ScrollView>
             </KeyboardAvoidingView>
         )
@@ -600,11 +692,36 @@ export default class ReportScreentest extends Component {
 
 }
 const styles = StyleSheet.create({
+    emptyStay:{
+        textAlign: 'center',
+      },
+      countBadge: {
+        paddingHorizontal: 8.6,
+        paddingVertical: 5,
+        borderRadius: 50,
+        position: 'absolute',
+        right: 3,
+        bottom: 3,
+        justifyContent: 'center',
+        backgroundColor: '#0580FF'
+      },
+      countBadgeText: {
+        fontWeight: 'bold',
+        alignSelf: 'center',
+        padding: 'auto',
+        color: '#ffffff'
+      },
     main: {
         flex: 1,
         paddingTop: 30,
         paddingRight: 30,
         paddingLeft: 30,
+        flexDirection: 'column',
+        justifyContent: 'center',
+    },
+    main2: {
+        flex: 1,
+        marginLeft: 20,
         flexDirection: 'column',
         justifyContent: 'center',
     },
@@ -716,11 +833,23 @@ const styles = StyleSheet.create({
         borderColor: 'white',
         borderWidth: 1,
         borderRadius: 8,
+        marginTop: 5,
         marginBottom: 25,
+        alignSelf: 'stretch',
+        justifyContent: 'center',
+    },
+    submitbutton1: {
+        height: 40,
+        flexDirection: 'row',
+        backgroundColor: '#0ba6ff',
+        borderColor: 'white',
+        borderWidth: 1,
+        borderRadius: 8,
         marginTop: 10,
         alignSelf: 'stretch',
         justifyContent: 'center',
-    }, submitbutton2: {
+    }, 
+    submitbutton2: {
         height: 30,
         marginTop: 3,
         marginBottom: 5
@@ -742,6 +871,7 @@ const styles = StyleSheet.create({
     deleteImagebutton: {
         height: 40,
         flexDirection: 'row',
+        justifyContent: "center"
     },
     imgBackground: {
         width: '100%',

@@ -21,6 +21,10 @@ export default class AirconPicture extends Component {
                     </View>
                     <Image style={styles.imgBackground} source={require('../images/Ceiling_Cassette.jpg')} />
                     <View>
+                        <Text style={styles.text}>Air Cooler/卓面式冷气机</Text>
+                    </View>
+                    <Image style={styles.imgBackground} source={require('../images/Air_Cooler.jpg')} />
+                    <View>
                         <Text style={styles.text}>Centralized Aircon/中央空调</Text>
                     </View>
                     <Image style={styles.imgBackground} source={require('../images/Centralized_Aircon1.jpg')} />
