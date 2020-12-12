@@ -8,6 +8,7 @@ import Button from "components/CustomButtons/Button.js";
 import axios from 'axios';
 import Select from 'react-select';
 import { useState } from 'react';
+import firebase from "../Firebase";
 
 var pageURL = window.location.href;
 var lastURLSegment = pageURL.substr(pageURL.lastIndexOf('/') + 1);
@@ -17,26 +18,34 @@ export default function Pending() {
     const [displayspecificCases, setdisplayspecificCases] = useState({})
     const [edit, setEdit] = useState("Pending");
     const [comment,setComment] = useState('');
-    const [img, setimg] = useState('');
     const statusOptions = [{ value: "Pending", label: "Pending" }, { value: "Resolved", label: "Resolved" }]
-    let user2 = "sample text";
+    const [images, setImages] = useState([])
+    let user2 = "Please re-login";
     
     useEffect(()=>{
         axios
         .get("https://bchfrserver.herokuapp.com/api/v1/fault/" + lastURLSegment)
-        .then((response) => {
-            setdisplayspecificCases(response.data)
-            setComment(response.data.comments)
-        }).catch((err)=>{console.log("err in pending.js api call err is: " +err)})
-    },[])
-    
-    useEffect(()=>{
-        axios
-        .get("https://bchfrserver.herokuapp.com/api/v1/image?location=" + displayspecificCases.imageurl)
-        .then((response) => {
-            setimg(response.data.toString());
-            })
-    },[])
+        .then(async (response) => {
+            setdisplayspecificCases(response.data);
+            setComment(response.data.comments);
+            const imagesToConstruct = await response.data.imageurl.slice(0,-1).split(",")
+            // console.log(imagesToConstruct)
+            imagesToConstruct.length > 0 && imagesToConstruct.forEach((item, i) => {
+                if (item !== "") {
+                firebase
+                    .storage()
+                    .ref()
+                    .child(item)
+                    .getMetadata()
+                    .then((results) => {
+                        setImages((prevImages) => [...prevImages, `https://firebasestorage.googleapis.com/v0/b/${results.bucket}/o/${encodeURIComponent(item)}?alt=media`])
+                    }).catch((err) => {
+                        console.log(err);
+                    });
+                }
+            })            
+        })
+    }, [])
 
     function putSpecificCases() {
         axios
@@ -86,7 +95,7 @@ export default function Pending() {
         }
     }
     //if data has one or more checkbox 
-    function displayData2(dis) {
+    function displayData2() {
         if (displayspecificCases.problem.checkbox.length > 1) {
             return(displayspecificCases.problem.checkbox.map(item => {
                 return (
@@ -128,18 +137,19 @@ export default function Pending() {
             return null;
         }
     }
+    //function to retrieve image from firestore
     function Loading(){
-        return(
+        return(<div>
             <GridContainer justify="space-around">
                 <GridItem xs={12} sm={12} md={9} lg={5}>
                     <Card>
                         <CardHeader>
-                            <h4>Loading! Please wait!</h4>
+                            <h1><b>Loading, please wait!</b></h1>
                         </CardHeader>
                     </Card>
-                </GridItem>
+                 </GridItem>
             </GridContainer>
-            )
+        </div>)
     }
     //function to retrieve image from firestore
     function  render(){
@@ -198,7 +208,11 @@ export default function Pending() {
                         }
                         <br></br>
                         <h4>Fault Image:</h4>
-                        <img width="360px" height="270px" src={img} alt="staff did not upload/take"/>
+                        <div class="row">                        
+                        {images.map((item, i)=> {
+                            return <div class="column"> <div style={customDivLol}><img width="360px" height="270px" src={item} alt="no photo"/></div> </div>}
+                        )}
+                        </div>
                         <br></br>
                         <br></br>
                         <h4>Description:</h4>
@@ -216,6 +230,8 @@ export default function Pending() {
                                 />
                         <br></br>
                         <h4>Comments:</h4>
+
+                        {/* working here */}
                         <textarea type="text" defaultValue={comment} onChange={e=>setComment(e.target.value)} className="form-control" />
                         <br></br>
                         <h4>Last Edited By:</h4>
@@ -235,5 +251,8 @@ export default function Pending() {
             </div>
         );
     }//en of return
+    const customDivLol ={
+        margin: '10px'
+    }
     return (displayspecificCases ? render() : Loading())
 }

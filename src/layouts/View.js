@@ -8,7 +8,6 @@ import Button from "components/CustomButtons/Button.js";
 import axios from 'axios';
 import Select from 'react-select';
 import { useState } from 'react';
-
 import firebase from "../Firebase";
 
 var pageURL = window.location.href;
@@ -18,7 +17,6 @@ export default function View() {
     const [displayspecificCases, setDisplay] = useState({})
     const statusOptions = [{ value: "Resolved", label: "Resolved" }]
     const [images, setImages] = useState([])
-    
     
     useEffect(()=>{
         axios
@@ -43,106 +41,7 @@ export default function View() {
             })            
         })
     }, [])
-
-
-
-    // useEffect(()=>{
-    //     // displayspecificCases.imgURL = "fault/asd.jpg"
-    //     let foo = displayspecificCases.imageurl // "fault/asdfsdf.jpg,...."
-    //     if (foo !== undefined){
-    //         console.log(foo)
-    //         let bar = foo.split(','); // bar is now an array ['string','string'] 'fault/hjke.jpg'
-    //         let i = 0;
-
-    //         let urlTags = []
-
-    //         bar.map((item)=>{
-    //             console.log(item)
-    //             if(item !== ""){
-    //                 firebase.storage().ref()
-    //                 .child(item) 
-    //                 .getMetadata()
-    //                 .then((results) => {
-    //                     objOfUrl[i] = `https://firebasestorage.googleapis.com/v0/b/${results.bucket}/o/${encodeURIComponent(item)}?alt=media`
-    //                     i++ // i ++ for objOfUrl
-    //                     console.log("i is :" + i)
-    //                     try{setObjUrl(objOfUrl)}catch(e){console.log("err is in view useEffect try catch e : " + e)}
-    //                 })
-    //                 .catch((err) => {
-    //                 console.log(err);
-    //                 });
-
-    //                 try{setUrlTags(urlTags)}catch(e){console.log("err is in view useEffect try catch e : " + e)}
-    //                 console.log(objOfUrl);
-    //             }
-    //         })
-    //     }
-
-    // },[displayspecificCases])
-
-    // useEffect(() => {
-    //         if (displayspecificCases.imageurl) {
-    //         displayspecificCases.imageurl.split(",").forEach((item, i) => {
-    //             console.log(item);
-    //             if (item !== "") {
-    //             firebase
-    //                 .storage()
-    //                 .ref()
-    //                 .child(item)
-    //                 .getMetadata()
-    //                 .then((results) => {
-    //                     objOfUrl[i] = `https://firebasestorage.googleapis.com/v0/b/${results.bucket}/o/${encodeURIComponent(item)}?alt=media`
-    //                     i++ // i ++ for objOfUrl
-    //                     console.log("i is :" + i)
-    //                     try{setObjUrl(objOfUrl)}catch(e){console.log("err is in view useEffect try catch e : " + e)}
-    //                 })
-    //                 .catch((err) => {
-    //                 console.log(err);
-    //                 });
-    //             }
-    //         }     );
-    //         }
-    //     }, [displayspecificCases]);
-
-    // useEffect(() => {
-    //     if (displayspecificCases.imageurl) {
-    //       displayspecificCases.imageurl.split(",").forEach((item, i) => {
-    //         console.log(item);
-    //         if (item !== "") {
-    //           firebase
-    //             .storage()
-    //             .ref()
-    //             .child(item)
-    //             .getMetadata()
-    //             .then((results) => {
-    //               // Construct complete image URL
-    //               const url = `https://firebasestorage.googleapis.com/v0/b/${
-    //                 results.bucket
-    //               }/o/${encodeURIComponent(item)}?alt=media`;
-      
-    //               console.log("i is :" + i);
-    //               try {
-    //                 // Update state array at index i
-    //                 setObjUrl((objOfUrl) =>
-    //                   objOfUrl.map((objUrl, index) => (index === i ? url : objUrl))
-    //                 );
-    //               } catch (e) {
-    //                 console.log("err is in view useEffect try catch e : " + e);
-    //               }
-    //             })
-    //             .catch((err) => {
-    //               console.log(err);
-    //             });
-    //         }
-    //       });
-    //     }
-    //   }, [displayspecificCases]);
-      
-      // Log state when it updates
-    //   useEffect(() => {
-    //     console.log(objOfUrl); //console logs [0: "url.....", 1: "url....."]
-    //   }, [objOfUrl]);
-    
+   
     //loop for all answers and if there's 2 or more, put comma in between
     function displayAnswer(dis) {
         let test = '';
