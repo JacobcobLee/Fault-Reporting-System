@@ -43,7 +43,7 @@ export default function Addstore(){
                         <input className="form-control" type="text" placeholder="Enter Store Name, example..Hillion Mall" onChange={e=>setStoreName(e.target.value)}/>
                         <br></br>
                         <h4><b>Store Code :</b></h4>
-                        <input className="form-control" type="text" placeholder="Enter Store Code, last 4 digit of store no **** 5753" onChange={e=>setStoreCode(e.target.value)}/>
+                        <input className="form-control" type="text" placeholder="Enter Store Code, e.g..BP, PA, 189" onChange={e=>setStoreCode(e.target.value)}/>
                         <br></br>
                         <h4><b>Store Address :</b></h4>
                         <input className="form-control" type="text" placeholder="Enter Store Address" onChange={e=>setStoreAddress(e.target.value)}/>

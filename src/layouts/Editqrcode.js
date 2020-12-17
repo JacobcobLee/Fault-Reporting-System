@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import Card from "components/Card/Card.js";
@@ -10,25 +10,19 @@ import {useState} from 'react';
 
 var pageURL = window.location.href;
 var lastURLSegment = pageURL.substr(pageURL.lastIndexOf('/') + 1);
-
-const qr = [];
-const array = [];
-const temp=[];
-function getSpecificQR(){
-  axios
-  .get("https://bchfrserver.herokuapp.com/api/v1/store/"+lastURLSegment)
-  .then((response) => {
-    //console.log(response.data);
-      qr.push(response.data)
-      array.push(qr[0])
-      temp.push(Object.values(array[0]))
-  })
-}
-getSpecificQR();
 export default function Editqrcode(){
-    const [edit,setEdit] = useState(temp[0].map(item=>{
-        return item.qrstring
-    }));
+    const [edit,setEdit] = useState("")
+    const [temp,setTemp] = useState({});
+    
+    useEffect(()=>{
+        axios
+        .get("https://bchfrserver.herokuapp.com/api/v1/store/"+lastURLSegment)
+        .then((response) => {
+            setTemp(response.data[lastURLSegment])
+            setEdit(response.data[lastURLSegment].qrstring)
+        })
+    },[])
+
     function putSpecificQR(){
         if(edit!==""){
             axios
@@ -50,9 +44,7 @@ export default function Editqrcode(){
                             <h4><b>Store Name :</b></h4>
                         </CardHeader>
                         <CardBody>
-                        {temp[0].map(item=>{
-                            return item.name
-                        })}
+                        {temp.name}
                         </CardBody>
                     </Card>
                    
@@ -65,9 +57,7 @@ export default function Editqrcode(){
                             <h4><b>Store Address :</b></h4>
                         </CardHeader>
                         <CardBody>
-                        {temp[0].map(item=>{
-                            return item.address
-                        })}
+                        {temp.address}
                         </CardBody>
                     </Card>
                 </GridItem>
@@ -78,9 +68,7 @@ export default function Editqrcode(){
                             <h4><b>Store Code :</b></h4>
                         </CardHeader>
                         <CardBody>
-                       {temp[0].map(item=>{
-                            return item.code
-                        })}
+                       {temp.code}
                         </CardBody>
                     </Card>
                 </GridItem>                

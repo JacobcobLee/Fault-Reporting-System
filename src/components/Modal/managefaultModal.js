@@ -30,11 +30,12 @@ export default function ManagefaultModal(props){
   };
 
   function deleteFault(faultid){
+    console.log("inside delete" + faultid)
     var answer = window.confirm("Are you sure you want to delete?");
     if(answer){
       axios
       .delete("https://bchfrserver.herokuapp.com/api/v1/category/" + faultid)
-      window.location.href = "/admin/functions"
+      .then(()=>{window.location.href = "/admin/functions"})
     }
     else{
       window.close();

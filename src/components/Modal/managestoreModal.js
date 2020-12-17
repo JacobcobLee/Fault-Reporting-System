@@ -33,7 +33,7 @@ export default function ManagestoreModal(props){
       axios
      .delete("https://bchfrserver.herokuapp.com/api/v1/store/" + storeCode)
      .then(function(){ window.location.reload() })
-     .catch((err)=>{console.log("inside delete store function wtf si the error : " + err)})
+     .catch((err)=>{console.log("inside delete store function the error : " + err)})
      
     }
     else{

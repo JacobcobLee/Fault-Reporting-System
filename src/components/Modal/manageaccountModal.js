@@ -61,7 +61,7 @@ export default function ManageaccountModal(props) {
           })
         })
         result.then(function () {
-          window.alert("successfully added store!")
+          window.alert("successfully added account!")
           window.location.href = "admin/funtions"
         })
         result.catch(function (error) {

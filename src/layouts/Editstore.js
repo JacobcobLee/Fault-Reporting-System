@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import Card from "components/Card/Card.js";
@@ -10,54 +10,44 @@ import {useState} from 'react';
 var pageURL = window.location.href;
 var lastURLSegment = pageURL.substr(pageURL.lastIndexOf('/') + 1);
 
-const store = [];
-const array = [];
-const temp=[];
-const temp2=[];
-function getSpecificStore(){
-  axios
-  .get("https://bchfrserver.herokuapp.com/api/v1/store/"+lastURLSegment)
-  .then((response) => {
-    //console.log(response.data);
-      store.push(response.data)
-      array.push(store[0])
-      temp.push(Object.values(array[0]))
-      temp2.push(Object.keys(array[0]))
-    //   console.log("below");
-    //   console.log(temp);
-  })
-}
-
-    getSpecificStore();
 export default function Editstore(){
-    getSpecificStore();
-    const [storename,setStoreName] = useState(temp[0].map(item=>{
-        return item.name
-    }));
-    const [storecode,setStoreCode] = useState(temp[0].map(item=>{
-        return item.code
-    }));
-    const [storeaddress,setStoreAddress] = useState(temp[0].map(item=>{
-        return item.address
-    }));
+    const [storename,setStoreName] = useState("");
+    const [storecode,setStoreCode] = useState("");
+    const [storeaddress,setStoreAddress] = useState("");
+
+    useEffect(()=>{
+        axios
+      .get("https://bchfrserver.herokuapp.com/api/v1/store/"+lastURLSegment)
+      .then((response) => {
+        setStoreName(response.data[lastURLSegment].name)
+        setStoreCode(response.data[lastURLSegment].code)
+        setStoreAddress(response.data[lastURLSegment].address)
+      })
+    },[])
+
     function putSpecificStore(){
         if((storename !== '')&&(storecode !== '')&&(storeaddress !== ''))
         {
+            try{
             axios
             .put("https://bchfrserver.herokuapp.com/api/v1/store/"+lastURLSegment,{
-                "name": storename.toString(), 
-                "code": storecode.toString(),
-                "address": storeaddress.toString()
+                "name": storename, 
+                "code": storecode,
+                "address": storeaddress
+            }).then((res)=> {
+                if(res){
+                window.alert('Successfully edited store!')
+                window.location.href = "/admin/functions"
+                }
             })
-            window.alert('Successfully edited store!')
-            window.location.href = "/admin/functions"
+            }catch(e){
+                console.error("error updating store info e is " + e)
+            }
         }
         else{
             window.alert('Please input neccessary data!')
-        }
-        //console.log(edit)
-       
-      }
+        }       
+    }
     return(
         <div>
             <h3 style={{textAlign: 'left', marginLeft:'2.5em' }}><b>Edit Store</b></h3>
@@ -66,7 +56,7 @@ export default function Editstore(){
                     <Card>
                         <CardBody>
                         <h4><b>Store Name :</b></h4>
-                        <input className="form-control" type="text" placeholder="Edit Store Name, example..Hillion Mall" defaultValue={storename} onChange={e=>setStoreName(e.target.value)}/> 
+                        <input className="form-control" type="text" placeholder="Edit Store Name, example..Hillion Mall" defaultValue={storename} onChange={e=>{setStoreName(e.target.value)}}/> 
                         <br></br>
                         <h4><b>Store Code :</b></h4>
                         <input className="form-control" type="text" placeholder="Edit Store Code, last 4 digit of store no" defaultValue={storecode} onChange={e=>setStoreCode(e.target.value)}/>

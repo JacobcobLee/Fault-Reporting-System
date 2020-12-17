@@ -17,7 +17,7 @@ import ManageQrModal from "components/Modal/manageqrModal.js";
 import ManageStoreModal from "components/Modal/managestoreModal.js";
 import ManageFaultModal from "components/Modal/managefaultModal.js";
 import ManageAccountModal from "components/Modal/manageaccountModal.js";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 
@@ -32,68 +32,28 @@ export default function Functions() {
   const [modalShow2, setModalShow2] = React.useState(false);
   const [ modalShow3, setModalShow3] = React.useState(false);
   const [modalShow4, setModalShow4] = React.useState(false);
-
-  // function test2go(){
-  //     console.log("@@@@@@@@@@@@@")
-  //     db.ref('users/').on('value', snapshot => {
-  //       let data = snapshot.val();
-  //       data.map((element) => {
-  //         if(element === localStorage.email){
-  //           setRole(element.role)
-  //           return console.log(element.email)
-  //         }else{
-  //           setRole("Member")
-  //           return console.log("member")
-  //         }
-  //       });
-  //     })
-  // }
-
-  // new ManageFaultModal().getFault();
-  // new ManageAccountModal().getUsers();
-  // new ManageQrModal().getQR();
-  // new ManageStoreModal().getStores();
-
-  function getRole(){
-    axios
-  .get("https://bchfrserver.herokuapp.com/api/v1/role")
-  .then((response) => {
-    var obj = response.data;
-    var arr = [];
-    var userEmail = localStorage.getItem('user')
-    for (var i in obj){
-      arr.push(obj[i])
-    }
-    // console.log(arr[1].role);
-    // console.log(userEmail)
-     for( var v = 0; v < arr.length; v++ ){
-      //  console.log(arr.length)
-        if (arr[v].email === userEmail){
-          // console.log("role is " + arr[v].role + " email is " +arr[v].email)
-          setRole(arr[v].role)
-          // console.log("roleSet!")
-          break
+  
+  useEffect(()=>{
+      axios
+    .get("https://bchfrserver.herokuapp.com/api/v1/role")
+    .then((response) => {
+      var obj = response.data;
+      var arr = [];
+      var userEmail = localStorage.getItem('user')
+      for (var i in obj){
+        arr.push(obj[i])
+      }
+      for( var v = 0; v < arr.length; v++ ){
+          if (arr[v].email === userEmail){
+            setRole(arr[v].role)
+            break
+          }
         }
-     }
-     
+    }).catch((err) => {
+      console.log(err + "error at Functions.js useEffect")
     })
-  .catch((err) => {
-    console.log(err + "error at Functions.js at testigo line 55")
-  })
-  }
 
-  // function test() {
-  //   auth.onAuthStateChanged(function (user) {
-  //     console.log(user.uid+"@@@@@@@@@@@@@@@@@@@")
-  //     db.ref('users/' + user.uid).once('value').then( snapshot => {
-  //       let data = snapshot.val();
-  //       console.log(data.role);
-  //       console.log(data.email);
-  //       setRole(data.role);
-  //     })
-  //   })
-  // }
-  getRole()
+})
   function displayAccountModal() {
     if (role === "Admin") {
       return (

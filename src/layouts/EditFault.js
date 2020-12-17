@@ -23,21 +23,10 @@ function getSpecificFault() {
     axios
         .get("https://bchfrserver.herokuapp.com/api/v1/category/" + lastURLSegment)
         .then((response) => {
-            console.log('response')
             fault.push(response.data)
             array.push(fault[0])
             temp.push(Object.values(response.data))
-            //temp2.push(Object.keys(array[0]))
-            console.log('Temp');
-            console.log(temp[0][0]);
         })
-
-    // axios
-    //     .get("https://bchfrserver.herokuapp.com/api/v1/category/" + lastURLSegment)
-    //     .then((response) => {
-    //         getEmail = response[0][0].email
-    //         console.log("@@@@@@@@@@@@@@@@@@@@@@"+getEmail);
-    //     });
 }
 
 
@@ -79,7 +68,6 @@ export default function EditFault() {
     let inputval = {};
     if (temp[0][0].input != null) {
         inputval = Object.values(temp[0][0].input);
-        // console.log('hi');
     } else {
         inputval = '';
     }
@@ -161,10 +149,11 @@ export default function EditFault() {
             //validate the data, make sure theres stuff inside
             if ((name !== '') && ((submitRadio !== null) || (submitCheckbox !== null))) {
                 const total = { name: name, email: email, haveRadio: havRadio, haveInput: havInput, haveCheck: havCheck, input: submitInput, radio: submitRadio, checkbox: submitCheckbox};
-                console.log(total);
-                axios.put("https://bchfrserver.herokuapp.com/api/v1/category/" + lastURLSegment, total)//submit the array object
-                window.alert('Saved!')
-                window.location.href = "/admin/functions"
+                axios.put("https://bchfrserver.herokuapp.com/api/v1/category/" + lastURLSegment, total)
+                .then(()=>{
+                    window.alert('Saved!')
+                    window.location.href = "/admin/functions"
+                }).catch((e)=>{console.log("error with updating fault in edit fault error :" + e)})
             } else {
                 window.alert('Please enter nessasary data!\nRequired minimum value: Name & Radio/Checkbox');
             }
@@ -342,7 +331,6 @@ export default function EditFault() {
                             <input className="form-control" type="text" placeholder="Edit Fault Name, example: Electric Griller" defaultValue={faultname} onChange={e => setFaultName(e.target.value)} />
                             <br></br>
                             <h4><b>Have Dropdown :</b></h4>
-                            {/* {console.log(temp[0][0].haveRadio)} */}
                             <Select
                                 defaultValue={returnDefValue(displayhaveradio)}
                                 className="basic-single"

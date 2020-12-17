@@ -82,9 +82,17 @@ export default function AddFault(){
         }
         return true;
     }
+    function validateEmail(mail){
+        if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail))
+        {
+        return (true)
+        }
+        alert("You have entered an invalid email address!")
+        return (false)
+    }
     function submit(){ // submit functions to allow users to submit the data into the server for post/put
         const name = faultname;
-        const email = emailCatch
+        const email = emailCatch;
         const havRadio = radio;
         const havInput = input;
         const havCheck = checkbox;
@@ -93,15 +101,18 @@ export default function AddFault(){
         const submitCheckbox = validateCheckbox();
         let validatedata = validateData(havCheck,submitCheckbox,havRadio,submitRadio,havInput,submitInput);
         if(validatedata === true){
-            if((name !== '') && ((submitRadio !== null) || (submitCheckbox !== null))){
+            if((name !== '') && (validateEmail(email)) && ((submitRadio !== null) || (submitCheckbox !== null))){
                 const total = {name: name, email: email, haveRadio: havRadio, haveInput: havInput, haveCheck: havCheck, input: submitInput, radio: submitRadio, checkbox: submitCheckbox};
                 axios
                 .post("https://bchfrserver.herokuapp.com/api/v1/category",total
-               )
-               window.alert('Saved!')
-               window.location.href = "/admin/functions"
+               ).then((res)=>{
+                   if(res){
+                    window.alert('Saved!')
+                    window.location.href = "/admin/functions"
+                }
+                }).catch((e)=>{console.log("err in add fault e is: " + e)})
             }else{
-                window.alert('Please enter nessasary data!\nRequired minimum value: Name & 1 Radio/Checkbox' );
+                window.alert('Please enter nessasary data!\nRequired: Proper Email, Name & 1 Radio/Checkbox question' );
             }
         }else{
 
