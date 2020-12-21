@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {useState} from 'react';
+import { useState } from 'react';
 import Button from "components/CustomButtons/Button.js";
 import Modal from 'react-bootstrap/Modal';
 import ModalHeader from 'react-bootstrap/ModalHeader';
@@ -13,41 +13,41 @@ import { array } from 'prop-types';
 
 
 
-export default function ManagestoreModal(props){
+export default function ManagestoreModal(props) {
   const [stores, setStores] = useState([]);
   const [filteredArray, setFilteredArray] = useState([])
 
-  useEffect(()=>{
+  useEffect(() => {
     axios
-    .get("https://bchfrserver.herokuapp.com/api/v1/allstore")
-    .then((response) => {
-      setStores(response.data)
-      setFilteredArray(response.data)
-    })
-  },[])
+      .get("https://bchfrserver.herokuapp.com/api/v1/allstore")
+      .then((response) => {
+        setStores(response.data)
+        setFilteredArray(response.data)
+      })
+  }, [])
 
-  function deleteStore(storeCode){
+  function deleteStore(storeCode) {
     let answer = window.confirm("Are you sure you want to delete?");
 
-    if(answer){
+    if (answer) {
       axios
-     .delete("https://bchfrserver.herokuapp.com/api/v1/store/" + storeCode)
-     .then(function(){ window.location.reload() })
-     .catch((err)=>{console.log("inside delete store function the error : " + err)})
-     
+        .delete("https://bchfrserver.herokuapp.com/api/v1/store/" + storeCode)
+        .then(function () { window.location.reload() })
+        .catch((err) => { console.log("inside delete store function the error : " + err) })
+
     }
-    else{
-        window.close();
-        console.log("failed")
-    } 
+    else {
+      window.close();
+      console.log("failed")
+    }
   }
 
-  function searchFunction(e){
-    setFilteredArray(stores.filter(function(item){
-      return Object.values(item).some( val => String(val).toLowerCase().includes(e.toLowerCase()) )
+  function searchFunction(e) {
+    setFilteredArray(stores.filter(function (item) {
+      return Object.values(item).some(val => String(val).toLowerCase().includes(e.toLowerCase()))
     }))
   }
-  
+
   return (
     <Modal
       {...props}
@@ -60,21 +60,21 @@ export default function ManagestoreModal(props){
         <ModalTitle id="contained-modal-title-vcenter">
           Manage Stores
           &nbsp;&nbsp;&nbsp;
-          <Button onClick={event =>  window.location.href='/store/addstore'}  color="info">Add</Button>
+          <Button onClick={event => window.location.href = '/store/addstore'} color="info">Add</Button>
         </ModalTitle>
       </ModalHeader>
       <ModalBody>
-        <input className="form-control" type="text" placeholder="Search" onChange={ e => searchFunction(e.target.value)}/>
-        <Button color="success"  onClick={e => searchFunction("")}>Reset Filter</Button>
-      <Table
-              tableHeaderColor="primary"
-              tableHead={["Store Name", "Store Code", "Store Address", "", ""]}
-              tableData={
-                filteredArray.map((array) => {
-                  return [array.name,array.code,array.address,<Button onClick={event =>  window.location.href='/store/editstore/'+array.code} fullWidth color="info">Edit</Button>, <Button onClick={() => deleteStore(array.code)} fullWidth color="danger">Remove</Button>]
-              })
-            }
-            />
+        <input className="form-control" type="text" placeholder="Search" onChange={e => searchFunction(e.target.value)} />
+        <Button color="success" onClick={e => searchFunction("")}>Reset Filter</Button>
+        <Table
+          tableHeaderColor="primary"
+          tableHead={["Store Name", "Store Code", "Store Address", "", ""]}
+          tableData={
+            filteredArray.map((array) => {
+              return [array.name, array.code, array.address, <Button onClick={event => window.location.href = '/store/editstore/' + array.code} fullWidth color="info">Edit</Button>, <Button onClick={() => deleteStore(array.code)} fullWidth color="danger">Remove</Button>]
+            })
+          }
+        />
       </ModalBody>
       <ModalFooter>
         <Button color="danger" onClick={props.onHide}>Close</Button>

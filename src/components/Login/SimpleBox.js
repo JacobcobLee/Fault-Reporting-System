@@ -9,7 +9,7 @@ const divStyle = {
   // backgroundImage: `url(${bgImage})`,
   backgroundSize: 'cover',
   backgroundPosition: 'center',
-  backgroundRepeat: 'no-repeat', 
+  backgroundRepeat: 'no-repeat',
 };
 
 
@@ -18,28 +18,28 @@ export default class SimpleBox extends Component {
     const { title, body, footer } = this.props;
     return (
       <div style={divStyle}>
-      <div className="container center">
-        <div className="d-flex justify-content-center align-self-center" style={{marginTop:200}}>
-          <div className="card col-sm-8">
-            <div className="card-block">           
-              <br></br>
-              <div className="card-title text-center">  
-              <img src={logo} width="220px" height="80px" alt="staff did not upload"/> 
-              <br></br>
-              <br></br>
-                {title}
+        <div className="container center">
+          <div className="d-flex justify-content-center align-self-center" style={{ marginTop: 200 }}>
+            <div className="card col-sm-8">
+              <div className="card-block">
+                <br></br>
+                <div className="card-title text-center">
+                  <img src={logo} width="220px" height="80px" alt="staff did not upload" />
+                  <br></br>
+                  <br></br>
+                  {title}
+                </div>
+                <div className="card-body">
+                  {body}
+                </div>
+                {footer && <div className="card-footer">
+                  {footer}
+                </div>}
               </div>
-              <div className="card-body">
-                {body}
-              </div>
-              {footer && <div className="card-footer">
-                {footer}
-              </div>}
             </div>
           </div>
         </div>
       </div>
-    </div>
     );
   }
 }

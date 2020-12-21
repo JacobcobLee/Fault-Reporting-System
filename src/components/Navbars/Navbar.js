@@ -40,7 +40,7 @@ export default function Header(props) {
             {makeBrand()}
           </Button>
         </div>
-        <AdminNavbarLinks/>
+        <AdminNavbarLinks />
       </Toolbar>
     </AppBar>
   );

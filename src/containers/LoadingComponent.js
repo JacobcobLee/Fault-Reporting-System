@@ -8,24 +8,24 @@ import Loading from '../components/Login/Loading';
 class LoadingComponent extends Component {
   componentWillMount() {
     const { userLoading, postsLoading } = this.props;
-    if(userLoading === undefined) {
+    if (userLoading === undefined) {
       this.props.getUser();
     }
 
-    if(postsLoading === undefined) {
+    if (postsLoading === undefined) {
       this.props.getPosts();
     }
   }
-  
+
   componentWillReceiveProps(nextProps) {
-    if(nextProps.postsLoading === -1 && nextProps.user !== null) {
+    if (nextProps.postsLoading === -1 && nextProps.user !== null) {
       this.props.getPosts();
     }
   }
 
   render() {
     const { userLoading, postsLoading, children } = this.props;
-    if((!userLoading && !postsLoading) || (this.props.user === null)) {
+    if ((!userLoading && !postsLoading) || (this.props.user === null)) {
       return (
         <div>
           {children}

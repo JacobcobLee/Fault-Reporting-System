@@ -45,9 +45,9 @@ export default function EditFault() {
     let radioval = {};
     if (temp[0][0].radio != null) {
         radioval = Object.values(temp[0][0].radio);
-        if(radioval.length > 1){
+        if (radioval.length > 1) {
             radioval = [{ name: radioval[0].name, answer: radioval[0].answer }, { name: radioval[1].name, answer: radioval[1].answer }]
-        }else{
+        } else {
             radioval = [{ name: radioval[0].name, answer: radioval[0].answer }, { name: '', answer: '' }]
         }
     } else {
@@ -97,7 +97,7 @@ export default function EditFault() {
 
     }
     function validateRadio() {
-        if ((radioquestion1 !== '') &&  (radioanswer1 !== '')) {
+        if ((radioquestion1 !== '') && (radioanswer1 !== '')) {
             if ((radioquestion2 !== '') && (radioanswer2 !== '')) {
                 return { radioquestion1: { answer: radioanswer1.split(','), name: radioquestion1 }, radioquestion2: { answer: radioanswer2.split(','), name: radioquestion2 } };
             } else {
@@ -114,21 +114,21 @@ export default function EditFault() {
             return null;
         }
     }
-    function validateData(havCheck,submitCheckbox,havRadio,submitRadio,havInput,submitInput){
-        if(havCheck === 'true'){
-            if(submitCheckbox == null){
+    function validateData(havCheck, submitCheckbox, havRadio, submitRadio, havInput, submitInput) {
+        if (havCheck === 'true') {
+            if (submitCheckbox == null) {
                 window.alert('Please key in checkbox data or set checkbox to false');
-                 return false;
+                return false;
             }
         }
-        if(havRadio === 'true'){
-            if(submitRadio == null){
+        if (havRadio === 'true') {
+            if (submitRadio == null) {
                 window.alert('Please key in Radio data or set Radio to false');
                 return false;
             }
         }
-        if(havInput === 'true'){
-            if(submitInput == null){
+        if (havInput === 'true') {
+            if (submitInput == null) {
                 window.alert('Please key in Input data or set Input to false');
                 return false;
             }
@@ -144,25 +144,25 @@ export default function EditFault() {
         const submitRadio = validateRadio();
         const submitInput = validateInput();
         const submitCheckbox = validateCheckbox();
-        let validatedata = validateData(havCheck,submitCheckbox,havRadio,submitRadio,havInput,submitInput);
-    
-        if(validatedata === true){
+        let validatedata = validateData(havCheck, submitCheckbox, havRadio, submitRadio, havInput, submitInput);
+
+        if (validatedata === true) {
             //validate the data, make sure theres stuff inside
             if ((name !== '') && ((submitRadio !== null) || (submitCheckbox !== null))) {
-                const total = { name: name, email: email, haveRadio: havRadio, haveInput: havInput, haveCheck: havCheck, input: submitInput, radio: submitRadio, checkbox: submitCheckbox};
+                const total = { name: name, email: email, haveRadio: havRadio, haveInput: havInput, haveCheck: havCheck, input: submitInput, radio: submitRadio, checkbox: submitCheckbox };
                 axios.put("https://bchfrserver.herokuapp.com/api/v1/category/" + lastURLSegment, total)
-                .then(()=>{
-                    window.alert('Saved!')
-                    window.location.href = "/admin/functions"
-                }).catch((e)=>{console.log("error with updating fault in edit fault error :" + e)})
+                    .then(() => {
+                        window.alert('Saved!')
+                        window.location.href = "/admin/functions"
+                    }).catch((e) => { console.log("error with updating fault in edit fault error :" + e) })
             } else {
                 window.alert('Please enter nessasary data!\nRequired minimum value: Name & Radio/Checkbox');
             }
-        }else{
+        } else {
 
         }
     }
-    function cancelButton(){
+    function cancelButton() {
         window.location.href = "/admin/functions"
     }
     function onChangeRadio(e) {
@@ -199,19 +199,19 @@ export default function EditFault() {
                             <h3><b>Dropdown</b></h3>
                         </CardHeader>
                         <Card>
-                        <CardBody>
-                            <h4>Dropdown Question 1:</h4>
-                            <input type="text" onChange={e => setRadioQuestion1(e.target.value)} className="form-control" value={radioquestion1} isDisabled="false" />
-                            <br></br>
-                            <h4>Dropdown Answer 1:</h4>
-                            <input type="text" onChange={e => setRadioAnswer1(e.target.value)} className="form-control" value={radioanswer1} isDisabled="false" />
-                            <br></br>
-                            <h4>Dropdown Question 2 :</h4>
-                            <input type="text" onChange={e => setRadioQuestion2(e.target.value)} className="form-control" value={radioquestion2} isDisabled="false" />
-                            <br></br>
-                            <h4>Dropdown Answer 2:</h4>
-                            <input type="text" onChange={e => setRadioAnswer2(e.target.value)} className="form-control" value={radioanswer2} isDisabled="false" />
-                        </CardBody>
+                            <CardBody>
+                                <h4>Dropdown Question 1:</h4>
+                                <input type="text" onChange={e => setRadioQuestion1(e.target.value)} className="form-control" value={radioquestion1} isDisabled="false" />
+                                <br></br>
+                                <h4>Dropdown Answer 1:</h4>
+                                <input type="text" onChange={e => setRadioAnswer1(e.target.value)} className="form-control" value={radioanswer1} isDisabled="false" />
+                                <br></br>
+                                <h4>Dropdown Question 2 :</h4>
+                                <input type="text" onChange={e => setRadioQuestion2(e.target.value)} className="form-control" value={radioquestion2} isDisabled="false" />
+                                <br></br>
+                                <h4>Dropdown Answer 2:</h4>
+                                <input type="text" onChange={e => setRadioAnswer2(e.target.value)} className="form-control" value={radioanswer2} isDisabled="false" />
+                            </CardBody>
                         </Card>
                     </Card>
                 </GridItem>
@@ -230,19 +230,19 @@ export default function EditFault() {
                                 <h3><b>Checkbox</b></h3>
                             </CardHeader>
                             <Card>
-                            <CardBody>
-                                <h4>Checkbox Question :</h4>
-                                <input className="form-control" onChange={e => setCheckboxQuestion1(e.target.value)} type="text" value={checkboxquestion1} placeholder="Enter Checkbox Question.." />
-                                <br></br>
-                                <h4>Checkbox Answer (Text will be split into using (,) e.g Apple,Orange) :</h4>
-                                <input className="form-control" onChange={e => setCheckboxAnwer1(e.target.value)} type="text" value={checkboxanswer1} placeholder="Enter Checkbox Answer.." />
-                                <br></br>
-                                <h4>Checkbox Question 2 :</h4>
-                                <input className="form-control" onChange={e => setCheckboxQuestion2(e.target.value)} type="text" value={checkboxquestion2} placeholder="Enter Checkbox Question 2.." />
-                                <br></br>
-                                <h4>Checkbox Answer 2 (Text will be split into using (,) e.g Apple,Orange) :</h4>
-                                <input className="form-control" onChange={e => setCheckboxAnwer2(e.target.value)} type="text" value={checkboxanswer2} placeholder="Enter Checkbox Answer 2.." />
-                            </CardBody>
+                                <CardBody>
+                                    <h4>Checkbox Question :</h4>
+                                    <input className="form-control" onChange={e => setCheckboxQuestion1(e.target.value)} type="text" value={checkboxquestion1} placeholder="Enter Checkbox Question.." />
+                                    <br></br>
+                                    <h4>Checkbox Answer (Text will be split into using (,) e.g Apple,Orange) :</h4>
+                                    <input className="form-control" onChange={e => setCheckboxAnwer1(e.target.value)} type="text" value={checkboxanswer1} placeholder="Enter Checkbox Answer.." />
+                                    <br></br>
+                                    <h4>Checkbox Question 2 :</h4>
+                                    <input className="form-control" onChange={e => setCheckboxQuestion2(e.target.value)} type="text" value={checkboxquestion2} placeholder="Enter Checkbox Question 2.." />
+                                    <br></br>
+                                    <h4>Checkbox Answer 2 (Text will be split into using (,) e.g Apple,Orange) :</h4>
+                                    <input className="form-control" onChange={e => setCheckboxAnwer2(e.target.value)} type="text" value={checkboxanswer2} placeholder="Enter Checkbox Answer 2.." />
+                                </CardBody>
                             </Card>
                         </Card>
                     </GridItem>
@@ -255,20 +255,20 @@ export default function EditFault() {
                                 <h3><b>Checkbox</b></h3>
                             </CardHeader>
                             <Card>
-                            <CardBody>
-                                <h4>Checkbox Question :</h4>
-                                <input className="form-control" onChange={e => setCheckboxQuestion1(e.target.value)} type="text" value={checkboxquestion1} placeholder="Enter Checkbox Question.." />
-                                <br></br>
-                                <h4>Checkbox Answer (Text will be split into using (,) e.g Apple,Orange) :</h4>
-                                <input className="form-control" onChange={e => setCheckboxAnwer1(e.target.value)} type="text" value={checkboxanswer1} placeholder="Enter Checkbox Answer.." />
-                                <br></br>
-                                <h4>Checkbox Question 2 :</h4>
-                                <input className="form-control" onChange={e => setCheckboxQuestion2(e.target.value)} value={checkboxquestion2} type="text" placeholder="Enter Checkbox Question 2.." />
-                                <br></br>
-                                <h4>Checkbox Answer 2 (Text will be split into using (,) e.g Apple,Orange) :</h4>
-                                <input className="form-control" onChange={e => setCheckboxAnwer2(e.target.value)} value={checkboxanswer2} type="text" placeholder="Enter Checkbox Answer 2.." />
+                                <CardBody>
+                                    <h4>Checkbox Question :</h4>
+                                    <input className="form-control" onChange={e => setCheckboxQuestion1(e.target.value)} type="text" value={checkboxquestion1} placeholder="Enter Checkbox Question.." />
+                                    <br></br>
+                                    <h4>Checkbox Answer (Text will be split into using (,) e.g Apple,Orange) :</h4>
+                                    <input className="form-control" onChange={e => setCheckboxAnwer1(e.target.value)} type="text" value={checkboxanswer1} placeholder="Enter Checkbox Answer.." />
+                                    <br></br>
+                                    <h4>Checkbox Question 2 :</h4>
+                                    <input className="form-control" onChange={e => setCheckboxQuestion2(e.target.value)} value={checkboxquestion2} type="text" placeholder="Enter Checkbox Question 2.." />
+                                    <br></br>
+                                    <h4>Checkbox Answer 2 (Text will be split into using (,) e.g Apple,Orange) :</h4>
+                                    <input className="form-control" onChange={e => setCheckboxAnwer2(e.target.value)} value={checkboxanswer2} type="text" placeholder="Enter Checkbox Answer 2.." />
 
-                            </CardBody>
+                                </CardBody>
                             </Card>
                         </Card>
                     </GridItem>
@@ -286,10 +286,10 @@ export default function EditFault() {
                             <h3><b>Input</b></h3>
                         </CardHeader>
                         <Card>
-                        <CardBody>
-                            <h4>Input Question:</h4>
-                            <input className="form-control" onChange={e => setInputQuestion(e.target.value)} type="text" on value={inputquestion} placeholder="Enter Input Question.." />
-                        </CardBody>
+                            <CardBody>
+                                <h4>Input Question:</h4>
+                                <input className="form-control" onChange={e => setInputQuestion(e.target.value)} type="text" on value={inputquestion} placeholder="Enter Input Question.." />
+                            </CardBody>
                         </Card>
                     </Card>
                 </GridItem>
@@ -297,33 +297,33 @@ export default function EditFault() {
         } else {
         }
     }
-    function returnDefValue(e){
-        if(e === 'true'){
-            return {value: 'true', label: 'True'};
-        }else{
-            return {value: 'false', label: 'False'};
+    function returnDefValue(e) {
+        if (e === 'true') {
+            return { value: 'true', label: 'True' };
+        } else {
+            return { value: 'false', label: 'False' };
         }
     }
     return (
         <div>
-            
+
             <GridContainer justify="space-around">
                 <GridItem xs={12} sm={12} md={11} xl={11}>
-                    
+
+                    <CardHeader>
+                        <h3><b>Edit Fault</b></h3>
+                    </CardHeader>
+                    <Card>
                         <CardHeader>
-                            <h3><b>Edit Fault</b></h3>
+                            <h4><b>Send email notification</b></h4>
+                            <h5>note: Multiple email to be separated by ';'</h5>
                         </CardHeader>
-                        <Card>
-                            <CardHeader>
-                                <h4><b>Send email notification</b></h4>
-                                <h5>note: Multiple email to be separated by ';'</h5>
-                            </CardHeader>
-                            <CardBody>
-                                <h5>eg. BchTeamLead@mail.com; Vendor@mail.com</h5>
-                                <input className="form-control" type="text" placeholder="Add/Edit Emails here" defaultValue= {emailCatch} onChange={e=>setEmail(e.target.value)}/>
-                            </CardBody>
-                        </Card>
-                    
+                        <CardBody>
+                            <h5>eg. BchTeamLead@mail.com; Vendor@mail.com</h5>
+                            <input className="form-control" type="text" placeholder="Add/Edit Emails here" defaultValue={emailCatch} onChange={e => setEmail(e.target.value)} />
+                        </CardBody>
+                    </Card>
+
                     <Card>
                         <CardHeader>
                             <h4><b>Fault Name (Category) :</b></h4>
@@ -363,13 +363,13 @@ export default function EditFault() {
                         </CardBody>
                     </Card>
                 </GridItem>
-              { displayRadio() }
-              { displayCheckbox() }
-              { displayInput() }
-            <GridItem xs={12} sm={12} md={11} xl={11}>
-                <Button onClick={submit} fullWidth color="success">Save</Button>
-                <Button onClick={cancelButton} fullWidth color="danger">Cancel</Button>
-            </GridItem>
+                {displayRadio()}
+                {displayCheckbox()}
+                {displayInput()}
+                <GridItem xs={12} sm={12} md={11} xl={11}>
+                    <Button onClick={submit} fullWidth color="success">Save</Button>
+                    <Button onClick={cancelButton} fullWidth color="danger">Cancel</Button>
+                </GridItem>
             </GridContainer>
         </div>
     )

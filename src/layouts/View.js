@@ -17,31 +17,31 @@ export default function View() {
     const [displayspecificCases, setDisplay] = useState({})
     const statusOptions = [{ value: "Resolved", label: "Resolved" }]
     const [images, setImages] = useState([])
-    
-    useEffect(()=>{
+
+    useEffect(() => {
         axios
-        .get("https://bchfrserver.herokuapp.com/api/v1/fault/" + lastURLSegment)
-        .then(async (response) => {
-            setDisplay(response.data)
-            const imagesToConstruct = await response.data.imageurl.slice(0,-1).split(",")
-            // console.log(imagesToConstruct)
-            imagesToConstruct.length > 0 && imagesToConstruct.forEach((item, i) => {
-                if (item !== "") {
-                firebase
-                    .storage()
-                    .ref()
-                    .child(item)
-                    .getMetadata()
-                    .then((results) => {
-                        setImages((prevImages) => [...prevImages, `https://firebasestorage.googleapis.com/v0/b/${results.bucket}/o/${encodeURIComponent(item)}?alt=media`])
-                    }).catch((err) => {
-                        console.log(err);
-                    });
-                }
-            })            
-        })
+            .get("https://bchfrserver.herokuapp.com/api/v1/fault/" + lastURLSegment)
+            .then(async (response) => {
+                setDisplay(response.data)
+                const imagesToConstruct = await response.data.imageurl.slice(0, -1).split(",")
+                // console.log(imagesToConstruct)
+                imagesToConstruct.length > 0 && imagesToConstruct.forEach((item, i) => {
+                    if (item !== "") {
+                        firebase
+                            .storage()
+                            .ref()
+                            .child(item)
+                            .getMetadata()
+                            .then((results) => {
+                                setImages((prevImages) => [...prevImages, `https://firebasestorage.googleapis.com/v0/b/${results.bucket}/o/${encodeURIComponent(item)}?alt=media`])
+                            }).catch((err) => {
+                                console.log(err);
+                            });
+                    }
+                })
+            })
     }, [])
-   
+
     //loop for all answers and if there's 2 or more, put comma in between
     function displayAnswer(dis) {
         let test = '';
@@ -54,7 +54,7 @@ export default function View() {
         }
         return test;
     }
-    
+
     //if data has no radio, it will display empty instead of error.
     function displayRadio(display) {
         if (display == null) {
@@ -66,7 +66,7 @@ export default function View() {
     //if data has one or more checkbox 
     function displayData2() {
         if (displayspecificCases.problem.checkbox.length > 1) {
-            return(displayspecificCases.problem.checkbox.map(item => {
+            return (displayspecificCases.problem.checkbox.map(item => {
                 return (
                     <Card>
                         <CardHeader>
@@ -107,8 +107,8 @@ export default function View() {
         }
     }
     //function to retrieve image from firestore
-    function loading(){
-        return(<div>
+    function loading() {
+        return (<div>
             <GridContainer justify="space-around">
                 <GridItem xs={12} sm={12} md={9} lg={5}>
                     <Card>
@@ -116,14 +116,14 @@ export default function View() {
                             <h1><b>Loading, please wait!</b></h1>
                         </CardHeader>
                     </Card>
-                 </GridItem>
+                </GridItem>
             </GridContainer>
         </div>)
     }
-    function render(){
+    function render() {
         return (
             <div>
-                <h3 style={{textAlign: 'left', marginLeft:'2.5em' }}><b>Solve Case</b></h3>
+                <h3 style={{ textAlign: 'left', marginLeft: '2.5em' }}><b>Solve Case</b></h3>
                 <GridContainer justify="space-around">
                     <GridItem xs={12} sm={12} md={9} lg={5}>
                         <Card>
@@ -163,30 +163,31 @@ export default function View() {
                         </Card>
                     </GridItem>
                 </GridContainer>
-                <h3 style={{textAlign: 'left', marginLeft:'2.5em' }}><b>Incident Details</b></h3>
+                <h3 style={{ textAlign: 'left', marginLeft: '2.5em' }}><b>Incident Details</b></h3>
                 <GridContainer justify="space-around">
                     <GridItem xs={12} sm={12} md={11} lg={11}>
                         <Card>
                             <CardBody>
-                            <h4>{displayRadio(tryReturnRadio())}:</h4>
-                            <h5><b>{displayRadio(tryReturnRadio2())}</b></h5>
-                        {
-                            displayData2(displayspecificCases.problem.checkbox)
-                        }
-                        <br></br>
-                        <h4>Fault Image:</h4>
-                        <div class="row">                        
-                        {images.map((item, i)=> {
-                            return <div class="column"> <div style={customDivLol}><img width="360px" height="270px" src={item} alt="no photo"/></div> </div>}
-                        )}
-                        </div>
-                        <br></br>
-                        <br></br>
-                        <h4>Description:</h4>
-                        {displayspecificCases.description}
-                        <br></br>
-                        <br></br>
-                        <h4>Issue Status:</h4>
+                                <h4>{displayRadio(tryReturnRadio())}:</h4>
+                                <h5><b>{displayRadio(tryReturnRadio2())}</b></h5>
+                                {
+                                    displayData2(displayspecificCases.problem.checkbox)
+                                }
+                                <br></br>
+                                <h4>Fault Image:</h4>
+                                <div class="row">
+                                    {images.map((item, i) => {
+                                        return <div class="column"> <div style={customDivLol}><img width="360px" height="270px" src={item} alt="no photo" /></div> </div>
+                                    }
+                                    )}
+                                </div>
+                                <br></br>
+                                <br></br>
+                                <h4>Description:</h4>
+                                {displayspecificCases.description}
+                                <br></br>
+                                <br></br>
+                                <h4>Issue Status:</h4>
                                 <Select
                                     defaultValue={{ value: "Resolved", label: "Resolved" }}
                                     className="basic-single"
@@ -195,20 +196,20 @@ export default function View() {
                                     options={statusOptions}
                                     isDisabled="true"
                                 />
-                        <br></br>
-                        <h4>Comments:</h4>
-                        <textarea type="text" disabled="true" defaultValue={displayspecificCases.comments} className="form-control" />
-                        <br></br>
-                        <h4>Resolved By:</h4>
-                        <input type="text" defaultValue={displayspecificCases.lasteditedby} disabled="true" className="form-control"></input>
+                                <br></br>
+                                <h4>Comments:</h4>
+                                <textarea type="text" disabled="true" defaultValue={displayspecificCases.comments} className="form-control" />
+                                <br></br>
+                                <h4>Resolved By:</h4>
+                                <input type="text" defaultValue={displayspecificCases.lasteditedby} disabled="true" className="form-control"></input>
                             </CardBody>
                         </Card>
                     </GridItem>
                 </GridContainer>
                 <GridContainer justify="space-around">
                     <GridItem xs={12} sm={12} md={11} lg={11}>
-                        <Button onClick={event =>  window.location.href='/admin/dashboard'} fullWidth color="success">Done</Button>
-                        <Button onClick={event =>  window.location.href='/admin/dashboard'} fullWidth color="danger">Cancel</Button>
+                        <Button onClick={event => window.location.href = '/admin/dashboard'} fullWidth color="success">Done</Button>
+                        <Button onClick={event => window.location.href = '/admin/dashboard'} fullWidth color="danger">Cancel</Button>
 
                     </GridItem>
                 </GridContainer>
@@ -216,13 +217,12 @@ export default function View() {
         )
     }
 
-    const customDivLol ={
+    const customDivLol = {
         margin: '10px'
     }
-    return (displayspecificCases.problem? render(): loading())
+    return (displayspecificCases.problem ? render() : loading())
 }
 
 
 
 
-  

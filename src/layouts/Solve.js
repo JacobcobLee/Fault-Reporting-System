@@ -14,48 +14,48 @@ var pageURL = window.location.href;
 var lastURLSegment = pageURL.substr(pageURL.lastIndexOf('/') + 1);
 
 export default function Solve() {
-    
+
     const [displayspecificCases, setdisplayspecificCases] = useState({})
     const [edit, setEdit] = useState("Unresolved");
-    const [comment,setComment] = useState('');
-    const statusOptions = [{ value: "Unresolved", label: "Unresolved"},{ value: "Pending", label: "Pending" }, { value: "Resolved", label: "Resolved" }]
+    const [comment, setComment] = useState('');
+    const statusOptions = [{ value: "Unresolved", label: "Unresolved" }, { value: "Pending", label: "Pending" }, { value: "Resolved", label: "Resolved" }]
     const [images, setImages] = useState([])
     let user2 = "Please re-login";
-    
-    useEffect(()=>{
+
+    useEffect(() => {
         axios
-        .get("https://bchfrserver.herokuapp.com/api/v1/fault/" + lastURLSegment)
-        .then(async (response) => {
-            setdisplayspecificCases(response.data)
-            setComment(response.data.comments);
-            const imagesToConstruct = await response.data.imageurl.slice(0,-1).split(",")
-            // console.log(imagesToConstruct)
-            imagesToConstruct.length > 0 && imagesToConstruct.forEach((item, i) => {
-                if (item !== "") {
-                firebase
-                    .storage()
-                    .ref()
-                    .child(item)
-                    .getMetadata()
-                    .then((results) => {
-                        setImages((prevImages) => [...prevImages, `https://firebasestorage.googleapis.com/v0/b/${results.bucket}/o/${encodeURIComponent(item)}?alt=media`])
-                    }).catch((err) => {
-                        console.log(err);
-                    });
-                }
-            })            
-        })
+            .get("https://bchfrserver.herokuapp.com/api/v1/fault/" + lastURLSegment)
+            .then(async (response) => {
+                setdisplayspecificCases(response.data)
+                setComment(response.data.comments);
+                const imagesToConstruct = await response.data.imageurl.slice(0, -1).split(",")
+                // console.log(imagesToConstruct)
+                imagesToConstruct.length > 0 && imagesToConstruct.forEach((item, i) => {
+                    if (item !== "") {
+                        firebase
+                            .storage()
+                            .ref()
+                            .child(item)
+                            .getMetadata()
+                            .then((results) => {
+                                setImages((prevImages) => [...prevImages, `https://firebasestorage.googleapis.com/v0/b/${results.bucket}/o/${encodeURIComponent(item)}?alt=media`])
+                            }).catch((err) => {
+                                console.log(err);
+                            });
+                    }
+                })
+            })
     }, [])
 
     function putSpecificCases() {
         axios
-        .put("https://bchfrserver.herokuapp.com/api/v1/fault/" + lastURLSegment,{"status": edit.toString(), "comments": comment.toString(),"lasteditedby": user2.toString() })
-        .then((res)=>{
-            if(res){window.alert('Successfully edited case!'); window.location.href = "/admin/dashboard"}
-            else{window.alert('Error, please try again!'); window.location.reload()}
-        }).catch((err)=>{
-            console.log("err in solve.js err in the put request err is: " + err)
-        })
+            .put("https://bchfrserver.herokuapp.com/api/v1/fault/" + lastURLSegment, { "status": edit.toString(), "comments": comment.toString(), "lasteditedby": user2.toString() })
+            .then((res) => {
+                if (res) { window.alert('Successfully edited case!'); window.location.href = "/admin/dashboard" }
+                else { window.alert('Error, please try again!'); window.location.reload() }
+            }).catch((err) => {
+                console.log("err in solve.js err in the put request err is: " + err)
+            })
     }
 
     //this function will get the email the user entered from the local storage
@@ -65,8 +65,8 @@ export default function Solve() {
             //setCurrentUser(user2)
             return (
                 <div>
-                <h4>Posting/Saving As:</h4>
-                <input type="text" defaultValue={user2} className="form-control" disabled={true}></input>
+                    <h4>Posting/Saving As:</h4>
+                    <input type="text" defaultValue={user2} className="form-control" disabled={true}></input>
                 </div>
             )
         }
@@ -96,7 +96,7 @@ export default function Solve() {
     //if data has one or more checkbox 
     function displayData2(dis) {
         if (displayspecificCases.problem.checkbox.length > 1) {
-            return(displayspecificCases.problem.checkbox.map(item => {
+            return (displayspecificCases.problem.checkbox.map(item => {
                 return (
                     <Card>
                         <CardHeader>
@@ -137,8 +137,8 @@ export default function Solve() {
         }
     }
     //function to retrieve image from firestore
-    function Loading(){
-        return(<div>
+    function Loading() {
+        return (<div>
             <GridContainer justify="space-around">
                 <GridItem xs={12} sm={12} md={9} lg={5}>
                     <Card>
@@ -146,18 +146,18 @@ export default function Solve() {
                             <h1><b>Loading, please wait!</b></h1>
                         </CardHeader>
                     </Card>
-                 </GridItem>
+                </GridItem>
             </GridContainer>
         </div>)
     }
     //function to retrieve image from firestore
-    function  render(){
-        if(!displayspecificCases.problem){return <h1>Loading, please wait!</h1>}
+    function render() {
+        if (!displayspecificCases.problem) { return <h1>Loading, please wait!</h1> }
         return (
             <div>
-                <h3 style={{textAlign: 'left', marginLeft:'2.5em' }}><b>Solve Case</b></h3>
+                <h3 style={{ textAlign: 'left', marginLeft: '2.5em' }}><b>Solve Case</b></h3>
                 <GridContainer justify="space-around">
-                <GridItem xs={12} sm={12} md={5} lg={5}>
+                    <GridItem xs={12} sm={12} md={5} lg={5}>
                         <Card>
                             <CardHeader>
                                 <h4><b>Reported on:</b></h4>
@@ -195,30 +195,31 @@ export default function Solve() {
                         </Card>
                     </GridItem>
                 </GridContainer>
-                <h3 style={{ textAlign: 'left', marginLeft:'2.5em' }}><b>Incident Details</b></h3>
+                <h3 style={{ textAlign: 'left', marginLeft: '2.5em' }}><b>Incident Details</b></h3>
                 <GridContainer justify="space-around">
                     <GridItem xs={12} sm={10} md={11} xl={11}>
                         <Card>
                             <CardBody>
                                 <h4>{displayRadio(tryReturnRadio())}:</h4>
                                 <h5><b>{displayRadio(tryReturnRadio2())}</b></h5>
-                        {
-                            displayData2(displayspecificCases.problem.checkbox)
-                        }
-                        <br></br>
-                        <h4>Fault Image:</h4>
-                        <div class="row">                        
-                        {images.map((item, i)=> {
-                            return <div class="column"> <div style={customDivLol}><img width="360px" height="270px" src={item} alt="no photo"/></div> </div>}
-                        )}
-                        </div>                        
-                        <br></br>
-                        <br></br>
-                        <h4>Description:</h4>
-                        {displayspecificCases.description}
-                        <br></br>
-                        <br></br>
-                        <h4>Issue Status:</h4>
+                                {
+                                    displayData2(displayspecificCases.problem.checkbox)
+                                }
+                                <br></br>
+                                <h4>Fault Image:</h4>
+                                <div class="row">
+                                    {images.map((item, i) => {
+                                        return <div class="column"> <div style={customDivLol}><img width="360px" height="270px" src={item} alt="no photo" /></div> </div>
+                                    }
+                                    )}
+                                </div>
+                                <br></br>
+                                <br></br>
+                                <h4>Description:</h4>
+                                {displayspecificCases.description}
+                                <br></br>
+                                <br></br>
+                                <h4>Issue Status:</h4>
                                 <Select
                                     defaultValue={{ value: "Unresolved", label: "Unresolved" }}
                                     className="basic-single"
@@ -227,14 +228,14 @@ export default function Solve() {
                                     options={statusOptions}
                                     onChange={e => setEdit(e.value)}
                                 />
-                        <br></br>
-                        <h4>Comments:</h4>
-                        <textarea type="text" defaultValue={comment} onChange={e=>setComment(e.target.value)} className="form-control" />
-                        <br></br>
-                        <h4>Last Edited By:</h4>
-                        <input type="text" defaultValue={displayspecificCases.lasteditedby} disabled={true} className="form-control"></input>
-                        <br></br>
-                        {userName()}
+                                <br></br>
+                                <h4>Comments:</h4>
+                                <textarea type="text" defaultValue={comment} onChange={e => setComment(e.target.value)} className="form-control" />
+                                <br></br>
+                                <h4>Last Edited By:</h4>
+                                <input type="text" defaultValue={displayspecificCases.lasteditedby} disabled={true} className="form-control"></input>
+                                <br></br>
+                                {userName()}
                             </CardBody>
                         </Card>
                     </GridItem>
@@ -242,13 +243,13 @@ export default function Solve() {
                 <GridContainer justify="space-around">
                     <GridItem xs={12} sm={10} md={11} xl={11}>
                         <Button onClick={putSpecificCases} fullWidth color="success">Save</Button>
-                        <Button onClick={event =>  window.location.href='/admin/dashboard'} fullWidth color="danger">Cancel</Button>
+                        <Button onClick={event => window.location.href = '/admin/dashboard'} fullWidth color="danger">Cancel</Button>
                     </GridItem>
                 </GridContainer>
             </div>
         );
     }//en of return
-    const customDivLol ={
+    const customDivLol = {
         margin: '10px'
     }
     return (displayspecificCases ? render() : Loading())

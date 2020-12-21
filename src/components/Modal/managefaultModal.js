@@ -7,39 +7,39 @@ import ModalBody from 'react-bootstrap/ModalBody';
 import ModalFooter from 'react-bootstrap/ModalFooter';
 import Table from "components/Table/Table.js";
 import axios from 'axios';
-import {useState} from 'react';
+import { useState } from 'react';
 
-export default function ManagefaultModal(props){
+export default function ManagefaultModal(props) {
   const [fault, setFault] = useState([]);
   const [filteredArray, setFilteredArray] = useState([])
 
-  useEffect(()=>{
+  useEffect(() => {
     axios
-    .get("https://bchfrserver.herokuapp.com/api/v1/category")
-    .then((response) => {
-      setFault(response.data)
-      setFilteredArray(response.data)
-  })
+      .get("https://bchfrserver.herokuapp.com/api/v1/category")
+      .then((response) => {
+        setFault(response.data)
+        setFilteredArray(response.data)
+      })
   }, [])
 
   function searchFunction(e) {
-    var temp = fault.filter((item)=>{
+    var temp = fault.filter((item) => {
       return item.name.toLowerCase().includes(e.toLowerCase())
     })
     setFilteredArray(temp)
   };
 
-  function deleteFault(faultid){
+  function deleteFault(faultid) {
     console.log("inside delete" + faultid)
     var answer = window.confirm("Are you sure you want to delete?");
-    if(answer){
+    if (answer) {
       axios
-      .delete("https://bchfrserver.herokuapp.com/api/v1/category/" + faultid)
-      .then(()=>{window.location.href = "/admin/functions"})
+        .delete("https://bchfrserver.herokuapp.com/api/v1/category/" + faultid)
+        .then(() => { window.location.href = "/admin/functions" })
     }
-    else{
+    else {
       window.close();
-    } 
+    }
   };
 
   return (
@@ -54,23 +54,23 @@ export default function ManagefaultModal(props){
         <ModalTitle id="contained-modal-title-vcenter">
           Manage Faults
           &nbsp;&nbsp;&nbsp;
-          <Button onClick={event =>  window.location.href='/fault/addfault'} color="info">Add</Button>
+          <Button onClick={event => window.location.href = '/fault/addfault'} color="info">Add</Button>
         </ModalTitle>
       </ModalHeader>
       <ModalBody>
-      <input className="form-control" type="text" placeholder="Search" onChange={e => searchFunction(e.target.value)}/>
-      <Button color="success" onClick={e => searchFunction("")}>Reset Filter</Button>
-      <Table
-              tableHeaderColor="primary"
-              tableHead={["Fault type", "Has Radio Option?", "Has Checkbox Option?", "", ""]}
-              tableData={
-                filteredArray.map((array) => {
-                  return [array.name,array.haveRadio,array.haveCheck,
-                  <Button onClick={event =>  window.location.href='/fault/editfault/'+array.uuid} fullWidth color="info">Edit</Button>,
-                  <Button onClick={() => deleteFault(array.uuid)} fullWidth color="danger">Remove</Button>]
-              })
-              }
-            />
+        <input className="form-control" type="text" placeholder="Search" onChange={e => searchFunction(e.target.value)} />
+        <Button color="success" onClick={e => searchFunction("")}>Reset Filter</Button>
+        <Table
+          tableHeaderColor="primary"
+          tableHead={["Fault type", "Has Radio Option?", "Has Checkbox Option?", "", ""]}
+          tableData={
+            filteredArray.map((array) => {
+              return [array.name, array.haveRadio, array.haveCheck,
+              <Button onClick={event => window.location.href = '/fault/editfault/' + array.uuid} fullWidth color="info">Edit</Button>,
+              <Button onClick={() => deleteFault(array.uuid)} fullWidth color="danger">Remove</Button>]
+            })
+          }
+        />
       </ModalBody>
       <ModalFooter>
         <Button color="danger" onClick={props.onHide}>Close</Button>
