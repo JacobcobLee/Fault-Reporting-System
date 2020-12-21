@@ -20,15 +20,18 @@ export default function AddFault(){
     //for all answer state
     const [faultname,setFaultName] = useState("");
     const [emailCatch,setEmail] = useState("");
+
     const [radioquestion1,setRadioQuestion1] = useState("");
     const [radioanswer1,setRadioAnswer1] = useState("");
+
     const [radioquestion2,setRadioQuestion2] = useState("");
     const [radioanswer2,setRadioAnswer2] = useState("");
-    const [inputquestion,setInputQuestion] = useState("");
+
     const [checkboxquestion1,setCheckboxQuestion1] = useState('');
     const [checkboxanswer1,setCheckboxAnwer1] = useState("");
     const [checkboxquestion2,setCheckboxQuestion2] = useState("");
     const [checkboxanswer2,setCheckboxAnwer2] = useState("");
+    const [inputquestion,setInputQuestion] = useState("");
 
 
     function validateCheckbox(){
@@ -46,9 +49,9 @@ export default function AddFault(){
     function validateRadio(){
         if((radioquestion1 !== '') && (radioanswer1 !== '')){
             if((radioquestion2 !== '') && (radioanswer2 !== '')){
-                return {radioquestion1: {answer: radioanswer1.split(','),name: radioquestion1}, radioquestion2: {answer: radioanswer2.split(','),name:radioanswer2}};
+                return {radioquestion1: {answer: radioanswer1.split(','),name: radioquestion1}, radioquestion2: {answer: radioanswer2.split(','),name:radioquestion2}};
             }else{
-                return {radioquestion1: {name: radioquestion1, answer:radioanswer1.split(',')}};
+                return {radioquestion1: {answer:radioanswer1.split(','), name: radioquestion1}};
             }
         }else{
             return null;
@@ -91,14 +94,14 @@ export default function AddFault(){
         return (false)
     }
     function submit(){ // submit functions to allow users to submit the data into the server for post/put
-        const name = faultname;
-        const email = emailCatch;
-        const havRadio = radio;
-        const havInput = input;
-        const havCheck = checkbox;
-        const submitRadio = validateRadio();
-        const submitInput = validateInput();
-        const submitCheckbox = validateCheckbox();
+        var name = faultname;
+        var email = emailCatch;
+        var havRadio = radio;
+        var havInput = input;
+        var havCheck = checkbox;
+        var submitRadio = validateRadio();
+        var submitInput = validateInput();
+        var submitCheckbox = validateCheckbox();
         let validatedata = validateData(havCheck,submitCheckbox,havRadio,submitRadio,havInput,submitInput);
         if(validatedata === true){
             if((name !== '') && (validateEmail(email)) && ((submitRadio !== null) || (submitCheckbox !== null))){
@@ -133,13 +136,13 @@ export default function AddFault(){
                         </CardHeader>
                         <CardBody>
                         <h4>Dropdown Question 1:</h4>
-                        <input  onChange={e=>setRadioQuestion1(e.target.value)} className="form-control" type="text" placeholder="Enter Dropdown 1 Question.."/>
+                        <input  onChange={e=>{setRadioQuestion1(e.target.value); console.log(e.target.value)}} className="form-control" type="text" placeholder="Enter Dropdown 1 Question.."/>
                         <br></br>
                         <h4>Dropdown Answer 1 (Text will be split into using (,) e.g Apple,Orange) :</h4>
                         <input onChange={e=>setRadioAnswer1(e.target.value)} className="form-control" type="text" placeholder="Enter Dropdown 1 Answer.."/>
                         <br></br>
                         <h4>Dropdown Question 2:</h4>
-                        <input  onChange={e=>setRadioQuestion2(e.target.value)} className="form-control" type="text" placeholder="Enter Dropdown 2 Question.."/>
+                        <input  onChange={e=>{setRadioQuestion2(e.target.value); console.log(radioquestion2)}} className="form-control" type="text" placeholder="Enter Dropdown 2 Question.."/>
                         <br></br>
                         <h4>Dropdown Answer 2 (Text will be split into using (,) e.g Apple,Orange) :</h4>
                         <input onChange={e=>setRadioAnswer2(e.target.value)} className="form-control" type="text" placeholder="Enter Dropdown 2 Answer.."/>

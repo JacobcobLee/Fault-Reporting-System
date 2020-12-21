@@ -76,6 +76,7 @@ export default function EditFault() {
     const [radioanswer1, setRadioAnswer1] = useState(radioval[0].answer.toString());
     const [radioquestion2, setRadioQuestion2] = useState(radioval[1].name);
     const [radioanswer2, setRadioAnswer2] = useState(radioval[1].answer.toString());
+
     const [checkboxquestion1, setCheckboxQuestion1] = useState(checkval[0].name);
     const [checkboxanswer1, setCheckboxAnwer1] = useState(checkval[0].answer.toString());
     const [checkboxquestion2, setCheckboxQuestion2] = useState(checkval[1].name);
@@ -96,7 +97,7 @@ export default function EditFault() {
 
     }
     function validateRadio() {
-        if ((radioquestion1 !== '') && (radioanswer1 !== '')) {
+        if ((radioquestion1 !== '') &&  (radioanswer1 !== '')) {
             if ((radioquestion2 !== '') && (radioanswer2 !== '')) {
                 return { radioquestion1: { answer: radioanswer1.split(','), name: radioquestion1 }, radioquestion2: { answer: radioanswer2.split(','), name: radioquestion2 } };
             } else {
@@ -262,7 +263,7 @@ export default function EditFault() {
                                 <input className="form-control" onChange={e => setCheckboxAnwer1(e.target.value)} type="text" value={checkboxanswer1} placeholder="Enter Checkbox Answer.." />
                                 <br></br>
                                 <h4>Checkbox Question 2 :</h4>
-                                <input className="form-control" onChange={e => setCheckboxQuestion2(e.target.value)}v alue={checkboxquestion2} type="text" placeholder="Enter Checkbox Question 2.." />
+                                <input className="form-control" onChange={e => setCheckboxQuestion2(e.target.value)} value={checkboxquestion2} type="text" placeholder="Enter Checkbox Question 2.." />
                                 <br></br>
                                 <h4>Checkbox Answer 2 (Text will be split into using (,) e.g Apple,Orange) :</h4>
                                 <input className="form-control" onChange={e => setCheckboxAnwer2(e.target.value)} value={checkboxanswer2} type="text" placeholder="Enter Checkbox Answer 2.." />

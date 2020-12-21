@@ -27,8 +27,12 @@ export default function Editqrcode(){
         if(edit!==""){
             axios
             .put("https://bchfrserver.herokuapp.com/api/v1/store/"+lastURLSegment,{"qrstring": edit.toString() })
-            window.alert('Successfully edited qr!')
-            window.location.href = "/admin/functions"
+            .then(()=>{
+                window.alert('Successfully edited qr!')
+                window.location.href = "/admin/functions"    
+            }).catch((e)=>{
+                console.log("error in editqrcode e is :" + e);
+            })
         }
         else{
             window.alert('Please input neccessary data!')

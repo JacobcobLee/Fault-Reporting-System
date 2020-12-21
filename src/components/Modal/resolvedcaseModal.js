@@ -46,12 +46,11 @@ export default function ResolvedcaseModal(props){
   //To filter the table data using dropdown value
 
   function filterSearch(e){
-    setFilterArray(
-      resolvedCases.filter(item=>{
-        return item.storeName.toLowerCase().includes(e.toLowerCase())
-      })
-    )
-  }
+    var temp = resolvedCases.filter((item)=>{
+      return item.storeName.toLowerCase().includes(e.toLowerCase())
+    })
+    setFilterArray(temp)
+  };
   return (
     <Modal
       {...props}
@@ -68,14 +67,8 @@ export default function ResolvedcaseModal(props){
       </ModalHeader>
       <ModalBody>
       <Fragment>
-        <p><b>Store Location</b></p>
-        <Select
-          className="basic-single"
-          classNamePrefix="select"
-          name="color"
-          options={storeOptions}
-          onChange={ e => filterSearch(e.target.value) }
-        />
+      <h2><b>Search by store location</b></h2>
+        <input className="form-control" type="text" placeholder="Search" onChange={e => filterSearch(e.target.value)}/>
       <Button color="success" onClick={e => filterSearch(e.target.value = "")}>Reset Filter</Button>
       </Fragment>
       <Table
