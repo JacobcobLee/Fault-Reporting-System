@@ -1,4 +1,4 @@
-import React, { Component, useState} from 'react'
+import React, { Component, useState } from 'react'
 import { ImageBackground, StyleSheet, View, Text, TextInput, KeyboardAvoidingView, TouchableHighlight, ScrollView, Alert, Image } from 'react-native'
 import DropDownPicker from 'react-native-dropdown-picker';
 import { db } from '../constants/ApiKeys';
@@ -9,7 +9,7 @@ import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import moment from 'moment';
-import {ImageBrowser} from 'expo-image-picker-multiple'
+import { ImageBrowser } from 'expo-image-picker-multiple'
 
 // import { Value } from 'react-native-reanimated';
 
@@ -330,12 +330,12 @@ export default class ReportScreentest extends Component {
 
         }
     }
-    validateAns(){//validates the checkboxes before submitting of issue so tp prevent submition of issue without ans
-       if (this.state.problem2.issue = undefined || 'undefined' || null){
-           return false;
-       }else{
-           return true;
-       }
+    validateAns() {//validates the checkboxes before submitting of issue so tp prevent submition of issue without ans
+        if (this.state.problem2.issue = undefined || 'undefined' || null) {
+            return false;
+        } else {
+            return true;
+        }
     }
     // pushFault(outlet, name, cat, radioans,checkans)
     Submit() {// Submit button on press
@@ -351,7 +351,7 @@ export default class ReportScreentest extends Component {
         let monthsInName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         let monthName = monthsInName[month - 1];
         let year = new Date().getFullYear(); //Current Year
-         const email = this.state.problem2.email;
+        const email = this.state.problem2.email;
         const comments = 'none'; //comment must be set to none 
         const description = this.state.others; // others state
         const currentDate = date + '-' + monthName + '-' + year;
@@ -396,84 +396,105 @@ export default class ReportScreentest extends Component {
         } else {
             validate = false;
         }
-        if (validate || this.validateAns() ) {//Trying to submit fault if validation is done
+        if (validate || this.validateAns()) {//Trying to submit fault if validation is done
             //photos =  camera roll or image picker
             //images = camera 
             try {
                 //no image selected
-               if (!this.state.photos && !this.state.imageurl) {
+                if (!this.state.photos && !this.state.imageurl) {
                     Alert.alert("Please use camera or choose an image!, 请使用相机或选照片！")
                 }
                 //if only camera picture is selected
-                else if(!this.state.photos && this.state.imageurl){
+                else if (!this.state.photos && this.state.imageurl) {
                     console.log("camera only")
-                    try{
-                        let string="";
+                    try {
+                        let string = "";
                         //Calling uploadimage class to submit the image into storage
-                        this.uploadImage(this.state.image, this.getFileName(this.state.image)) 
+                        this.uploadImage(this.state.image, this.getFileName(this.state.image))
                         string = ('Fault/' + this.state.imageurl)
                         //submit into firebase db
-                        setTimeout(function(){
+                        setTimeout(function () {
                             this.submitFault(email, comments, datetime, currentDate, description, outlet, name, cat, radio, check, status, string);//Calling submit fault class to submit the fault to database
                         }.bind(this), 15000)
-                    }catch(e){
-                        console.log("error in report screen submit photo from camera function inside submit function e : " +e)
+                    } catch (e) {
+                        console.log("error in report screen submit photo from camera function inside submit function e : " + e)
                     }
-                    Alert.alert('Fault Submitted Successfully, please wait 10 seconds for fault to display.`\n`报告成功！请等10秒，故障才出现！'); //Alert to user that fault has been submitted
-                    this.props.navigation.navigate('Outlet'); //Navigate user back to outlet page
+                    //Alert to user that fault has been submitted
+                    Alert.alert(
+                        'Successfully reported fault, 故障报告成功！',
+                        'please wait 10 seconds to load fault, \n请等10秒，故障加载请稍候',
+                        [{
+                            text: `OK`,
+                            onPress: () => { this.props.navigation.navigate('Outlet') } //Navigate user back to outlet page
+                        }]
+                    )
                 }
                 //if only camera roll is selected
-                else if(!this.state.imageurl && this.state.photos){
+                else if (!this.state.imageurl && this.state.photos) {
                     console.log("camera roll only")
-                    try{
-                        let string="";
+                    try {
+                        let string = "";
                         //Calling uploadimage class to submit the image into storage
-                        for(let i = 0; i < this.state.photos.length; i ++){
+                        for (let i = 0; i < this.state.photos.length; i++) {
                             this.uploadImage((this.state.photos[i]).toString(), this.getFileName(this.state.photos[i])) //Calling upload image class to submit the image into storage using a loop to loop through the multiple ones
                         }
                         //construct string var to parse into submitfault func
-                        this.state.photosurl.map((item) =>{
-                            string += ('Fault/' + item +",") 
-                        })    
+                        this.state.photosurl.map((item) => {
+                            string += ('Fault/' + item + ",")
+                        })
                         //submit into firebase db
-                        setTimeout(function(){
+                        setTimeout(function () {
                             this.submitFault(email, comments, datetime, currentDate, description, outlet, name, cat, radio, check, status, string);//Calling submit fault class to submit the fault to database
                         }.bind(this), 15000)
-                    }catch(e){
+                    } catch (e) {
                         console.log("1234 consolog in submitting the fault error is:  " + e)
                     }//end of try catch
-                    Alert.alert('Fault Submitted Successfully, please wait 10 seconds for fault to display.`\n`报告成功！请等10秒，故障才出现！'); //Alert to user that fault has been submitted
-                    this.props.navigation.navigate('Outlet'); //Navigate user back to outlet page 
+                    //Alert to user that fault has been submitted
+                    Alert.alert(
+                        'Successfully reported fault, 故障报告成功！',
+                        'please wait 10 seconds to load fault, \n请等10秒，故障加载请稍候',
+                        [{
+                            text: `OK`,
+                            onPress: () => { this.props.navigation.navigate('Outlet') } //Navigate user back to outlet page
+                        }]
+                    )
                 }
                 //if both camera and picture is selected
-                else if(this.state.photos && this.state.imageurl){
+                else if (this.state.photos && this.state.imageurl) {
                     console.log("both camera and camera roll")
-                    try{
+                    try {
                         //let the string be populated with camera url first
-                        let string = ('Fault/' + this.state.imageurl) 
+                        let string = ('Fault/' + this.state.imageurl)
                         //then the string adds camera roll items as well
-                        this.state.photosurl.map((item) =>{
-                            string += ('Fault/' + item +",") 
+                        this.state.photosurl.map((item) => {
+                            string += ('Fault/' + item + ",")
                             // console.log(String)
-                        }) 
+                        })
                         //Calling uploadimage class to submit the camera image into storage
-                        this.uploadImage(this.state.image, this.getFileName(this.state.image)) 
+                        this.uploadImage(this.state.image, this.getFileName(this.state.image))
                         //Calling uploadimage class to submit the camera roll image into storage
-                        for(let i = 0; i < this.state.photos.length; i ++){
+                        for (let i = 0; i < this.state.photos.length; i++) {
                             this.uploadImage((this.state.photos[i]).toString(), this.getFileName(this.state.photos[i])) //Calling upload image class to submit the image into storage using a loop to loop through the multiple ones
-                        }                        
+                        }
                         //submit into firebase db for json obj imageurl: "Fault/....,...."
-                        setTimeout(function(){
+                        setTimeout(function () {
                             this.submitFault(email, comments, datetime, currentDate, description, outlet, name, cat, radio, check, status, string);//Calling submit fault class to submit the fault to database
                         }.bind(this), 15000)
-                    }catch(e){
-                        console.log("error in submitting the fault error is:  " + e)
+                    } catch (e) {
+                        console.log("error in submitting the fault error is:  " + e)//lll
                     }//end of try catch
-                    Alert.alert('Fault Submitted Successfully, please wait 10 seconds for fault to display.`\n`报告成功！请等10秒，故障才出现！'); //Alert to user that fault has been submitted
-                    this.props.navigation.navigate('Outlet'); //Navigate user back to outlet page    
+                    //Alert to user that fault has been submitted
+                    Alert.alert(
+                        'Successfully reported fault, 故障报告成功！',
+                        'please wait 10 seconds to load fault, \n请等10秒，故障加载请稍候',
+                        [{
+                            text: `OK`,
+                            onPress: () => { this.props.navigation.navigate('Outlet') } //Navigate user back to outlet page
+                        }]
+                    )
                 }
             } catch (error) {
-                Alert.alert("error submitting image, try catch error is: "+error);//if they didn't succeed it means that image was not selected.
+                Alert.alert("error submitting image, try catch error is: " + error);//if they didn't succeed it means that image was not selected.
             }
         } else {//Alert
             Alert.alert('Please fill in the necessary data')
@@ -586,28 +607,28 @@ export default class ReportScreentest extends Component {
             let photosurl = [...this.state.photosurl]
             let photos = [...this.state.photos]
             // console.log(photos)
-            for(let i = 0; i<photosA.length; i++){
-                let string =  this.getFileName(photosA[i].uri);
+            for (let i = 0; i < photosA.length; i++) {
+                let string = this.getFileName(photosA[i].uri);
                 photosurl.push(string);
                 photos.push(photosA[i].uri);
                 console.log(string);
             }
-            this.setState({photosurl})
-            this.setState({photos})
+            this.setState({ photosurl })
+            this.setState({ photos })
         }).catch((e) => console.log(e))
-      };
-      updateHandler = (count, onSubmit) => {
+    };
+    updateHandler = (count, onSubmit) => {
         // this.props.navigation.setParams({
         //   headerTitle: "{{count}} selected",
         //   headerRight: onSubmit,
         // });
-      };
-      renderSelectedComponent = (number) => (
+    };
+    renderSelectedComponent = (number) => (
         <View style={styles.countBadge}>
-          <Text style={styles.countBadgeText}>{number}</Text>
+            <Text style={styles.countBadgeText}>{number}</Text>
         </View>
-      );
-    render() {            
+    );
+    render() {
         let { image } = this.state;
         const emptyStayComponent = <Text style={styles.emptyStay}>Empty =(</Text>;
         const noCameraPermissionComponent = <Text style={styles.emptyStay}>No access to camera</Text>;
@@ -665,7 +686,7 @@ export default class ReportScreentest extends Component {
                             <View >
                                 {this.deletePicBtn()}
                                 {image &&
-                                <Image source={{ uri: image }} style={{ width: 300, height: 200, marginBottom: 10, marginLeft: 20, alignItems: 'center', justifyContent:"space-around" }}/>}
+                                    <Image source={{ uri: image }} style={{ width: 300, height: 200, marginBottom: 10, marginLeft: 20, alignItems: 'center', justifyContent: "space-around" }} />}
                             </View>
                         </View>
                         <TouchableHighlight
@@ -675,16 +696,16 @@ export default class ReportScreentest extends Component {
                         >
                             <Text style={styles.submitbuttonText}>Submit/提交</Text>
                         </TouchableHighlight>
-                        
+
                     </View>
                     <ImageBrowser
-                            max={3} //Choose the max ammount of images
-                            onChange={this.updateHandler}
-                            callback={this.imagesCallback} 
-                            renderSelectedComponent={this.renderSelectedComponent}
-                            emptyStayComponent={emptyStayComponent}
-                            noCameraPermissionComponent={noCameraPermissionComponent}
-                        />
+                        max={3} //Choose the max ammount of images
+                        onChange={this.updateHandler}
+                        callback={this.imagesCallback}
+                        renderSelectedComponent={this.renderSelectedComponent}
+                        emptyStayComponent={emptyStayComponent}
+                        noCameraPermissionComponent={noCameraPermissionComponent}
+                    />
                 </ScrollView>
             </KeyboardAvoidingView>
         )
@@ -692,10 +713,10 @@ export default class ReportScreentest extends Component {
 
 }
 const styles = StyleSheet.create({
-    emptyStay:{
+    emptyStay: {
         textAlign: 'center',
-      },
-      countBadge: {
+    },
+    countBadge: {
         paddingHorizontal: 8.6,
         paddingVertical: 5,
         borderRadius: 50,
@@ -704,13 +725,13 @@ const styles = StyleSheet.create({
         bottom: 3,
         justifyContent: 'center',
         backgroundColor: '#0580FF'
-      },
-      countBadgeText: {
+    },
+    countBadgeText: {
         fontWeight: 'bold',
         alignSelf: 'center',
         padding: 'auto',
         color: '#ffffff'
-      },
+    },
     main: {
         flex: 1,
         paddingTop: 30,
@@ -848,7 +869,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
         alignSelf: 'stretch',
         justifyContent: 'center',
-    }, 
+    },
     submitbutton2: {
         height: 30,
         marginTop: 3,

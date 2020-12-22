@@ -7,7 +7,7 @@
       "ios",
       "android"
     ],
-    "version": "1.0.2",
+    "version": "1.1.0B",
     "orientation": "portrait",
     "icon": "./assets/BCHLogo.png",
     "updates": {
