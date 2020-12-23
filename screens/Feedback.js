@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, ImageBackground, View, Text, TextInput, TouchableHighlight, ScrollView, Alert, KeyboardAvoidingView, Platform} from 'react-native'
+import { StyleSheet, ImageBackground, View, Text, TextInput, TouchableHighlight, ScrollView, Alert, KeyboardAvoidingView, Platform } from 'react-native'
 import DropDownPicker from 'react-native-dropdown-picker';
 import { db } from '../constants/ApiKeys';
 import { st } from '../constants/ApiKeys';
@@ -207,7 +207,7 @@ export default class Outlet extends Component {
                         source={require('../images/customerFeedback.jpg')}>
                     </ImageBackground>
                     <View style={styles.main}>
-
+                        <Text style={styles.fontTextQues}>Staff Name/员工名字</Text>
                         <TextInput style={styles.itemInput} onChange={this.handlestaffChangeInput} placeholderTextColor="gray" placeholder="Staff Name/职员姓名" ></TextInput>
                         <Text style={styles.fontTextQues}>Customer Details/客户详情</Text>
                         <TextInput style={styles.custitemInput} onChange={this.handlecustNameChangeInput} placeholderTextColor="gray" placeholder="Name/顾客信息" ></TextInput>
@@ -260,21 +260,6 @@ export default class Outlet extends Component {
                                     >
                                         <TextInput maxLength={500} multiline style={styles.textFieldInput} onChange={this.handleIssueInput} placeholderTextColor="gray" placeholder="Issue/Others 问题/其他" ></TextInput>
                                     </KeyboardAvoidingView>
-
-                                    {/* <View>
-                                        <TouchableHighlight
-                                            style={styles.imagebutton}
-                                            underlayColor="white"
-                                            onPress={() => this.pickimage()}
-                                        >
-                                            <Icon name="camera" style={styles.icon}>
-                                                <Text style={styles.imagebuttonText}>  Upload Image/上传图片</Text>
-                                            </Icon>
-                                        </TouchableHighlight>
-                                        {this.deletePicBtn()}
-                                        {image &&
-                                            <Image source={{ uri: image }} style={{ width: 200, height: 200, marginBottom: 10 }} />}
-                                    </View> */}
                                     <TouchableHighlight
                                         style={styles.submitbutton}
                                         underlayColor="white"
@@ -313,6 +298,7 @@ const styles = StyleSheet.create({
         marginBottom: 20
     },
     fontTextQues: {
+        color: 'red',
         fontWeight: 'bold',
         fontSize: 16,
         marginBottom: 5

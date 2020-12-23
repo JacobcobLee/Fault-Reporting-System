@@ -56,33 +56,11 @@ export default class ReportScreentest extends Component {
     getFileName(str) {//getting filename for image
         return str.substring(str.lastIndexOf('/') + 1);
     }
-    //function is outdated
-    // pickimage = async () => { 
-    //     let result = await ImagePicker.launchImageLibraryAsync({
-    //         mediaTypes: ImagePicker.MediaTypeOptions.All,
-    //         allowsMultipleSelection: true,
-    //         allowsEditing: true
-    //     });
-
-    //     // console.log(result);
-    //     if (!result.cancelled) {
-    //         let fileName = this.getFileName(result.uri);
-    //         // console.log("filename: " + fileName);
-    //         let test = this.uuidv4();
-    //         test += '/images/' + fileName + ',';
-    //         this.setState({
-    //             imageurl: test
-    //         })
-    //         this.setState({ image: result.uri });
-    //     }
-    // };
     openCamera = async () => { //open camera to take image
         console.log("inside cmera fucntion")
         let result = await ImagePicker.launchCameraAsync({
             allowsEditing: false
         });
-
-        // console.log(result);
         if (!result.cancelled) {
             var fileName = this.getFileName(result.uri);
             console.log("filename: " + fileName);
@@ -148,7 +126,6 @@ export default class ReportScreentest extends Component {
             name: e.nativeEvent.text
         });
     };
-
     checkValidation(checkquestion, item) { // validation for checkbox 
         return checkquestion.map((checkquestion) => { //mapping the checkboxquestion
             return checkquestion.answer.map((answer) => {//mapping the checkboxquestion answer
@@ -640,7 +617,7 @@ export default class ReportScreentest extends Component {
                         source={require('../images/reportIssue.jpg')}>
                     </ImageBackground>
                     <View style={styles.main}>
-
+                        <Text style={styles.fontTextQues}>Staff Name/员工名字</Text>
                         <TextInput style={styles.itemInput} onChange={this.handleChangeInput} placeholderTextColor="gray" placeholder="Staff Name/职员姓名" ></TextInput>
                         <Text style={styles.fontTextQues}>Category of fault/故障类别：</Text>
                         {this.displayPicture()}
@@ -767,6 +744,7 @@ const styles = StyleSheet.create({
         marginBottom: 20
     },
     fontTextQues: {
+        color: 'red',
         fontWeight: 'bold',
         fontSize: 16,
         marginBottom: 5
