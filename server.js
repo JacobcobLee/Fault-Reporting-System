@@ -1,6 +1,6 @@
 const express = require("express"),
   app = express(),
-  port = process.env.PORT || 9998;
+  port = process.env.PORT || 9997;
 
 const http = require("http");
 const moment = require("moment");
@@ -149,7 +149,11 @@ admin
           console.log("some error: " + err);
         });
     }
+
+    console.log(" ");
+    console.log(" ");
     console.log(imgURL);
+    console.log("image url  here above me");
 
     function getIssueAndLocAlpha() {
       //ok im gonna try to store the objects in an array then extract/filter them into a array?
