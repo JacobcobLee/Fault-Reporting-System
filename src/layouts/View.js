@@ -197,7 +197,7 @@ export default function View() {
                                     isDisabled="true"
                                 />
                                 <br></br>
-                                <h4>Comments:</h4>
+                                <h4>Comments</h4><h5>format: solution-date-user e.g called maintenance - 20/4/2020 - Daniel</h5>
                                 <textarea type="text" disabled="true" defaultValue={displayspecificCases.comments} className="form-control" />
                                 <br></br>
                                 <h4>Resolved By:</h4>

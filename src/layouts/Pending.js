@@ -230,9 +230,7 @@ export default function Pending() {
                                     onChange={e => setEdit(e.value)}
                                 />
                                 <br></br>
-                                <h4>Comments:</h4>
-
-                                {/* working here */}
+                                <h4>Comments</h4><h5>format: solution-date-user e.g called maintenance - 20/4/2020 - Daniel</h5>
                                 <textarea type="text" defaultValue={comment} onChange={e => setComment(e.target.value)} className="form-control" />
                                 <br></br>
                                 <h4>Last Edited By:</h4>

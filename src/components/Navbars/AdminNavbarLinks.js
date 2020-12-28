@@ -26,7 +26,7 @@ export default function AdminNavbarLinks() {
   // eslint-disable-next-line
   const handleClickNotification = event => {
     if (openNotification && openNotification.contains(event.target)) {
-      setOpenNotification(null);
+      setOpenNotification(null);   
     } else {
       setOpenNotification(event.currentTarget);
     }
