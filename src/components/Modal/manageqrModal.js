@@ -23,6 +23,7 @@ export default function ManageqrModal(props) {
   }, [])
 
   function searchFunction(e) {
+    console.log(e)
     setFilterArray(qr.filter(function (item) {
       return Object.values(item).some(val =>
         String(val).toLowerCase().includes(e.toLowerCase())
@@ -44,7 +45,7 @@ export default function ManageqrModal(props) {
         </ModalTitle>
       </ModalHeader>
       <ModalBody>
-        <input className="form-control" type="text" placeholder="Search" onChange={e => searchFunction(e.value)} />
+        <input className="form-control" type="text" placeholder="Search" onChange={e => searchFunction(e.target.value)} />
         <Button color="success" onClick={e => searchFunction(" ")}>Reset Filter</Button>
         <Table
           tableHeaderColor="primary"

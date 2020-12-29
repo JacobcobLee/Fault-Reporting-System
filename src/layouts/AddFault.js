@@ -86,10 +86,10 @@ export default function AddFault() {
         return true;
     }
     function validateEmail(mail) {
-        if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail)) {
+        if (mail !== null) {
             return (true)
         }
-        alert("You have entered an invalid email address!")
+        alert("You have not entered an email address!")
         return (false)
     }
     function submit() { // submit functions to allow users to submit the data into the server for post/put
