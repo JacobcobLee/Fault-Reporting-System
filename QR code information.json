@@ -1,0 +1,42 @@
+{
+  "Bukit_Panjang_Plaza" : {
+    "qrstring" : "cm9871",
+    "storecode" : 9871,
+    "storename" : "Bukit Panjang Plaza"
+  },
+  "JEM" : {
+    "qrstring" : "cm3977",
+    "storecode" : 3977,
+    "storename" : "JEM"
+  },
+  "1359_Serangoon_Road_The_Grillery" : {
+    "qrstring" : "cm5753",
+    "storecode" : 5753,
+    "storename" : "1359 Serangoon Road The Grillery"
+  },
+  "189_New_Bridge_Road_Roadside" : {
+    "qrstring" : "cm7059",
+    "storecode" : 7059,
+    "storename" : "189 New Bridge Road Roadside"
+  },
+  "301_Geylang_Road_Roadside" : {
+    "qrstring" : "cm8508",
+    "storecode" : 8508,
+    "storename" : "301 Geylang Road Roadside"
+  },
+  "Ang_Mo_Kio_Central_Roadside" : {
+    "qrstring" : "cm9080",
+    "storecode" : 9080,
+    "storename" : "Ang Mo Kio Central Roadside"
+  },
+  "Bedok_Mall" : {
+    "qrstring" : "cm9515",
+    "storecode" : 9515,
+    "storename" : "Bedok Mall"
+  },
+  "Bedok_North_Roadside" : {
+    "qrstring" : "cm7436",
+    "storecode" : 7436,
+    "storename" : "Bedok North Roadside"
+  }
+}

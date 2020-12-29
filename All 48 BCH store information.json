@@ -1,0 +1,242 @@
+{
+  "1359_Serangoon_Road_The_Grillery" : {
+    "address" : "1359 Serangoon Road, Singapore 328241",
+    "code" : "5753",
+    "name" : "1359_Serangoon_Road_The_Grillery"
+  },
+  "189_New_Bridge_Road_Roadside" : {
+    "address" : "189 New Bridge Road, Singapore 059422",
+    "code" : "7059",
+    "name" : "189_New_Bridge_Road_Roadside"
+  },
+  "301_Geylang_Road_Roadside" : {
+    "address" : "301 Geylang Rd, Singapore 389344",
+    "code" : "8508",
+    "name" : "301_Geylang_Road_Roadside"
+  },
+  "Ang_Mo_Kio_Central_Roadside" : {
+    "address" : "Blk 702 Ang Mo Kio Ave 8, #01-2525, Singapore 560702",
+    "code" : "9080",
+    "name" : "Ang_Mo_Kio_Central_Roadside"
+  },
+  "Bedok_Mall" : {
+    "address" : "311 Upper Changi Road, #B2-23, Singapore 467360",
+    "code" : "9515",
+    "name" : "Bedok_Mall"
+  },
+  "Bedok_North_Roadside" : {
+    "address" : "Blk 205, Bedok North Street 1, #01-369, Singapore 460205",
+    "code" : "7436",
+    "name" : "Bedok_North_Roadside"
+  },
+  "Jewel" : {
+    "address" : "78 Airport Boulevard #01-226",
+    "code" : "3968",
+    "name" : "Jewel"
+  },
+  "Junction_8" : {
+    "address" : "9 Bishan Place, #B1-13, Singapore 579837",
+    "code" : "5455",
+    "name" : "Junction 8"
+  },
+  "Jurong_Point" : {
+    "address" : "1 Jurong West Central 2, #B1-04, Singapore 648886",
+    "code" : "0900",
+    "name" : "Jurong Point"
+  },
+  "Lot_1_Shopping_Mall" : {
+    "address" : "21 Chua Chu Kang Ave 4, #B1-K11/K12,Singapore 689812",
+    "code" : "2373",
+    "name" : "Lot_1_Shopping_Mall"
+  },
+  "NEX" : {
+    "address" : "23 Serangoon, #B2-11, Singapore 556083",
+    "code" : "4787",
+    "name" : "NEX"
+  },
+  "Northpoint_City" : {
+    "address" : "930 Yishun Avenue 2 , Northpoint City South Wing, #B2-155, Singapore 769098",
+    "code" : "0048",
+    "name" : "Northpoint_City"
+  },
+  "Pagoda_Roadside" : {
+    "address" : "69/71 Pagoda Street, Singapore 059228",
+    "code" : "0049",
+    "name" : "Pagoda_Roadside"
+  },
+  "Paragon" : {
+    "address" : "290A Orchard Road, #B1-10A, Singapore 238859",
+    "code" : "3433",
+    "name" : "Paragon"
+  },
+  "Parkway_Parade" : {
+    "address" : "80 Marine Parade Road, #B1-88, Singapore 449269",
+    "code" : "4049",
+    "name" : "Parkway_Parade"
+  },
+  "Paya_Lebar_Quarter" : {
+    "address" : "10 Paya Lebar Road #B2-30, Singapore 409057",
+    "code" : "6312",
+    "name" : "Paya_Lebar_Quarter"
+  },
+  "Peranakan_Place" : {
+    "address" : "186A Orchard Road, Singapore 238849",
+    "code" : "7716",
+    "name" : "Peranakan_Place"
+  },
+  "Raffles_City_Shopping_Centre" : {
+    "address" : "252 North Bridge Road, #B1-59, Singapore 179103",
+    "code" : "0744",
+    "name" : "Raffles_City_Shopping_Centre"
+  },
+  "Resorts_World_Sentosa" : {
+    "address" : "26 Sentosa Gateway, The Forum, #01-207, Singapore 098138",
+    "code" : "9334",
+    "name" : "Resorts_World_Sentosa"
+  },
+  "Sims_Avenue" : {
+    "address" : "228 Sims Avenue, Singapore 387507",
+    "code" : "8060",
+    "name" : "Sims_Avenue"
+  },
+  "Suntec_City_Mall" : {
+    "address" : "3 Temasek Boulevard, #01-302, Singapore 038983",
+    "code" : "0568",
+    "name" : "Suntec_City_Mall"
+  },
+  "Takashimaya" : {
+    "address" : "391 Orchard Road, #B207-4-1, Singapore 238873",
+    "code" : "4546",
+    "name" : "Takashimaya"
+  },
+  "Tampines_Central" : {
+    "address" : "No. 8 Tampines Central 1, #01-14, Singapore 529543",
+    "code" : "8441",
+    "name" : "Tampines_Central"
+  },
+  "Tampines_Mall" : {
+    "address" : "Tampines Central 5, #B1-14, Singapore 529510",
+    "code" : "7877",
+    "name" : "Tampines_Mall"
+  },
+  "Tiong_Bahru_Plaza" : {
+    "address" : "302 Tiong Bahru Road, #B1-120, Singapore 168732",
+    "code" : "3393",
+    "name" : "Tiong_Bahru_Plaza"
+  },
+  "Toa_Payoh_Central_Roadside" : {
+    "address" : "Blk 190 Toa Payoh Lorong 6, #01-566, Singapore 310190",
+    "code" : "9562",
+    "name" : "Toa_Payoh_Central_Roadside"
+  },
+  "V_Hotel" : {
+    "address" : "70 Jellicoe Road, #01-19, Singapore 208767",
+    "code" : "6701",
+    "name" : "V_Hotel"
+  },
+  "Waterway_Point" : {
+    "address" : "83 Punggol Central, #B2-K5/K6, Singapore 828761",
+    "code" : "1605",
+    "name" : "Waterway_Point"
+  },
+  "West_Mall" : {
+    "address" : "1 Bukit Batok Central Link, #B1-07, Singapore 658713",
+    "code" : "2101",
+    "name" : "West_Mall"
+  },
+  "White_Sands_Shopping_Centre" : {
+    "address" : "1 Pasir Ris Central Street 3, #B1-03, Singapore 518457",
+    "code" : "9893",
+    "name" : "White_Sands_Shopping_Centre"
+  },
+  "Bugis_Village" : {
+    "address" : "239 Victoria Street, Singapore 188028",
+    "code" : "3958",
+    "name" : "Bugis_Village"
+  },
+  "Bukit_Panjang_Plaza" : {
+    "address" : "1 Jelebu Road, #01-24, Singapore 677743",
+    "code" : "9871",
+    "name" : "Bukit_Panjang_Plaza"
+  },
+  "Causeway_Point" : {
+    "address" : "1 Woodlands Square, #B1-40, Singapore 738099",
+    "code" : "9388",
+    "name" : "Causeway_Point"
+  },
+  "Changi_Airport_Terminal_1_Departure_Transit_East" : {
+    "address" : "80 Airport Boulevard, #02-K24, Singapore 819642",
+    "code" : "1390",
+    "name" : "Changi_Airport_Terminal_1_Departure_Transit_East"
+  },
+  "Changi_Airport_Terminal_2_Departure_Check_In_Hall_Public_Area" : {
+    "address" : "60 Airport Boulevard, #026-034, Singapore 819643",
+    "code" : "2837",
+    "name" : "Changi_Airport_Terminal_2_Departure_Check_In_Hall_Public_Area"
+  },
+  "Changi_Airport_Terminal_2_Departure_Transit_Lounge_North" : {
+    "address" : "60 Airport Boulevard, #026-095-01, Singapore 819643",
+    "code" : "7012",
+    "name" : "Changi_Airport_Terminal_2_Departure_Transit_Lounge_North"
+  },
+  "Changi_Airport_Terminal_2_Departure_Transit_Lounge_South" : {
+    "address" : "60 Airport Boulevard, #026-135, Singapore 819643",
+    "code" : "6893",
+    "name" : "Changi_Airport_Terminal_2_Departure_Transit_Lounge_South"
+  },
+  "Changi_Airport_Terminal_4_Departure_Check_In_Hall" : {
+    "address" : "10 Airport Boulevard, #02-12, Singapore 819665",
+    "code" : "7029",
+    "name" : "Changi_Airport_Terminal_4_Departure_Check_In_Hall"
+  },
+  "Changi_Airport_Terminal_4_Departure_Transit_Lounge_North" : {
+    "address" : "10 Airport Boulevard, #02-85, Singapore 819665",
+    "code" : "1533",
+    "name" : "Changi_Airport_Terminal_4_Departure_Transit_Lounge_North"
+  },
+  "Clementi_Central_Roadside" : {
+    "address" : "Blk 449 Clementi Ave 3, #01-255, Singapore 120449",
+    "code" : "3063",
+    "name" : "Clementi_Central_Roadside"
+  },
+  "Clementi_Mall" : {
+    "address" : "3155 Commonwealth Ave West, #B1-20, Singapore 129588",
+    "code" : "5295",
+    "name" : "Clementi_Mall"
+  },
+  "Compass_One" : {
+    "address" : "1 Sengkang Square, #B1-26, Singapore 545078",
+    "code" : "7797",
+    "name" : "Compass_One"
+  },
+  "East_Coast_Road_Roadside" : {
+    "address" : "141 East Coast Road, Singapore 428831",
+    "code" : "2058",
+    "name" : "East_Coast_Road_Roadside"
+  },
+  "Great_World_City" : {
+    "address" : "1 Kim Seng Promenade, #B1-130, Singapore 237994",
+    "code" : "3363",
+    "name" : "Great_World_City"
+  },
+  "Harbourfront_Centre" : {
+    "address" : "1 Maritime Square, #01-68, Singapore 099253",
+    "code" : "7477",
+    "name" : "Harbourfront_Centre"
+  },
+  "Hotel_Boss" : {
+    "address" : "500 Jalan Sultan, #01-02, Singapore 199020",
+    "code" : "6842",
+    "name" : "Hotel_Boss"
+  },
+  "Hougang_Mall" : {
+    "address" : "90 Hougang Ave 10, #B1-20, Singapore 538766",
+    "code" : "3938",
+    "name" : "Hougang_Mall"
+  },
+  "JEM" : {
+    "address" : "50 Jurong Gateway Road, #B1-K01, Singapore 608549",
+    "code" : "3977",
+    "name" : "JEM"
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "SR" : {
+    "address" : "1359 Serangoon Road, Singapore 328241",
+    "name" : "SR"
+  },
+  "189" : {
+    "address" : "189 New Bridge Road, Singapore 059422",
+    "name" : "189"
+  },
+  "GL" : {
+    "address" : "301 Geylang Rd, Singapore 389344",
+    "name" : "GL"
+  },
+  "AM" : {
+    "address" : "Blk 702 Ang Mo Kio Ave 8, #01-2525, Singapore 560702",
+    "name" : "AM"
+  },
+  "BM" : {
+    "address" : "311 Upper Changi Road, #B2-23, Singapore 467360",
+    "name" : "BM"
+  },
+  "BD" : {
+    "address" : "Blk 205, Bedok North Street 1, #01-369, Singapore 460205",
+    "name" : "BD"
+  },
+  "JE" : {
+    "address" : "78 Airport Boulevard #01-226",
+    "name" : "JE"
+  },
+  "J8" : {
+    "address" : "9 Bishan Place, #B1-13, Singapore 579837",
+    "name" : "J8"
+  },
+  "JP" : {
+    "address" : "1 Jurong West Central 2, #B1-04, Singapore 648886",
+    "name" : "JP"
+  },
+  "LT" : {
+    "address" : "21 Chua Chu Kang Ave 4, #B1-K11/K12,Singapore 689812",
+    "name" : "LT"
+  },
+  "NX" : {
+    "address" : "23 Serangoon, #B2-11, Singapore 556083",
+    "name" : "NX"
+  },
+  "NP" : {
+    "address" : "930 Yishun Avenue 2 , Northpoint City South Wing, #B2-155, Singapore 769098",
+    "name" : "NP"
+  },
+  "PA" : {
+    "address" : "69/71 Pagoda Street, Singapore 059228",
+    "name" : "PA"
+  },
+  "PG" : {
+    "address" : "290A Orchard Road, #B1-10A, Singapore 238859",
+    "name" : "PG"
+  },
+  "PW" : {
+    "address" : "80 Marine Parade Road, #B1-88, Singapore 449269",
+    "name" : "PW"
+  },
+  "PQ" : {
+    "address" : "10 Paya Lebar Road #B2-30, Singapore 409057",
+    "name" : "PQ"
+  },
+  "PE" : {
+    "address" : "186A Orchard Road, Singapore 238849",
+    "name" : "PE"
+  },
+  "RC" : {
+    "address" : "252 North Bridge Road, #B1-59, Singapore 179103",
+    "name" : "RC"
+  },
+  "RW" : {
+    "address" : "26 Sentosa Gateway, The Forum, #01-207, Singapore 098138",
+    "name" : "RW"
+  },
+  "SA" : {
+    "address" : "228 Sims Avenue, Singapore 387507",
+    "name" : "SA"
+  },
+  "TA" : {
+    "address" : "391 Orchard Road, #B207-4-1, Singapore 238873",
+    "name" : "TA"
+  },
+  "TC" : {
+    "address" : "No. 8 Tampines Central 1, #01-14, Singapore 529543",
+    "name" : "TC"
+  },
+  "TM" : {
+    "address" : "Tampines Central 5, #B1-14, Singapore 529510",
+    "name" : "TM"
+  },
+  "TB" : {
+    "address" : "302 Tiong Bahru Road, #B1-120, Singapore 168732",
+    "name" : "TB"
+  },
+  "TP" : {
+    "address" : "Blk 190 Toa Payoh Lorong 6, #01-566, Singapore 310190",
+    "name" : "TP"
+  },
+  "VH" : {
+    "address" : "70 Jellicoe Road, #01-19, Singapore 208767",
+    "name" : "VH"
+  },
+  "WP" : {
+    "address" : "83 Punggol Central, #B2-K5/K6, Singapore 828761",
+    "name" : "WP"
+  },
+  "WM" : {
+    "address" : "1 Bukit Batok Central Link, #B1-07, Singapore 658713",
+    "name" : "WM"
+  },
+  "WS" : {
+    "address" : "1 Pasir Ris Central Street 3, #B1-03, Singapore 518457",
+    "name" : "WS"
+  },
+  "BV" : {
+    "address" : "239 Victoria Street, Singapore 188028",
+    "name" : "BV"
+  },
+  "BP" : {
+    "address" : "1 Jelebu Road, #01-24, Singapore 677743",
+    "name" : "BP"
+  },
+  "CW" : {
+    "address" : "1 Woodlands Square, #B1-40, Singapore 738099",
+    "name" : "CW"
+  },
+  "T1E" : {
+    "address" : "80 Airport Boulevard, #02-K24, Singapore 819642",
+    "name" : "T1E"
+  },
+  "TT" : {
+    "address" : "60 Airport Boulevard, #026-034, Singapore 819643",
+    "name" : "TT"
+  },
+  "T2N" : {
+    "address" : "60 Airport Boulevard, #026-095-01, Singapore 819643",
+    "name" : "T2N"
+  },
+  "T2" : {
+    "address" : "60 Airport Boulevard, #026-135, Singapore 819643",
+    "name" : "T2"
+  },
+  "T4L" : {
+    "address" : "10 Airport Boulevard, #02-12, Singapore 819665",
+    "name" : "T4L"
+  },
+  "T4" : {
+    "address" : "10 Airport Boulevard, #02-85, Singapore 819665",
+    "name" : "1533"
+  },
+  "CC" : {
+    "address" : "Blk 449 Clementi Ave 3, #01-255, Singapore 120449",
+    "name" : "CC"
+  },
+  "CM" : {
+    "address" : "3155 Commonwealth Ave West, #B1-20, Singapore 129588",
+    "name" : "CM"
+  },
+  "CP" : {
+    "address" : "1 Sengkang Square, #B1-26, Singapore 545078",
+    "name" : "CP"
+  },
+  "EC" : {
+    "address" : "141 East Coast Road, Singapore 428831",
+    "name" : "EC"
+  },
+  "GW" : {
+    "address" : "1 Kim Seng Promenade, #B1-130, Singapore 237994",
+    "name" : "GW"
+  },
+  "HF" : {
+    "address" : "1 Maritime Square, #01-68, Singapore 099253",
+    "name" : "HF"
+  },
+  "HB" : {
+    "address" : "500 Jalan Sultan, #01-02, Singapore 199020",
+    "name" : "HB"
+  },
+  "HM" : {
+    "address" : "90 Hougang Ave 10, #B1-20, Singapore 538766",
+    "name" : "HM"
+  },
+  "JM" : {
+    "address" : "50 Jurong Gateway Road, #B1-K01, Singapore 608549",
+    "name" : "JM"
+  }
+}

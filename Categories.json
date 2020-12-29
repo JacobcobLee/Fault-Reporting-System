@@ -1,0 +1,135 @@
+{
+  "Aircon" : {
+    "checkbox" : {
+      "issue" : {
+        "answer" : [ "Not cold", "Water Leak", "Fan not working", "Noisy" ],
+        "name" : "issue"
+      },
+      "location" : {
+        "answer" : [ "Sales Area", "Bakkwa Counter", "BBQ Room" ],
+        "name" : "location"
+      }
+    },
+    "haveCheck" : "true",
+    "haveInput" : "true",
+    "haveRadio" : "true",
+    "input" : [ "Other (Issue)", "Others (Location)" ],
+    "name" : "Aircon",
+    "radio" : {
+      "Type_Of_Aircon" : {
+        "answer" : [ "Ceiling Cassette", "Centralized Aircon" ],
+        "name" : "Type of aircon"
+      }
+    }
+  },
+  "Chiller" : {
+    "checkbox" : {
+      "Number_of_Doors" : {
+        "answer" : [ "1", "2", "4" ],
+        "name" : "Number Of Doors"
+      },
+      "issue" : {
+        "answer" : [ "Not cold", "Water Leak", "Fan not working", "Noisy", "Door hinge loose/spoilt" ],
+        "name" : "issue"
+      }
+    },
+    "haveCheck" : "true",
+    "haveInput" : "true",
+    "haveRadio" : "true",
+    "input" : [ "Model Name/Number" ],
+    "name" : "Chiller",
+    "radio" : {
+      "Does_the_Chiller_has_a_Glass_Door" : {
+        "answer" : [ "yes", "no" ],
+        "name" : "Does the Chiller has a Glass Door?"
+      }
+    }
+  },
+  "Electric Griller" : {
+    "checkbox" : {
+      "issue" : {
+        "answer" : [ "Burner", "Glass Support", "Control Panel", "Not Hot", "Unable to Turn On", "Weird Noises" ],
+        "name" : "issue"
+      }
+    },
+    "haveCheck" : "true",
+    "haveInput" : "true",
+    "haveRadio" : "false",
+    "input" : [ "Others" ],
+    "name" : "Electric Griller",
+    "radio" : "null"
+  },
+  "Electrical & Lighting" : {
+    "checkbox" : {
+      "issue" : {
+        "answer" : [ "Lighting fused", "Socket burnt", "Bulb Holder no power", "Power Trip" ],
+        "name" : "issue"
+      },
+      "location" : {
+        "answer" : [ "Bakkwa Counter", "BBQ Room", "Display Cabinet", "Ceiling" ],
+        "name" : "location"
+      }
+    },
+    "haveCheck" : "true",
+    "haveInput" : "true",
+    "haveRadio" : "false",
+    "input" : [ "Other (Issue)", "Others (Location)", "Others (Lighting)" ],
+    "name" : "Electrical & Lighting",
+    "radio" : "null"
+  },
+  "Exaust & Air Cleaner" : {
+    "checkbox" : {
+      "issue" : {
+        "answer" : [ "Noisy", "Air Suction not Strong", "Smoky", "Oil Leaking" ],
+        "name" : "issue"
+      }
+    },
+    "haveCheck" : "true",
+    "haveInput" : "true",
+    "haveRadio" : "false",
+    "input" : [ "Others(Issue)" ],
+    "name" : "Exaust & Air Cleaner",
+    "radio" : "null"
+  },
+  "Gas Griller" : {
+    "checkbox" : {
+      "issue" : {
+        "answer" : [ "Burner", "Glass Support", "Control Panel", "Not Hot", "Unable to Turn On", "Weird Noises" ],
+        "name" : "issue"
+      }
+    },
+    "haveCheck" : "true",
+    "haveInput" : "true",
+    "haveRadio" : "false",
+    "input" : [ "Others(Issue)" ],
+    "name" : "Gas Griller",
+    "radio" : "null"
+  },
+  "dontdelete" : {
+    "checkbox" : {
+      "issue" : {
+        "answer" : [ "Not cold", "Water Leak", "Fan not working", "Noisy" ],
+        "name" : "issue"
+      },
+      "location" : {
+        "answer" : [ "Sales Area", "Bakkwa Counter", "BBQ Room" ],
+        "name" : "location"
+      }
+    },
+    "haveCheck" : "true",
+    "haveInput" : "true",
+    "haveRadio" : "true",
+    "input" : [ "Other (Issue)", "Others (Location)" ],
+    "name" : "dontdelete",
+    "radio" : {
+      "Type_Of_Aircon" : {
+        "answer" : [ "Ceiling Cassette", "Centralized Aircon" ],
+        "name" : "Type of aircon"
+      },
+      "test" : {
+        "answer" : [ "yes", "no" ],
+        "name" : "Do i have a name"
+      }
+    }
+  }
+}

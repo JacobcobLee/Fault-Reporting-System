@@ -1,0 +1,1282 @@
+{
+  "feedback" : {
+    "-MEcYKnjCpt1VTmgtH-p" : {
+      "custcontactno" : "87654321",
+      "custemail" : "johnnyss@mail.com\"",
+      "custname" : "John",
+      "date" : "15-September-2020",
+      "datetime" : "14/8/2020 0:0:44",
+      "feedbackType" : "Service-Related/服务相关",
+      "issue" : "Mary was very friendly and cheerful",
+      "location" : "189 New Bridge Road Roadside",
+      "rating" : "4",
+      "staffname" : "Mary",
+      "standard" : "Compliment/表扬",
+      "uuid" : "-MEcYKnjCpt1VTmgtH-p"
+    },
+    "-MEiGB-exBtsexx6nT6-" : {
+      "custcontactno" : "91234567",
+      "custname" : "Lim",
+      "date" : "15-September-2020",
+      "datetime" : "15/8/2020 2:39:10",
+      "feedbackType" : "Product-Related/产品相关",
+      "issue" : "Pork-floss expired",
+      "location" : "JEM",
+      "rating" : "1",
+      "staffname" : "Tan",
+      "standard" : "Feedback/反馈",
+      "uuid" : "-MEiGB-exBtsexx6nT6-"
+    },
+    "-MF4YqvqOul6s-b-RI4n" : {
+      "custcontactno" : "99665544",
+      "custemail" : "Test@gmail.com",
+      "custname" : "Test",
+      "date" : "15-September-2020",
+      "datetime" : "19/8/2020 15:11:59",
+      "feedbackType" : "Product-Related/产品相关",
+      "issue" : "66666",
+      "location" : "1359 Serangoon Road (The Grillery)",
+      "rating" : "3",
+      "staffname" : "Ck",
+      "standard" : "Feedback/反馈",
+      "uuid" : "-MF4YqvqOul6s-b-RI4n"
+    },
+    "-MF4ZUJKYlWt6P2EKx1W" : {
+      "custcontactno" : "93390324",
+      "custemail" : "Qiwen@bch.com.sg",
+      "custname" : "Qi",
+      "date" : "19-August-2020",
+      "datetime" : "19/8/2020 15:14:45",
+      "feedbackType" : "Service-Related/服务相关",
+      "issue" : "Fyp ongoing\n",
+      "location" : "1359 Serangoon Road (The Grillery)",
+      "rating" : "3",
+      "staffname" : "Loke",
+      "standard" : "Feedback/反馈",
+      "uuid" : "-MF4ZUJKYlWt6P2EKx1W"
+    },
+    "-MF7Iyq8v5Wr7KiBmV29" : {
+      "custcontactno" : "90090099",
+      "custemail" : "dan@dan.com",
+      "custname" : "dan",
+      "date" : "20-August-2020",
+      "datetime" : "20/08/2020 04:01:30",
+      "feedbackType" : "Product-Related/产品相关",
+      "issue" : "p",
+      "location" : "1359 Serangoon Road (The Grillery)",
+      "rating" : "5",
+      "staffname" : "ted",
+      "standard" : "Feedback/反馈",
+      "uuid" : "-MF7Iyq8v5Wr7KiBmV29"
+    },
+    "-MF9RIitSaaSlsJ2ihZM" : {
+      "custcontactno" : "95527548",
+      "custname" : "sam",
+      "date" : "20-August-2020",
+      "datetime" : "20/08/2020 13:57:07",
+      "feedbackType" : "Service-Related/服务相关",
+      "issue" : "djsjjdjdjsjsm",
+      "location" : "1359 Serangoon Road (The Grillery)",
+      "rating" : "5",
+      "staffname" : "jj",
+      "standard" : "Compliment/表扬",
+      "uuid" : "-MF9RIitSaaSlsJ2ihZM"
+    },
+    "-MFTKJLCB4ggPHPWuLaQ" : {
+      "custcontactno" : "97646863",
+      "custemail" : "bob@gmail.com",
+      "custname" : "bob",
+      "date" : "24-August-2020",
+      "datetime" : "24/08/2020 10:38:59",
+      "feedbackType" : "Service-Related/服务相关",
+      "issue" : "Staff was friendly ",
+      "location" : "189 New Bridge Road (Roadside)",
+      "rating" : "5",
+      "staffname" : "Vivian tan",
+      "standard" : "Compliment/表扬",
+      "uuid" : "-MFTKJLCB4ggPHPWuLaQ"
+    },
+    "-MINP3tuI-OQpqvzDoKq" : {
+      "custcontactno" : "92365465",
+      "custemail" : "123@mail.com",
+      "custname" : "john",
+      "date" : "29-September-2020",
+      "datetime" : "2020/09/29 13:49:08",
+      "feedbackType" : "Service-Related/服务相关",
+      "issue" : "great customer service\n",
+      "location" : "BP",
+      "rating" : "5",
+      "staffname" : "mary",
+      "standard" : "Compliment/表扬",
+      "uuid" : "-MINP3tuI-OQpqvzDoKq"
+    },
+    "-MINY7J3skxc8Y7-MZ02" : {
+      "custcontactno" : "96001800",
+      "custemail" : "Qiwen@bch.com.sg ",
+      "custname" : "Qw",
+      "date" : "29-September-2020",
+      "datetime" : "2020/09/29 14:28:42",
+      "feedbackType" : "Product-Related/产品相关",
+      "issue" : "Hi cust care, bakkwa was purchased on Sunday. But today I bring home it brcome moldy. Is it because it is very hot then i pack?\nMooncake got how many flavours? Can share with me?\nEnjoy and share!\nBakkwa mooncake is sold out. Please make more mooncakes in the future i like it very much. Moonccake festival is on Thursday. Halloween Xmas cny is coming. Need to bao angpao soon. Huat ah",
+      "location" : "BP",
+      "rating" : "3",
+      "staffname" : "Loke",
+      "standard" : "Feedback/反馈",
+      "uuid" : "-MINY7J3skxc8Y7-MZ02"
+    },
+    "-MINj6-EkKNXXGVQ4i0d" : {
+      "custcontactno" : "89895688",
+      "custemail" : "johnlim@mail.com",
+      "custname" : "johnlim",
+      "date" : "29-September-2020",
+      "datetime" : "2020/09/29 15:21:01",
+      "feedbackType" : "Product-Related/产品相关",
+      "issue" : "bakkwa tasted funny\n",
+      "location" : "CW",
+      "rating" : "1",
+      "staffname" : "jacob",
+      "standard" : "Feedback/反馈",
+      "uuid" : "-MINj6-EkKNXXGVQ4i0d"
+    },
+    "-MKY38cl_qsOp5lMt6at" : {
+      "custname" : "test 2",
+      "date" : "26-October-2020",
+      "datetime" : "2020/10/26 12:00:32",
+      "feedbackType" : "Service-Related/服务相关",
+      "issue" : "uahauh\n\n",
+      "location" : "Bukit Panjang Plaza",
+      "rating" : "4",
+      "staffname" : "test",
+      "standard" : "Compliment/表扬",
+      "uuid" : "-MKY38cl_qsOp5lMt6at"
+    },
+    "-MKca6mSm7Y2JsFS07dU" : {
+      "custname" : "123",
+      "date" : "27-October-2020",
+      "datetime" : "2020/10/27 13:47:04",
+      "feedbackType" : "Product-Related/产品相关",
+      "issue" : "13123",
+      "location" : "Bukit Panjang Plaza",
+      "rating" : "4",
+      "staffname" : "123",
+      "standard" : "Compliment/表扬",
+      "uuid" : "-MKca6mSm7Y2JsFS07dU"
+    },
+    "-MLCIHbKg9GzeEROE2S9" : {
+      "custname" : "John",
+      "date" : "3-November-2020",
+      "datetime" : "2020/11/03 16:50:44",
+      "feedbackType" : "Service-Related/服务相关",
+      "issue" : "Mary was friendly.\n",
+      "location" : "189 New Bridge Road (Roadside)",
+      "rating" : "4",
+      "staffname" : "Mary",
+      "standard" : "Compliment/表扬",
+      "uuid" : "-MLCIHbKg9GzeEROE2S9"
+    },
+    "-MLGa5QXIOUJNRAMY28I" : {
+      "custname" : "Bob",
+      "date" : "4-November-2020",
+      "datetime" : "2020/11/04 12:51:24",
+      "feedbackType" : "Product-Related/产品相关",
+      "issue" : "Test",
+      "location" : "Bukit Panjang Plaza",
+      "rating" : "1",
+      "staffname" : "Chew Keong",
+      "standard" : "Compliment/表扬",
+      "uuid" : "-MLGa5QXIOUJNRAMY28I"
+    },
+    "-MO_4S613G6jWICRPjKN" : {
+      "custcontactno" : "22233365",
+      "custemail" : "test@mai.com",
+      "custname" : "bomodoh",
+      "date" : "14-December-2020",
+      "datetime" : "2020/12/15 14:28:17",
+      "feedbackType" : "Service-Related/服务相关",
+      "issue" : "datff is very good, feed me bakkwa in my mouth\n",
+      "location" : "Bukit Panjang Plaza",
+      "rating" : "3",
+      "staffname" : "mary ann",
+      "standard" : "Compliment/表扬",
+      "uuid" : "-MO_4S613G6jWICRPjKN"
+    },
+    "-MOoXSvcKuM-tDc-vCKf" : {
+      "custcontactno" : "345646553",
+      "custemail" : "kdsnfkdnf1@jdfds.com",
+      "custname" : "hee",
+      "date" : "17-December-2020",
+      "datetime" : "2020/12/18 14:29:20",
+      "feedbackType" : "Service-Related/服务相关",
+      "issue" : "sdafdf sx\n",
+      "location" : "189 New Bridge Road (Roadside)",
+      "rating" : "5",
+      "staffname" : "john",
+      "standard" : "Compliment/表扬",
+      "uuid" : "-MOoXSvcKuM-tDc-vCKf"
+    },
+    "-MOo_pv_ieflvV6s_UWG" : {
+      "custcontactno" : "87878787",
+      "custemail" : "customer@mail.com",
+      "custname" : "sophia",
+      "date" : "17-December-2020",
+      "datetime" : "2020/12/18 14:44:05",
+      "feedbackType" : "Service-Related/服务相关",
+      "issue" : "very good\n",
+      "location" : "Bukit Panjang Plaza",
+      "rating" : "5",
+      "staffname" : "john",
+      "standard" : "Compliment/表扬",
+      "uuid" : "-MOo_pv_ieflvV6s_UWG"
+    },
+    "-MP77Hj03gPR89bnWOl_" : {
+      "custcontactno" : "993846587",
+      "custemail" : "",
+      "custname" : "jiao bing",
+      "date" : "21-December-2020",
+      "datetime" : "2020/12/22 09:47:23",
+      "feedbackType" : "Service-Related/服务相关",
+      "issue" : "auhauh\n",
+      "location" : "Bukit Panjang Plaza",
+      "rating" : "5",
+      "staffname" : "test amn",
+      "standard" : "Feedback/反馈",
+      "uuid" : "-MP77Hj03gPR89bnWOl_"
+    }
+  },
+  "problem" : {
+    "-MD6GZds4B9D-KJue0ge" : {
+      "checkbox" : {
+        "checkboxquestion1" : {
+          "answer" : [ "Not cold/不冷", "Water leak/冷气滴水", "Fan not working/没有风", "Noisy/发出吵杂声" ],
+          "name" : "issue/问题所在"
+        },
+        "checkboxquestion2" : {
+          "answer" : [ "Sales Area/销售区域", "Bakkwa Counter/肉干柜台", "BBQ Room/烧烤房" ],
+          "name" : "location/位置"
+        }
+      },
+      "email" : "bchfaultreports@gmail.com",
+      "haveCheck" : "true",
+      "haveInput" : "true",
+      "haveRadio" : "true",
+      "input" : [ "Others (Issue)" ],
+      "name" : "Aircon/冷气",
+      "radio" : {
+        "radioquestion1" : {
+          "answer" : [ "None Selected/还没选", "Centralized Aircon/中央空调", "Portable aircon unit/便携式空调机组", "Ceiling Cassette/嵌入式空调" ],
+          "name" : "Type of Aircon/冷气分类"
+        }
+      },
+      "uuid" : "-MD6GZds4B9D-KJue0ge"
+    },
+    "-MD6u8DHuopjvGc7K6Ml" : {
+      "checkbox" : {
+        "checkboxquestion1" : {
+          "answer" : [ "Not cold/不冷", "Water Leak/漏水", "Fan not working/没有风", "Noisy/发出吵杂声", "Door hinge loose/spoilt/铰链松/坏" ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "email" : "bchfaultreports@gmail.com",
+      "haveCheck" : "true",
+      "haveInput" : "true",
+      "haveRadio" : "true",
+      "input" : [ "Model Name/Number" ],
+      "name" : "Chiller/冷箱",
+      "radio" : {
+        "radioquestion1" : {
+          "answer" : [ "None Selected/还没选", "Yes/是", "No/否" ],
+          "name" : "Does the Chiller has a Glass Door/是否是玻璃门式？"
+        },
+        "radioquestion2" : {
+          "answer": ["1","2","4"],
+          "name" : "Number of Doors/冰箱共有几扇门"
+        }
+      },
+      "uuid" : "-MD6u8DHuopjvGc7K6Ml"
+    },
+    "-MD6uW-9dJdn9IkT0pEB" : {
+      "checkbox" : {
+        "checkboxquestion1" : {
+          "answer" : [ "Burner/烧烤管", "Glass Support/玻璃支撑", "Control Panel/控制面板", "Not Hot/不热", "Unable to Turn On/启开不了", "Weird Noises/发出怪异的声音" ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "email" : "bchfaultreports@gmail.com",
+      "haveCheck" : "true",
+      "haveInput" : "true",
+      "haveRadio" : "false",
+      "input" : [ "Others (Issue)" ],
+      "name" : "BBQ Electric Griller/烧烤炉(电)",
+      "uuid" : "-MD6uW-9dJdn9IkT0pEB"
+    },
+    "-MD6vJa6T91FkRSh0YEB" : {
+      "checkbox" : {
+        "checkboxquestion1" : {
+          "answer" : [ "Burner/烧烤管", "Glass Support/玻璃支撑", "Control Panel/控制面板", "Not Hot/不热", "Unable to Turn On/启开不了", "Weird Noises/发出怪异的声音" ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "email" : "bchfaultreports@gmail.com",
+      "haveCheck" : "true",
+      "haveInput" : "true",
+      "haveRadio" : "false",
+      "input" : [ "Other (Issue)" ],
+      "name" : "BBQ Gas Griller/烧烤炉(煤气)",
+      "uuid" : "-MD6vJa6T91FkRSh0YEB"
+    },
+    "-MD6vYu6ZxiRuIcr8EYJ" : {
+      "checkbox" : {
+        "checkboxquestion1" : {
+          "answer" : [ "Noisy/发出怪异的声音", "Air Suction not Strong/吸力不强", "Smoky/很烟", "Oil Leaking/漏油" ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "email" : "bchfaultreports@gmail.com",
+      "haveCheck" : "true",
+      "haveInput" : "true",
+      "haveRadio" : "false",
+      "input" : [ "Others (Issue)" ],
+      "name" : "Exhaust & Aircleaner/抽烟机与空气过滤机",
+      "uuid" : "-MD6vYu6ZxiRuIcr8EYJ"
+    },
+    "-MD6wIhtuzKPR-82QsQ9" : {
+      "checkbox" : {
+        "checkboxquestion1" : {
+          "answer" : [ "Bakkwa Counter/肉干柜台", "Display Cabinet/展览橱柜", "Ceiling/天花板", "BBQ Room/烧烤房" ],
+          "name" : "Location/位置"
+        },
+        "checkboxquestion2" : {
+          "answer" : [ "Lighting Fused/灯坏", "Socket burnt/插座烧掉", "Bulb Holder no power/灯泡架没有电源", "Power Trip/条电" ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "email" : "bchfaultreports@gmail.com",
+      "haveCheck" : "true",
+      "haveInput" : "true",
+      "haveRadio" : "true",
+      "input" : [ "Others (Issue)", " Others (Location)" ],
+      "name" : "Electrical & Lighting/电与灯事项",
+      "radio" : {
+        "radioquestion1" : {
+          "answer" : [ "None Selected/还没选", "T5/T8 Light tube/长灯管", " LED strip LED/灯条", "Crystal Pendant Light/水晶灯", "LED Round Panel LED/圆灯", "Arianetech LED Glow Tube/肉干架LED灯" ],
+          "name" : "Type of Lighting/灯泡分类"
+        }
+      },
+      "uuid" : "-MD6wIhtuzKPR-82QsQ9"
+    },
+    "-MD6wejJDk2ZXxejANQT" : {
+      "checkbox" : {
+        "checkboxquestion1" : {
+          "answer" : [ "Strip not hot/不热", "Cannot seal properly/封不密", "No incoming electricity/没有电源", "Burnt smell/有焦味" ],
+          "name" : "Issue/问题所在"
+        }
+      },      
+      "email" : "bchfaultreports@gmail.com",
+      "haveCheck" : "true",
+      "haveInput" : "true",
+      "haveRadio" : "false",
+      "input" : [ "Others (Issue)" ],
+      "name" : "Impulse Sealer/封口机",
+      "uuid" : "-MD6wejJDk2ZXxejANQT"
+    },
+    "-MD6wzt7iCAoLf4jkU2k" : {
+      "checkbox" : {
+        "checkboxquestion1" : {
+          "answer" : [ "No paper cut/纸没自动割", "No dial tone/没有通话声", "Cannot receive/Send fax/发/收不到传真", "Blurred lines/字不清楚", "Fax paper jammed/纸卡在机里", "Button spoilt/按钮坏" ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "email" : "bchfaultreports@gmail.com",
+      "haveCheck" : "true",
+      "haveInput" : "true",
+      "haveRadio" : "false",
+      "input" : [ "Others (Issue)" ],
+      "name" : "Fax Machine/传真机",
+      "uuid" : "-MD6wzt7iCAoLf4jkU2k"
+    },
+    "-MD6xFbf8d6teeFpP3db" : {
+      "checkbox" : {
+        "checkboxquestion1" : {
+          "answer" : [ "No incoming electricity/没有电源", "Blurred screen/字不清楚", "Keyboard damage/键盘坏", "Spring sticker Expired/校准贴纸过期" ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "email" : "bchfaultreports@gmail.com",
+      "haveCheck" : "true",
+      "haveInput" : "true",
+      "haveRadio" : "false",
+      "input" : [ "Others (Issue)" ],
+      "name" : "Weighting Scale/称量器",
+      "uuid" : "-MD6xFbf8d6teeFpP3db"
+    },
+    "-MD6xicGcmR0ljhO5Fwu" : {
+      "checkbox" : {
+        "checkboxquestion1" : {
+          "answer" : [ "Cannot seal properly/封不密", "Noisy/发出吵杂声", "No incoming electricity/没有电源", "Burnt smell/有焦味" ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "email" : "bchfaultreports@gmail.com",
+      "haveCheck" : "true",
+      "haveInput" : "true",
+      "haveRadio" : "false",
+      "input" : [ "Others (Issue)" ],
+      "name" : "Vacuum Machine/真空机",
+      "uuid" : "-MD6xicGcmR0ljhO5Fwu"
+    },
+    "-MD6y1bRFngV3yu8OAwJ" : {
+      "checkbox" : {
+        "checkboxquestion1" : {
+          "answer" : [ "Letter frickle/字闪烁", "No light/没有灯", "Letter Words/字母" ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "email" : "bchfaultreports@gmail.com",
+      "haveCheck" : "true",
+      "haveInput" : "true",
+      "haveRadio" : "true",
+      "input" : [ "Others (Issue)" ],
+      "name" : "Signage/招牌",
+      "radio" : {
+        "radioquestion1" : {
+          "answer" : [ "None Selected/还没选", "Neon lights/霓虹灯", "Lightbox/灯箱", "LED lights/LED灯" ],
+          "name" : "Type of light/灯类型"
+        }
+      },
+      "uuid" : "-MD6y1bRFngV3yu8OAwJ"
+    },
+    "-MD6yMfyZbDzY4NsKGuX" : {
+      "checkbox" : {
+        "checkboxquestion1" : {
+          "answer" : [ "Broken Glass/玻璃破", "Cabinet door loose/橱门松", "Castor damaged/轮子坏", "Damaged acrylic tray/压克力托盘坏", "Damage Drawer tracks/抽屉轨道坏" ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "email" : "bchfaultreports@gmail.com",
+      "haveCheck" : "true",
+      "haveInput" : "true",
+      "haveRadio" : "true",
+      "input" : [ "Others (Issue)" ],
+      "name" : "Furniture/家具",
+      "radio" : {
+        "radioquestion1" : {
+          "answer" : [ "None Selected/还没选", "Wall Display/墙壁摆设柜", "Bakkwa Counter/肉干柜台", "Glass Display/玻璃摆设柜", "Loose Furniture/摆设家具" ],
+          "name" : "Location/位置"
+        }
+      },
+      "uuid" : "-MD6yMfyZbDzY4NsKGuX"
+    },
+    "-MD6yyjnEjbmDdJG4azK" : {
+      "checkbox" : {
+        "checkboxquestion1" : {
+          "answer" : [ "Water Leak/漏水", "Water cannot be turned off/水不能关掉/关紧", "Not Hot/不热", "Pipe Choke/水管不通", "Smell Issue/发出异味" ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "email" : "bchfaultreports@gmail.com",
+      "haveCheck" : "true",
+      "haveInput" : "true",
+      "haveRadio" : "true",
+      "input" : [ "Others (Issue)" ],
+      "name" : "Tap, Pipe & Chokage/水管与阻塞事项",
+      "radio" : {
+        "radioquestion1" : {
+          "answer" : [ "None Selected/还没选", "Normal Water Tap/水龙头", "Flexible Tap Spray/灵活水龙头", "Water Basin/洗水盆", "Water Pipe/水管", "Floor Trap/排水沟", "Ceiling/天花板", "Water Heater/热水器" ],
+          "name" : "Type of Tap,Pipe & Chokage/类型"
+        }
+      },
+      "uuid" : "-MD6yyjnEjbmDdJG4azK"
+    },
+    "-MD6zIkPEvH4BCyfU-0T" : {
+      "checkbox" : {
+        "checkboxquestion1" : {
+          "answer" : [ "Hard to open/close/很难开关", "Cannot open/close/不可以开关", "Key stuck in lockset/钥匙卡在锁头里", "Key broken in lockset/钥匙断在锁头里", "Shutter Damaged/铁门坏" ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "email" : "bchfaultreports@gmail.com",
+      "haveCheck" : "true",
+      "haveInput" : "true",
+      "haveRadio" : "true",
+      "input" : [ "Others (Issue)" ],
+      "name" : "Roller Shutter/铁门",
+      "radio" : {
+        "radioquestion1" : {
+          "answer" : [ "None Selected/还没选", "Manual Shutter/手拉铁门", "Auto Shutter/电动铁门" ],
+          "name" : "Type of shutter/类型"
+        }
+      },
+      "uuid" : "-MD6zIkPEvH4BCyfU-0T"
+    },
+    "-MD6zf0VYnWSLPPw-Sv5" : {
+      "checkbox" : {
+        "checkboxquestion1" : {
+          "answer" : [ "Sales Area/销售区域", "Bakkwa Counter/肉干柜台", "Storage Cabinet/储藏柜", "Ceiling/天花板", "BBQ Room/烧烤房" ],
+          "name" : "Location/位置"
+        },
+        "checkboxquestion2" : {
+          "answer" : [ "Ants/蚂蚁", "Rodents/瘟鼠", "Flies/苍蝇", "Cockroaches/蟑螂", "Termites/白蚂蚁" ],
+          "name" : "Type of Pest/虫类"
+        }
+      },
+      "email" : "bchfaultreports@gmail.com",
+      "haveCheck" : "true",
+      "haveInput" : "true",
+      "haveRadio" : "false",
+      "input" : [ "Others(Location)", "Others(Pest)" ],
+      "name" : "Pest Control/害虫事项",
+      "uuid" : "-MD6zf0VYnWSLPPw-Sv5"
+    },
+    "-MD7-3voaz5B_akhlj6P" : {
+      "checkbox" : {
+        "checkboxquestion1" : {
+          "answer" : [ "Expired (Please indicate date)/过期(请注明日期)", "Cannot be used/不能用", "Not Enough/不够" ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "email" : "bchfaultreports@gmail.com",
+      "haveCheck" : "true",
+      "haveInput" : "true",
+      "haveRadio" : "true",
+      "input" : [ "Others(Date)", "Others(Issue)" ],
+      "name" : "Fire Extinguisher/灭火器",
+      "radio" : {
+        "radioquestion1" : {
+          "answer" : [ "None Selected/还没选", "Fire Extinguisher/灭火器", "Fire Sachet/灭火包囊" ],
+          "name" : "Type of Fire Extinguisher/类型"
+        }
+      },
+      "uuid" : "-MD7-3voaz5B_akhlj6P"
+    },
+    "-MP3MLVOwIMOtRBBAeQD" : {
+      "email" : "bchfaultreports@gmail.com",
+      "haveCheck" : "false",
+      "haveInput" : "false",
+      "haveRadio" : "true",
+      "name" : "SUCCESS RIGHT NOW >:(",
+      "radio" : {
+        "radioquestion1" : {
+          "answer" : [ "yes", "no" ],
+          "name" : "ISIT succeddfu?l"
+        }
+      },
+      "uuid" : "-MP3MLVOwIMOtRBBAeQD"
+    }
+  },
+  "reports" : {
+    "-MNtHYXSqXLmYwQY_aoO" : {
+      "comments" : "none",
+      "date" : "6-December-2020",
+      "dateTime" : "2020/12/07 02:21:52",
+      "description" : "",
+      "email" : "",
+      "imageurl" : "Fault/8961f73a-8230-4a75-9782-8e422378fb0c.jpg,",
+      "lasteditedby" : "",
+      "problem" : {
+        "category" : "BBQ Gas Griller/烧烤炉(煤气)",
+        "checkbox" : {
+          "answer" : [ [ "Glass Support/玻璃支撑" ] ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "staffName" : "camera only",
+      "status" : "Unresolved",
+      "storeName" : "Bukit Panjang Plaza",
+      "uuid" : "-MNtHYXSqXLmYwQY_aoO"
+    },
+    "-MOZzPHzemEhofbwsOLi" : {
+      "comments" : "none",
+      "date" : "14-December-2020",
+      "dateTime" : "2020/12/15 14:01:37",
+      "description" : "water leaking very heavy\n",
+      "email" : "bchfaultreports@gmail.com",
+      "imageurl" : "Fault/0640f27d-fd56-4f03-a698-ccb5f4a800a0.jpg,",
+      "lasteditedby" : "",
+      "problem" : {
+        "category" : "Aircon/冷气",
+        "checkbox" : [ {
+          "answer" : [ [ "Water leak/冷气滴水" ] ],
+          "name" : "issue/问题所在"
+        }, {
+          "answer" : [ [ "Bakkwa Counter/肉干柜台" ] ],
+          "name" : "location/位置"
+        } ],
+        "radio" : {
+          "answer" : "Ceiling Cassette/嵌入式空调",
+          "name" : "Type of Aircon/冷气分类"
+        }
+      },
+      "staffName" : "MAry sue",
+      "status" : "Unresolved",
+      "storeName" : "Bukit Panjang Plaza",
+      "uuid" : "-MOZzPHzemEhofbwsOLi"
+    },
+    "-MO_-V1FnpTKZ4Fm3B9f" : {
+      "comments" : "none",
+      "date" : "14-December-2020",
+      "dateTime" : "2020/12/15 14:06:23",
+      "description" : "no lights\n",
+      "email" : "",
+      "imageurl" : "Fault/6305b68d-ff75-4a27-a82f-79d8e0f0e0a2.jpg,Fault/IMG_20201125_064016.jpg,Fault/IMG_20201125_064017.jpg,",
+      "lasteditedby" : "",
+      "problem" : {
+        "category" : "BBQ Electric Griller/烧烤炉(电)",
+        "checkbox" : {
+          "answer" : [ [ "Control Panel/控制面板" ] ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "staffName" : "john apples",
+      "status" : "Unresolved",
+      "storeName" : "Bukit Panjang Plaza",
+      "uuid" : "-MO_-V1FnpTKZ4Fm3B9f"
+    },
+    "-MO_0uqVVlUmPbN44LKP" : {
+      "comments" : "none",
+      "date" : "14-December-2020",
+      "dateTime" : "2020/12/15 14:12:35",
+      "description" : "dfdfdfdf",
+      "email" : "",
+      "imageurl" : "Fault/IMG_20201104_070221.jpg,Fault/IMG_20201104_070218.jpg,",
+      "lasteditedby" : "",
+      "problem" : {
+        "category" : "BBQ Gas Griller/烧烤炉(煤气)",
+        "checkbox" : {
+          "answer" : [ [ "Unable to Turn On/启开不了" ] ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "staffName" : "an xing",
+      "status" : "Unresolved",
+      "storeName" : "Bukit Panjang Plaza",
+      "uuid" : "-MO_0uqVVlUmPbN44LKP"
+    },
+    "-MO_1o4ZVcsJstMX5CsX" : {
+      "comments" : "none",
+      "date" : "14-December-2020",
+      "dateTime" : "2020/12/15 14:16:29",
+      "description" : "",
+      "email" : "",
+      "imageurl" : "Fault/IMG_20201125_064017.jpg,Fault/IMG_20201125_064016.jpg,",
+      "lasteditedby" : "",
+      "problem" : {
+        "category" : "BBQ Gas Griller/烧烤炉(煤气)",
+        "checkbox" : {
+          "answer" : [ [ "Not Hot/不热" ] ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "staffName" : "ping an an",
+      "status" : "Unresolved",
+      "storeName" : "Bukit Panjang Plaza",
+      "uuid" : "-MO_1o4ZVcsJstMX5CsX"
+    },
+    "-MO_2taXbJLHoCtTTJB7" : {
+      "comments" : "none",
+      "date" : "14-December-2020",
+      "dateTime" : "2020/12/15 14:21:14",
+      "description" : "an jusang jusgnd\n",
+      "email" : "",
+      "imageurl" : "Fault/IMG_20201125_064017.jpg,Fault/IMG_20201125_064016.jpg,",
+      "lasteditedby" : "admin@mail.com",
+      "problem" : {
+        "category" : "BBQ Gas Griller/烧烤炉(煤气)",
+        "checkbox" : {
+          "answer" : [ [ "Unable to Turn On/启开不了" ] ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "staffName" : "oodoo",
+      "status" : "Pending",
+      "storeName" : "Bukit Panjang Plaza",
+      "uuid" : "-MO_2taXbJLHoCtTTJB7"
+    },
+    "-MO_3K9Jp5_Q0aEFZWf-" : {
+      "comments" : "none",
+      "date" : "14-December-2020",
+      "dateTime" : "2020/12/15 14:23:07",
+      "description" : "",
+      "email" : "",
+      "imageurl" : "Fault/IMG_20201125_064017.jpg,Fault/IMG_20201104_070221.jpg,",
+      "lasteditedby" : "",
+      "problem" : {
+        "category" : "BBQ Electric Griller/烧烤炉(电)",
+        "checkbox" : {
+          "answer" : [ [ "Unable to Turn On/启开不了" ] ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "staffName" : "baby shark",
+      "status" : "Unresolved",
+      "storeName" : "Bukit Panjang Plaza",
+      "uuid" : "-MO_3K9Jp5_Q0aEFZWf-"
+    },
+    "-MO_3PtjMhA2VfoEy0iv" : {
+      "comments" : "none",
+      "date" : "14-December-2020",
+      "dateTime" : "2020/12/15 14:23:30",
+      "description" : "",
+      "email" : "",
+      "imageurl" : "Fault/IMG_20201104_070223.jpg,Fault/IMG_20201104_070221.jpg,",
+      "lasteditedby" : "",
+      "problem" : {
+        "category" : "BBQ Electric Griller/烧烤炉(电)",
+        "checkbox" : {
+          "answer" : [ [ "Unable to Turn On/启开不了" ] ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "staffName" : "mummy shark",
+      "status" : "Unresolved",
+      "storeName" : "Bukit Panjang Plaza",
+      "uuid" : "-MO_3PtjMhA2VfoEy0iv"
+    },
+    "-MO_40cf05Sn1HbtbTRg" : {
+      "comments" : "none",
+      "date" : "14-December-2020",
+      "dateTime" : "2020/12/15 14:26:09",
+      "description" : "",
+      "email" : "",
+      "imageurl" : "Fault/4d7e5369-4c42-4d3f-9f82-e8face599abe.jpg,Fault/IMG_20201104_070147.jpg,Fault/IMG_20201104_070149.jpg,",
+      "lasteditedby" : "",
+      "problem" : {
+        "category" : "BBQ Electric Griller/烧烤炉(电)",
+        "checkbox" : {
+          "answer" : [ [ "Glass Support/玻璃支撑" ] ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "staffName" : "test camera dodo",
+      "status" : "Unresolved",
+      "storeName" : "Bukit Panjang Plaza",
+      "uuid" : "-MO_40cf05Sn1HbtbTRg"
+    },
+    "-MO_4AseGurhm_NbTlVh" : {
+      "comments" : "none",
+      "date" : "14-December-2020",
+      "dateTime" : "2020/12/15 14:26:51",
+      "description" : "",
+      "email" : "",
+      "imageurl" : "Fault/c813c6b3-ef8f-4b3d-b0b0-c9fa2daa335d.jpg,Fault/IMG_20201104_070221.jpg,Fault/IMG_20201104_070218.jpg,",
+      "lasteditedby" : "",
+      "problem" : {
+        "category" : "BBQ Gas Griller/烧烤炉(煤气)",
+        "checkbox" : {
+          "answer" : [ [ "Not Hot/不热" ] ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "staffName" : "test both",
+      "status" : "Unresolved",
+      "storeName" : "Bukit Panjang Plaza",
+      "uuid" : "-MO_4AseGurhm_NbTlVh"
+    },
+    "-MOih00nUl9y620b3m3d" : {
+      "comments" : "none",
+      "date" : "16-December-2020",
+      "dateTime" : "2020/12/17 11:17:27",
+      "description" : "",
+      "email" : "",
+      "imageurl" : "Fault/IMG_20201125_064017.jpg,",
+      "lasteditedby" : "",
+      "problem" : {
+        "category" : "BBQ Gas Griller/烧烤炉(煤气)",
+        "checkbox" : {
+          "answer" : [ [ "Not Hot/不热" ] ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "staffName" : "test",
+      "status" : "Unresolved",
+      "storeName" : "Bukit Panjang Plaza",
+      "uuid" : "-MOih00nUl9y620b3m3d"
+    },
+    "-MOin86ngH4u43AaYWeG" : {
+      "comments" : "none",
+      "date" : "16-December-2020",
+      "dateTime" : "2020/12/17 11:44:13",
+      "description" : "",
+      "email" : "",
+      "imageurl" : "Fault/IMG_20201125_064017.jpg,",
+      "lasteditedby" : "",
+      "problem" : {
+        "category" : "BBQ Gas Griller/烧烤炉(煤气)",
+        "checkbox" : {
+          "answer" : [ [ "Not Hot/不热" ] ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "staffName" : "erins",
+      "status" : "Unresolved",
+      "storeName" : "Bukit Panjang Plaza",
+      "uuid" : "-MOin86ngH4u43AaYWeG"
+    },
+    "-MOinfEfywGvX15g1S3n" : {
+      "comments" : "none",
+      "date" : "16-December-2020",
+      "dateTime" : "2020/12/17 11:46:33",
+      "description" : "",
+      "email" : "",
+      "imageurl" : "Fault/IMG_20201125_064017.jpg,",
+      "lasteditedby" : "",
+      "problem" : {
+        "category" : "BBQ Gas Griller/烧烤炉(煤气)",
+        "checkbox" : {
+          "answer" : [ [ "Weird Noises/发出怪异的声音" ] ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "staffName" : "123",
+      "status" : "Unresolved",
+      "storeName" : "Bukit Panjang Plaza",
+      "uuid" : "-MOinfEfywGvX15g1S3n"
+    },
+    "-MOioO08r0YBbE2Q_0qd" : {
+      "comments" : "none",
+      "date" : "16-December-2020",
+      "dateTime" : "2020/12/20 11:49:41",
+      "description" : "",
+      "email" : "bchfaultreports@gmail.com",
+      "imageurl" : "Fault/IMG_20201125_064017.jpg,Fault/IMG_20201125_064016.jpg,",
+      "lasteditedby" : "",
+      "problem" : {
+        "category" : "BBQ Gas Griller/烧烤炉(煤气)",
+        "checkbox" : {
+          "answer" : [ [ "Control Panel/控制面板" ] ],
+          "name" : "Issue/问题所在"
+        }
+      },
+      "staffName" : "inside",
+      "status" : "Unresolved",
+      "storeName" : "Bukit Panjang Plaza",
+      "uuid" : "-MOioO08r0YBbE2Q_0qd"
+    },
+    "-MOoVy-UEOO5oywdd5Mc" : {
+      "comments" : "[solution]-[18/12]-[sophia]\n[solution]-[18/12]-[sophia]",
+      "date" : "17-December-2020",
+      "dateTime" : "2020/12/18 14:22:32",
+      "description" : "leaking brown water\n",
+      "email" : "bchfaultreports@gmail.com",
+      "imageurl" : "Fault/bfe1749e-a39f-4bc2-a3d2-68a5b9f61da1.jpg,Fault/IMG_20201125_064016.jpg,Fault/IMG_20201125_064014.jpg,Fault/IMG_20201125_064017.jpg,",
+      "lasteditedby" : "admin@mail.com",
+      "problem" : {
+        "category" : "Aircon/冷气",
+        "checkbox" : [ {
+          "answer" : [ [ "Water leak/冷气滴水" ] ],
+          "name" : "issue/问题所在"
+        }, {
+          "answer" : [ [ "Sales Area/销售区域" ] ],
+          "name" : "location/位置"
+        } ],
+        "radio" : {
+          "answer" : "Ceiling Cassette/嵌入式空调",
+          "name" : "Type of Aircon/冷气分类"
+        }
+      },
+      "staffName" : "mary",
+      "status" : "Resolved",
+      "storeName" : "Bukit Panjang Plaza",
+      "uuid" : "-MOoVy-UEOO5oywdd5Mc"
+    },
+    "-MOo_ENvce_BJF_hPuLj" : {
+      "comments" : "test input [18-12-2020] [sophia]\nsuccess [18-12-2020] [sophia]  ",
+      "date" : "17-December-2020",
+      "dateTime" : "2020/12/18 14:41:12",
+      "description" : "cashier area\n",
+      "email" : "bchfaultreports@gmail.com",
+      "imageurl" : "Fault/c661dc7a-e66e-43bb-b542-f7bdf274d1af.jpg,",
+      "lasteditedby" : "admin@mail.com",
+      "problem" : {
+        "category" : "Aircon/冷气",
+        "checkbox" : [ {
+          "answer" : [ [ "Water leak/冷气滴水", "Noisy/发出吵杂声" ] ],
+          "name" : "issue/问题所在"
+        }, {
+          "answer" : [ [ "Sales Area/销售区域" ] ],
+          "name" : "location/位置"
+        } ],
+        "radio" : {
+          "answer" : "Ceiling Cassette/嵌入式空调",
+          "name" : "Type of Aircon/冷气分类"
+        }
+      },
+      "staffName" : "Mary",
+      "status" : "Resolved",
+      "storeName" : "Bukit Panjang Plaza",
+      "uuid" : "-MOo_ENvce_BJF_hPuLj"
+    }
+  },
+  "store" : {
+    "189" : {
+      "address" : "189 New Bridge Road, Singapore 059422",
+      "code" : "189",
+      "name" : "189 New Bridge Road (Roadside)",
+      "qrstring" : "1fe427f8-0a94-5ee3-acda-d0b02a7d0188"
+    },
+    "AM" : {
+      "address" : "Blk 702 Ang Mo Kio Ave 8, #01-2525, Singapore 560702",
+      "code" : "AM",
+      "name" : "Ang Mo Kio Central (Roadside)",
+      "qrstring" : "993484e6-63a7-5685-bb90-fcc3b208c962"
+    },
+    "BD" : {
+      "address" : "Blk 205, Bedok North Street 1, #01-369, Singapore 460205",
+      "code" : "BD",
+      "name" : "Bedok North (Roadside)",
+      "qrstring" : "0c039c93-f2ed-5bb5-9c2d-366426d6f60f"
+    },
+    "BM" : {
+      "address" : "311 Upper Changi Road, #B2-23, Singapore 467360",
+      "code" : "BM",
+      "name" : "Bedok Mall",
+      "qrstring" : "6c48b4e1-a4f9-5d81-9dc2-a48e2dc892cb"
+    },
+    "BP" : {
+      "address" : "1 Jelebu Road, #01-24, Singapore 677743",
+      "code" : "BP",
+      "name" : "Bukit Panjang Plaza",
+      "qrstring" : "b2764e9e-07c7-56c6-9660-3863eef8eb0d"
+    },
+    "BV" : {
+      "address" : "239 Victoria Street, Singapore 188028",
+      "code" : "BV",
+      "name" : "Bugis Village",
+      "qrstring" : "d59fd08d-f2e8-5e59-822f-7110abeb33ce"
+    },
+    "CC" : {
+      "address" : "Blk 449 Clementi Ave 3, #01-255, Singapore 120449",
+      "code" : "CC",
+      "name" : "Clementi Central (Roadside)",
+      "qrstring" : "b60d7566-d8fb-5f9c-9a06-36c29f1bd9b5"
+    },
+    "CM" : {
+      "address" : "3155 Commonwealth Ave West, #B1-20, Singapore 129588",
+      "code" : "CM",
+      "name" : "Clementi Mall",
+      "qrstring" : "583f0cc8-371c-57f4-a46f-be35dfc7f130"
+    },
+    "CP" : {
+      "address" : "1 Sengkang Square, #B1-26, Singapore 545078",
+      "code" : "CP",
+      "name" : "Compass One",
+      "qrstring" : "28707687-6d26-5262-946a-896c915b5c9a"
+    },
+    "CW" : {
+      "address" : "1 Woodlands Square, #B1-40, Singapore 738099",
+      "code" : "CW",
+      "name" : "Causeway Point",
+      "qrstring" : "293364c0-7a4b-58b9-a609-1a324e28b4d7"
+    },
+    "EC" : {
+      "address" : "141 East Coast Road, Singapore 428831",
+      "code" : "EC",
+      "name" : "East Coast Road (Roadside)",
+      "qrstring" : "1e7a0e0d-5981-5620-b8b1-400032464c11"
+    },
+    "GL" : {
+      "address" : "301 Geylang Rd, Singapore 389344",
+      "code" : "GL",
+      "name" : "301 Geylang Road (Roadside)",
+      "qrstring" : "037316e3-18b4-5ad3-86f5-b92b37a14eb6"
+    },
+    "GW" : {
+      "address" : "1 Kim Seng Promenade, #B1-130, Singapore 237994",
+      "code" : "GW",
+      "name" : "Great World City",
+      "qrstring" : "5814549f-3143-52cc-a759-ee12fb9e5b89"
+    },
+    "HB" : {
+      "address" : "500 Jalan Sultan, #01-02, Singapore 199020",
+      "code" : "HB",
+      "name" : "Hotel Boss",
+      "qrstring" : "0ee35b7e-2777-5e8a-9d0c-539b7ad1e413"
+    },
+    "HF" : {
+      "address" : "1 Maritime Square, #01-68, Singapore 099253",
+      "code" : "HF",
+      "name" : "Harbourfront Centre",
+      "qrstring" : "9d6688a0-0fac-5df6-8aa5-c29e0578c19a"
+    },
+    "HM" : {
+      "address" : "90 Hougang Ave 10, #B1-20, Singapore 538766",
+      "code" : "HM",
+      "name" : "Hougang Mall",
+      "qrstring" : "8a8327c8-e09b-5b72-a868-f43cd6fb4169"
+    },
+    "J8" : {
+      "address" : "9 Bishan Place, #B1-13, Singapore 579837",
+      "code" : "J8",
+      "name" : "Junction 8",
+      "qrstring" : "200400c8-3674-5866-b1f5-eb060ce2afcc"
+    },
+    "JE" : {
+      "address" : "78 Airport Boulevard #01-226",
+      "code" : "JE",
+      "name" : "JEWEL",
+      "qrstring" : "d3eac142-7a79-52b2-82fc-eef6dbfac16f"
+    },
+    "JM" : {
+      "address" : "50 Jurong Gateway Road, #B1-K01, Singapore 608549",
+      "code" : "JM",
+      "name" : "JEM",
+      "qrstring" : "ba6f1498-0f83-5be0-92dd-0d4cf0cff85a"
+    },
+    "JP" : {
+      "address" : "1 Jurong West Central 2, #B1-04, Singapore 648886",
+      "code" : "JP",
+      "name" : "Jurong Point",
+      "qrstring" : "4bb55581-9736-5044-bafd-0ded19aa7459"
+    },
+    "LT" : {
+      "address" : "21 Chua Chu Kang Ave 4, #B1-K11/K12,Singapore 689812",
+      "code" : "LT",
+      "name" : "Lot 1 Shopping Mall",
+      "qrstring" : "ed2446cf-d50a-5d45-84dc-67e748a2eed2"
+    },
+    "NP" : {
+      "address" : "930 Yishun Avenue 2 , Northpoint City South Wing, #B2-155, Singapore 769098",
+      "code" : "NP",
+      "name" : "Northpoint City",
+      "qrstring" : "5e69f32d-e59c-5bc4-b1a2-e2197d37343f"
+    },
+    "NX" : {
+      "address" : "23 Serangoon, #B2-11, Singapore 556083",
+      "code" : "NX",
+      "name" : "NEX",
+      "qrstring" : "8351050b-aa94-55fe-bfde-469ba77cca9f"
+    },
+    "PA" : {
+      "address" : "69/71 Pagoda Street, Singapore 059228",
+      "code" : "PA",
+      "name" : "Pagoda (Roadside)",
+      "qrstring" : "70afc311-aa3d-5429-b028-69f3c9b08133"
+    },
+    "PE" : {
+      "address" : "186A Orchard Road, Singapore 238849",
+      "code" : "PE",
+      "name" : "Peranakan Place",
+      "qrstring" : "1d346f55-f4f8-574c-9cd2-a7b178e0da8f"
+    },
+    "PG" : {
+      "address" : "290A Orchard Road, #B1-10A, Singapore 238859",
+      "code" : "PG",
+      "name" : "Paragon",
+      "qrstring" : "c0c2767a-5167-5c0f-b42b-2337def8631d"
+    },
+    "PQ" : {
+      "address" : "10 Paya Lebar Road #B2-30, Singapore 409057",
+      "code" : "PQ",
+      "name" : "Paya Lebar Quarter",
+      "qrstring" : "a63703aa-3f6a-57b3-9f47-32553e61160f"
+    },
+    "PW" : {
+      "address" : "80 Marine Parade Road, #B1-88, Singapore 449269",
+      "code" : "PW",
+      "name" : "Parkway Parade",
+      "qrstring" : "52112f3e-1259-5888-ae8c-2b9d7dc68ace"
+    },
+    "RC" : {
+      "address" : "252 North Bridge Road, #B1-59, Singapore 179103",
+      "code" : "RC",
+      "name" : "Raffles City Shopping Centre",
+      "qrstring" : "177113b2-0ee6-5bb1-a97d-43ec5c4ee1c6"
+    },
+    "RW" : {
+      "address" : "26 Sentosa Gateway, The Forum, #01-207, Singapore 098138",
+      "code" : "RW",
+      "name" : "Resorts World Sentosa",
+      "qrstring" : "e70ae613-29f1-55cd-a40e-960faec000d0"
+    },
+    "SA" : {
+      "address" : "228 Sims Avenue, Singapore 387507",
+      "code" : "SA",
+      "name" : "Sims Avenue",
+      "qrstring" : "bed7a1b1-bf88-5d8a-93f0-4c4bb4773fe8"
+    },
+    "SR" : {
+      "address" : "1359 Serangoon Road, Singapore 328241",
+      "code" : "SR",
+      "name" : "1359 Serangoon Road (The Grillery)",
+      "qrstring" : "2c6f3380-2724-5c65-afb1-b195fbbee7df"
+    },
+    "T1E" : {
+      "address" : "80 Airport Boulevard, #02-K24, Singapore 819642",
+      "code" : "T1E",
+      "name" : "Changi Airport Terminal 1, Departure_Transit East",
+      "qrstring" : "8edf1350-49ca-5205-a16e-2e00e3c38aa9"
+    },
+    "T2" : {
+      "address" : "60 Airport Boulevard, #026-135, Singapore 819643",
+      "code" : "T2",
+      "name" : "Changi Airport Terminal 2, Departure/Transit Lounge South",
+      "qrstring" : "ebdeda47-e2b6-5526-b242-45dff6617a85"
+    },
+    "T2N" : {
+      "address" : "60 Airport Boulevard, #026-095-01, Singapore 819643",
+      "code" : "T2N",
+      "name" : "Changi Airport Terminal 2, Departure_Transit Lounge North",
+      "qrstring" : "c44354ca-0dac-5b28-bfac-e6ca2ba909c3"
+    },
+    "T4" : {
+      "address" : "10 Airport Boulevard, #02-85, Singapore 819665",
+      "code" : "T4",
+      "name" : "Changi Airport Terminal 4, Departure/Check In Hall",
+      "qrstring" : "25bf1e57-2123-56ce-9f33-ada923c07091"
+    },
+    "T4L" : {
+      "address" : "10 Airport Boulevard, #02-12, Singapore 819665",
+      "code" : "T4L",
+      "name" : "Changi Airport Terminal 4, Departure/Check In Hall",
+      "qrstring" : "e36fa06a-0916-58ef-a38a-85e35e163335"
+    },
+    "TA" : {
+      "address" : "391 Orchard Road, #B207-4-1, Singapore 238873",
+      "code" : "TA",
+      "name" : "Takashimaya",
+      "qrstring" : "5545ac9d-4df5-5257-9df6-f1510793744e"
+    },
+    "TB" : {
+      "address" : "302 Tiong Bahru Road, #B1-120, Singapore 168732",
+      "code" : "TB",
+      "name" : "Tiong Bahru Plaza",
+      "qrstring" : "21e7ba20-8f7e-5a87-a696-8050b9a1fc46"
+    },
+    "TC" : {
+      "address" : "No. 8 Tampines Central 1, #01-14, Singapore 529543",
+      "code" : "TC",
+      "name" : "Tampines Central",
+      "qrstring" : "6b8173ec-c29b-5fcd-8617-e18542a5627c"
+    },
+    "TM" : {
+      "address" : "Tampines Central 5, #B1-14, Singapore 529510",
+      "code" : "TM",
+      "name" : "Tampines Mall",
+      "qrstring" : "317d6ba9-f5af-53b6-9e19-5ca09fd5feb9"
+    },
+    "TP" : {
+      "address" : "Blk 190 Toa Payoh Lorong 6, #01-566, Singapore 310190",
+      "code" : "TP",
+      "name" : "Toa Payoh Central (Roadside)",
+      "qrstring" : "a60d4a4e-9bb1-5aa1-89ac-b10db48ce750"
+    },
+    "TT" : {
+      "address" : "60 Airport Boulevard, #026-034, Singapore 819643",
+      "code" : "TT",
+      "name" : "Changi Airport Terminal 2, Departure_Check-In Hall_Public Area",
+      "qrstring" : "8eb04292-07b6-532d-8c33-f41f5fbc3eaf"
+    },
+    "VH" : {
+      "address" : "70 Jellicoe Road, #01-19, Singapore 208767",
+      "code" : "VH",
+      "name" : "V Hotel",
+      "qrstring" : "275b0fec-bbf7-5eb5-a2cc-32b967e2e0dd"
+    },
+    "WM" : {
+      "address" : "1 Bukit Batok Central Link, #B1-07, Singapore 658713",
+      "code" : "WM",
+      "name" : "West Mall",
+      "qrstring" : "02f1ad88-ad7d-5f7b-8976-59da35e17001"
+    },
+    "WP" : {
+      "address" : "83 Punggol Central, #B2-K5/K6, Singapore 828761",
+      "code" : "WP",
+      "name" : "Waterway Point",
+      "qrstring" : "36a4918d-df99-5557-8de3-91d301e55624"
+    },
+    "WS" : {
+      "address" : "1 Pasir Ris Central Street 3, #B1-03, Singapore 518457",
+      "code" : "WS",
+      "name" : "White Sands Shopping Centre",
+      "qrstring" : "c7d4936b-e0d5-5606-8733-fc10b44501cb"
+    },
+    "sr" : {
+      "address" : "1359 serangoon",
+      "code" : "sr",
+      "name" : "serangoon",
+      "qrstring" : "sbsnakwkwiw-wuwhwshs98j-0ns"
+    },
+    "ts" : {
+      "address" : "serangoon 1234 street 69",
+      "code" : "ts",
+      "name" : "test store ok",
+      "qrstring" : "e02cdc89-edae-5278-a79f-29f4e9517d77"
+    }
+  },
+  "users" : {
+    "2KtyZWEpe1Zn15gIM91eRfmnB3o1" : {
+      "email" : "canlah@mail.com",
+      "role" : "Member",
+      "uid" : "2KtyZWEpe1Zn15gIM91eRfmnB3o1"
+    },
+    "2YbzgayIOGaf9Jy72elwtBFibj12" : {
+      "email" : "example@mail.com",
+      "role" : "Admin",
+      "uid" : "2YbzgayIOGaf9Jy72elwtBFibj12"
+    },
+    "3mrm0SwfhZTG2y8o0PbDorrlw2o1" : {
+      "email" : "leowck@bchfaultreports.com",
+      "role" : "Admin",
+      "uid" : "3mrm0SwfhZTG2y8o0PbDorrlw2o1"
+    },
+    "6quVvIxcUtgqRXZchv165mkVKlR2" : {
+      "email" : "qiwen@bch.com.sg",
+      "role" : "Admin",
+      "uid" : "6quVvIxcUtgqRXZchv165mkVKlR2"
+    },
+    "9HkL7RZLHqgNhDqjfOdGf0NP9ah2" : {
+      "email" : "weegiap@bch.com.sg",
+      "role" : "Admin",
+      "uid" : "9HkL7RZLHqgNhDqjfOdGf0NP9ah2"
+    },
+    "IRoNIp6IVsV4xFbGIQU7rjjlpGY2" : {
+      "email" : "sophia@mail.com",
+      "role" : "Admin",
+      "uid" : "IRoNIp6IVsV4xFbGIQU7rjjlpGY2"
+    },
+    "OuA34v51OxSMMeL9bV4eANjeYFq1" : {
+      "email" : "can@mail.com",
+      "role" : "Member",
+      "uid" : "OuA34v51OxSMMeL9bV4eANjeYFq1"
+    },
+    "SnZ6gnDCAebumxNsU3a2j4DNMBh1" : {
+      "email" : "kkbtest123@mail.com",
+      "role" : "Admin",
+      "uid" : "SnZ6gnDCAebumxNsU3a2j4DNMBh1"
+    },
+    "UhB6eESc9zZ8ASHHSxvRsR1czZy2" : {
+      "email" : "test@mail.com",
+      "role" : "Member",
+      "uid" : "UhB6eESc9zZ8ASHHSxvRsR1czZy2"
+    },
+    "XxCgIHNY4CQ8AapufLMSjzwYUKi1" : {
+      "email" : "mail@mail.com",
+      "role" : "Admin",
+      "uid" : "XxCgIHNY4CQ8AapufLMSjzwYUKi1"
+    },
+    "YmZtsKg8HnQTelJvi2JPFZAXETn1" : {
+      "email" : "cashmoeny@mail.com",
+      "role" : "Admin",
+      "uid" : "YmZtsKg8HnQTelJvi2JPFZAXETn1"
+    },
+    "bKx6QNYiNiclhzofaJKTiBR6ZSN2" : {
+      "email" : "898989@miail.com",
+      "role" : "Member",
+      "uid" : "bKx6QNYiNiclhzofaJKTiBR6ZSN2"
+    },
+    "nrWJohzirFdtPNMXWnKeOGxhquI3" : {
+      "email" : "1203981039810293810928309182038@mail.com",
+      "role" : "Admin",
+      "uid" : "nrWJohzirFdtPNMXWnKeOGxhquI3"
+    },
+    "xtONxZ3eheTOj46EMpxqB312Nq93" : {
+      "email" : "testickles@mail.com",
+      "role" : "Admin",
+      "uid" : "xtONxZ3eheTOj46EMpxqB312Nq93"
+    },
+    "yM4oINAy3cTiI64X19pQ29clv413" : {
+      "email" : "admin@mail.com",
+      "role" : "Admin",
+      "uid" : "yM4oINAy3cTiI64X19pQ29clv413"
+    }
+  }
+}

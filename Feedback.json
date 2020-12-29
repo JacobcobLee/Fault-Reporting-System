@@ -1,0 +1,22 @@
+{
+  "f24563" : {
+    "customercontactnumber" : 86598569,
+    "customeremail" : "gaysonwork@gmail.com",
+    "customername" : "Gayson",
+    "description" : "staff was rude!",
+    "feedbacktype" : "Complaint",
+    "image" : false,
+    "rating" : 4,
+    "servedby" : "Mary"
+  },
+  "f54263" : {
+    "customercontactnumber" : 98566589,
+    "customeremail" : "auhauh@salakau.com",
+    "customername" : "limpeh",
+    "description" : "Store never sell pig head, how to hang on door?",
+    "feedbacktype" : "Complaint",
+    "image" : false,
+    "rating" : 1,
+    "servedby" : "beng"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "comments" : "none",
+  "date" : "23-September-2020",
+  "dateTime" : "2020/09/23 10:24:39",
+  "description" : "",
+  "imageurl" : "",
+  "lasteditedby" : "",
+  "problem" : {
+    "category" : "Chiller/冷箱",
+    "checkbox" : [ {
+      "answer" : [ [ "1" ] ],
+      "name" : "Number of Doors/冰箱共有几扇门"
+    }, {
+      "answer" : [ [ "Not cold/不冷", "Water Leak/漏水" ] ],
+      "name" : "Issue/问题所在"
+    } ],
+    "radio" : {
+      "answer" : "Yes/是",
+      "name" : "Does the Chiller has a Glass Door/是否是玻璃门式？"
+    }
+  },
+  "staffName" : "123",
+  "status" : "Unresolved",
+  "storeName" : "CW",
+  "uuid" : "-MHsljRsWlYDwQJAutSk"
+}
