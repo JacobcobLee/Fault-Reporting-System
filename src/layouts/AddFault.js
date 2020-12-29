@@ -103,7 +103,7 @@ export default function AddFault() {
         var submitCheckbox = validateCheckbox();
         let validatedata = validateData(havCheck, submitCheckbox, havRadio, submitRadio, havInput, submitInput);
         if (validatedata === true) {
-            if ((name !== '') && (validateEmail(email)) && ((submitRadio !== null) || (submitCheckbox !== null))) {
+            if ((name !== '') && (validateEmail(email)) && ((submitRadio !== null) || (submitCheckbox !== null) || (submitInput !== null))) {
                 const total = { name: name, email: email, haveRadio: havRadio, haveInput: havInput, haveCheck: havCheck, input: submitInput, radio: submitRadio, checkbox: submitCheckbox };
                 axios
                     .post("https://bchfrserver.herokuapp.com/api/v1/category", total
@@ -137,10 +137,10 @@ export default function AddFault() {
                         </CardHeader>
                         <CardBody>
                             <h4><b>Dropdown Question 1:</b></h4>
-                            <input onChange={e => { setRadioQuestion1(e.target.value); console.log(e.target.value) }} className="form-control" type="text" placeholder="What is the square root of pi?" />
+                            <input onChange={e => { setRadioQuestion1(e.target.value); console.log(e.target.value) }} className="form-control" type="text" placeholder="e.g. What type of machine or equipment/什么样模型或机器？" />
                             <br></br>
                             <h4><b>Dropdown Answer 1 </b><br></br>(create multiple answers using (,) e.g Apple,Orange)</h4>
-                            <input onChange={e => setRadioAnswer1(e.target.value)} className="form-control" type="text" placeholder="yes,no,maybe" />
+                            <input onChange={e => setRadioAnswer1(e.target.value)} className="form-control" type="text" placeholder="e.g. fridge/冰箱, light bulb/灯泡, POS machine/收银机" />
                             <br></br>
                             <h4><b>Dropdown Question 2:</b></h4>
                             <input onChange={e => { setRadioQuestion2(e.target.value) }} className="form-control" type="text" placeholder="Enter Dropdown 2 Question.." />
@@ -167,13 +167,13 @@ export default function AddFault() {
                         </CardHeader>
                         <CardBody>
                             <h4><b>Checkbox Question :</b></h4>
-                            <input onChange={e => setCheckboxQuestion1(e.target.value)} className="form-control" type="text" placeholder="e.g What is your favourite fruit?" />
+                            <input onChange={e => setCheckboxQuestion1(e.target.value)} className="form-control" type="text" placeholder="e.g. Select all issues regarding fault/请选择所有地故障问题" />
                             <br></br>
                             <h4><b>Checkbox Answer</b><br></br>(create multiple answers using (,) e.g Pen,Apple)</h4>
-                            <input onChange={e => setCheckboxAnwer1(e.target.value)} className="form-control" type="text" placeholder="e.g Yes,No,Eggplant,Peach" />
+                            <input onChange={e => setCheckboxAnwer1(e.target.value)} className="form-control" type="text" placeholder="e.g. noisy/吵, leaking water,漏水" />
                             <br></br>
                             <h4><b>Checkbox Question 2 :</b></h4>
-                            <input onChange={e => setCheckboxQuestion2(e.target.value)} className="form-control" type="text" placeholder="e.g Is the earth flat?" />
+                            <input onChange={e => setCheckboxQuestion2(e.target.value)} className="form-control" type="text" placeholder="e.g. Is the earth flat?" />
                             <br></br>
                             <h4><b>Checkbox Answer 2 </b><br></br>(create multiple answers using (,) e.g Pen,Pineapple)</h4>
                             <input onChange={e => setCheckboxAnwer2(e.target.value)} className="form-control" type="text" placeholder="e.g No,the earth is cubed" />
@@ -195,7 +195,7 @@ export default function AddFault() {
                         </CardHeader>
                         <CardBody>
                             <h4><b>Input Question:</b></h4>
-                            <input onChange={e => setInputQuestion(e.target.value)} className="form-control" type="text" placeholder="e.g Please enter 16 digits infront of your credit card, the expiration date and the 3 numbers behind, many thanks!" />
+                            <input onChange={e => setInputQuestion(e.target.value)} className="form-control" type="text" placeholder="e.g Please write down the issue in more detail/请解释故障毛病" />
                         </CardBody>
                     </Card>
                 </GridItem>
